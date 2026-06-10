@@ -1,0 +1,38 @@
+.outline-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+    min-height: 38px;
+    padding: 7px 16px;
+    color: var(--color-white);
+    font-size: 16px;
+    line-height: 1;
+    border: 1px solid rgba(255, 255, 255, 0.85);
+    border-radius: 5px;
+    transition: background 180ms ease, color 180ms ease;
+}
+
+.outline-button:hover,
+.outline-button:focus-visible {
+    color: var(--color-black);
+    background: var(--color-white);
+}
+
+.arrow {
+    width: 11px;
+    height: 11px;
+    border-top: 2px solid currentColor;
+    border-right: 2px solid currentColor;
+    transform: rotate(45deg);
+}
+
+.chevron {
+    display: inline-block;
+    width: 9px;
+    height: 9px;
+    margin-left: 12px;
+    border-right: 2px solid currentColor;
+    border-bottom: 2px solid currentColor;
+    transform: rotate(45deg) translateY(-3px);
+}

@@ -1,0 +1,238 @@
+.vision-header {
+    color: var(--color-white);
+    background: var(--color-black);
+}
+
+.vision-hero {
+    min-height: 554px;
+    display: flex;
+    align-items: flex-end;
+    padding: 0 0 78px;
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0.48), rgba(0, 0, 0, 0.12)), url("../../assets/images/vision-hero.webp") center / cover no-repeat;
+}
+
+.vision-hero-content {
+    width: min(var(--container-width), calc(100% - 88px));
+    margin: 3% auto;
+}
+
+.vision-hero h1 {
+    margin: 0;
+    font-size: 64px;
+    font-weight: 800;
+    line-height: 0.98;
+}
+
+.vision-intro {
+    margin-top: calc(var(--section-cut-height) * -1);
+    padding: calc(78px + var(--section-cut-height)) 0 86px;
+    background: var(--color-white);
+    clip-path: polygon(0 0, var(--section-cut-edge) 0, var(--section-cut-width) var(--section-cut-height), 100% var(--section-cut-height), 100% 100%, 0 100%);
+}
+
+.vision-intro-grid {
+    display: grid;
+    grid-template-columns: minmax(280px, 0.75fr) minmax(360px, 1fr);
+    align-items: start;
+    gap: 92px;
+}
+
+.vision-intro h2,
+.vision-list-section h2,
+.mission-section h2 {
+    margin: 0;
+    font-size: 36px;
+    font-weight: 800;
+    line-height: 0.98;
+}
+
+.vision-intro p {
+    margin: 64px 0 0;
+    max-width: 660px;
+    font-size: 22px;
+    line-height: 1.03;
+    text-align: right;
+}
+
+.vision-list-section {
+    padding: 26px 0 74px;
+    background: var(--color-white);
+}
+
+.vision-card-grid,
+.mission-card-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    margin-top: 82px;
+}
+
+.vision-card,
+.mission-card {
+    display: flex;
+    flex-direction: column;
+    min-height: 620px;
+    padding: 28px 28px 0;
+    border-left: 1px solid #d8d8d8;
+}
+
+.vision-card:last-child,
+.mission-card:last-child {
+    border-right: 1px solid #d8d8d8;
+}
+
+.vision-card span,
+.mission-card span {
+    display: inline-flex;
+    align-self: flex-start;
+    margin-bottom: 96px;
+    padding: 13px 19px;
+    color: #151515;
+    font-size: 18px;
+    font-weight: 700;
+    background: #efefef;
+    border: 1px solid #d8d8d8;
+    border-radius: 8px;
+}
+
+.vision-card h3,
+.mission-card h3 {
+    margin: 0 0 28px;
+    font-size: 27px;
+    font-weight: 800;
+    line-height: 0.98;
+}
+
+.vision-card p,
+.mission-card p {
+    margin: 0;
+    min-height: 104px;
+    color: #9a9a9a;
+    font-size: 22px;
+    line-height: 1.15;
+}
+
+.vision-card img,
+.mission-card img {
+    width: calc(100% + 56px);
+    height: 250px;
+    margin: auto -28px 0;
+    object-fit: cover;
+    background: #f1f1f1;
+}
+
+.mission-section {
+    position: relative;
+    padding: calc(84px + var(--section-band-height)) 0 108px;
+    color: var(--color-white);
+    background: var(--color-black);
+}
+
+.mission-section::before {
+    content: "";
+    position: absolute;
+    top: -1px;
+    left: 0;
+    width: 100%;
+    height: calc(var(--section-band-height) + 2px);
+    background: var(--color-white);
+    clip-path: polygon(0 0, 100% 0, 100% var(--section-band-height), var(--section-cut-width) var(--section-band-height), var(--section-cut-edge) var(--section-cut-flat-height), 0 var(--section-cut-flat-height));
+    pointer-events: none;
+}
+
+.mission-card {
+    min-height: 610px;
+    border-color: #4d4d4d;
+}
+
+.mission-card:last-child {
+    border-right-color: #4d4d4d;
+}
+
+.mission-card span {
+    color: #151515;
+    background: var(--color-white);
+}
+
+.mission-card p {
+    color: #8f8f8f;
+}
+
+.mission-card img {
+    background: #3d3d3d;
+}
+
+@media (max-width: 1024px) {
+    .vision-card-grid,
+    .mission-card-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .vision-card:nth-child(2),
+    .mission-card:nth-child(2) {
+        border-right: 1px solid #d8d8d8;
+    }
+}
+
+@media (max-width: 768px) {
+    .vision-intro-grid {
+        grid-template-columns: 1fr;
+        gap: 28px;
+    }
+
+    .vision-intro p {
+        margin-top: 0;
+        text-align: left;
+    }
+}
+
+@media (max-width: 576px) {
+    .vision-hero {
+        min-height: 430px;
+        padding-bottom: 58px;
+    }
+
+    .vision-hero-content {
+        width: calc(100% - 48px);
+    }
+
+    .vision-hero h1 {
+        font-size: 43px;
+    }
+
+    .vision-intro h2,
+    .vision-list-section h2,
+    .mission-section h2 {
+        font-size: 30px;
+    }
+
+    .vision-intro p {
+        font-size: 18px;
+    }
+
+    .vision-card-grid,
+    .mission-card-grid {
+        grid-template-columns: 1fr;
+        margin-top: 52px;
+    }
+
+    .vision-card,
+    .mission-card {
+        min-height: 520px;
+        border-right: 1px solid #d8d8d8;
+    }
+
+    .vision-card span,
+    .mission-card span {
+        margin-bottom: 54px;
+    }
+
+    .vision-card h3,
+    .mission-card h3 {
+        font-size: 25px;
+    }
+
+    .vision-card p,
+    .mission-card p {
+        font-size: 18px;
+    }
+}
