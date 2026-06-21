@@ -5,14 +5,122 @@
 function initializeMobileNavigation() {
     const navigation = document.querySelector('.main-nav');
     const toggleButton = document.querySelector('.nav-toggle');
+    const dropdowns = Array.from(document.querySelectorAll('.nav-dropdown'));
 
     if (!navigation || !toggleButton) {
         return;
     }
 
+    const brandLogo = navigation.querySelector('.brand-logo');
+    const menu = navigation.querySelector('.nav-menu');
+
+    if (brandLogo && menu && !menu.querySelector('.mobile-menu-brand')) {
+        const brandImage = brandLogo.querySelector('img');
+        const menuBrand = document.createElement('li');
+        menuBrand.className = 'mobile-menu-brand';
+        menuBrand.innerHTML = [
+            brandImage ? '<img src="' + brandImage.getAttribute('src') + '" alt="">' : '',
+            '<strong>Al Azhar Kelapa Gading</strong>',
+            '<small>Iman, Ilmu, Amal</small>'
+        ].join('');
+        menu.insertBefore(menuBrand, menu.firstElementChild);
+    }
+
+    if (menu && !menu.querySelector('.mobile-menu-list')) {
+        const listItem = document.createElement('li');
+        const list = document.createElement('ul');
+        listItem.className = 'mobile-menu-list';
+        list.setAttribute('aria-label', 'Menu utama mobile');
+
+        Array.from(menu.children).forEach(function (item) {
+            if (!item.classList.contains('mobile-menu-brand') && !item.classList.contains('mobile-nav-footer')) {
+                list.appendChild(item);
+            }
+        });
+
+        listItem.appendChild(list);
+        const footerItem = menu.querySelector('.mobile-nav-footer');
+        menu.insertBefore(listItem, footerItem || null);
+    }
+
+    if (menu && !menu.querySelector('.mobile-nav-footer')) {
+        const footer = document.createElement('li');
+        footer.className = 'mobile-nav-footer';
+        footer.innerHTML = [
+            '<div class="mobile-nav-socials" aria-label="Media sosial">',
+            '<a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>',
+            '<a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube" aria-hidden="true"></i></a>',
+            '<a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></a>',
+            '</div>',
+        ].join('');
+        menu.appendChild(footer);
+    }
+
+    let closeTimer = null;
+
+    function closeDropdowns() {
+        dropdowns.forEach(function (dropdown) {
+            dropdown.classList.remove('is-open');
+            const dropdownToggle = dropdown.querySelector('.nav-dropdown-toggle');
+            if (dropdownToggle) {
+                dropdownToggle.setAttribute('aria-expanded', 'false');
+            }
+        });
+    }
+
+    function closeMobileNavigation() {
+        if (!navigation.classList.contains('is-open')) {
+            return;
+        }
+
+        toggleButton.setAttribute('aria-expanded', 'false');
+        closeDropdowns();
+
+        if (window.innerWidth <= 768) {
+            navigation.classList.add('is-closing');
+            document.body.classList.add('mobile-nav-closing');
+            window.clearTimeout(closeTimer);
+            closeTimer = window.setTimeout(function () {
+                navigation.classList.remove('is-open', 'is-closing');
+                document.body.classList.remove('mobile-nav-open', 'mobile-nav-closing');
+            }, 460);
+            return;
+        }
+
+        navigation.classList.remove('is-open', 'is-closing');
+        document.body.classList.remove('mobile-nav-open', 'mobile-nav-closing');
+    }
+
     toggleButton.addEventListener('click', function () {
-        const isOpen = navigation.classList.toggle('is-open');
-        toggleButton.setAttribute('aria-expanded', String(isOpen));
+        if (navigation.classList.contains('is-open') && !navigation.classList.contains('is-closing')) {
+            closeMobileNavigation();
+            return;
+        }
+
+        window.clearTimeout(closeTimer);
+        navigation.classList.remove('is-closing');
+        document.body.classList.remove('mobile-nav-closing');
+        navigation.classList.add('is-open');
+        document.body.classList.add('mobile-nav-open');
+        toggleButton.setAttribute('aria-expanded', 'true');
+    });
+
+    document.addEventListener('click', function (event) {
+        if (navigation.classList.contains('is-open') && !navigation.contains(event.target)) {
+            closeMobileNavigation();
+        }
+    });
+
+    document.addEventListener('keydown', function (event) {
+        if (event.key === 'Escape' && navigation.classList.contains('is-open')) {
+            closeMobileNavigation();
+        }
+    });
+
+    window.addEventListener('resize', function () {
+        if (window.innerWidth > 768) {
+            closeMobileNavigation();
+        }
     });
 }
 
@@ -92,7 +200,9 @@ function initializeProgramCarousel() {
         return dot;
     }) : [];
     let isDragging = false;
+    let isHorizontalDragging = false;
     let dragStartX = 0;
+    let dragStartY = 0;
     let dragStartScrollLeft = 0;
 
     progressBars.forEach(function (progressBar, index) {
@@ -152,10 +262,15 @@ function initializeProgramCarousel() {
         }
 
         isDragging = true;
+        isHorizontalDragging = event.pointerType === 'mouse';
         dragStartX = event.clientX;
+        dragStartY = event.clientY;
         dragStartScrollLeft = track.scrollLeft;
-        track.classList.add('is-dragging');
-        track.setPointerCapture(event.pointerId);
+
+        if (event.pointerType === 'mouse') {
+            track.classList.add('is-dragging');
+            track.setPointerCapture(event.pointerId);
+        }
     }
 
     /**
@@ -167,8 +282,27 @@ function initializeProgramCarousel() {
             return;
         }
 
+        const deltaX = event.clientX - dragStartX;
+        const deltaY = event.clientY - dragStartY;
+        const isTouchPointer = event.pointerType === 'touch' || event.pointerType === 'pen';
+
+        if (isTouchPointer && !isHorizontalDragging) {
+            if (Math.abs(deltaY) > 8 && Math.abs(deltaY) > Math.abs(deltaX)) {
+                isDragging = false;
+                return;
+            }
+
+            if (Math.abs(deltaX) > 8 && Math.abs(deltaX) > Math.abs(deltaY)) {
+                isHorizontalDragging = true;
+                track.classList.add('is-dragging');
+                track.setPointerCapture(event.pointerId);
+            } else {
+                return;
+            }
+        }
+
         event.preventDefault();
-        track.scrollLeft = dragStartScrollLeft - (event.clientX - dragStartX);
+        track.scrollLeft = dragStartScrollLeft - deltaX;
     }
 
     /**
@@ -181,9 +315,12 @@ function initializeProgramCarousel() {
         }
 
         isDragging = false;
+        isHorizontalDragging = false;
         track.classList.remove('is-dragging');
-        track.releasePointerCapture(event.pointerId);
-        slides[getActiveSlideIndex()].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
+        if (track.hasPointerCapture(event.pointerId)) {
+            track.releasePointerCapture(event.pointerId);
+            slides[getActiveSlideIndex()].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
+        }
     }
 
     if (previousButton) {
