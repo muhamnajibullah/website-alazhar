@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/components.css">
     <link rel="stylesheet" href="css/pages/home.css">
+    <link rel="stylesheet" href="css/responsive.css">
 </head>
 <body>
     <header class="site-header" id="home">
@@ -30,15 +31,22 @@
                     <button class="nav-dropdown-toggle" type="button" aria-expanded="false">
                         Profile <span class="chevron"></span>
                     </button>
-                    <ul class="dropdown-menu">
-                        <li><a href="about.html">Tentang Kami</a></li>
-                        <li><a href="vision.html">Visi dan Misi</a></li>
-                        <li><a href="program.html">Program Kami</a></li>
+                    <ul class="dropdown-menu profile-dropdown-menu">
                         <li><a href="profile.html">Penghargaan dan Event</a></li>
+                        <li><a href="about.html">Tentang Kami</a></li>
+                        <li><a href="vision.html">Visi &amp; Misi Yayasan</a></li>
                         <li><a href="contact.html">Hubungi Kami</a></li>
                     </ul>
                 </li>
-                <li><a href="facility.html">Facility <span class="chevron"></span></a></li>
+                <li class="nav-dropdown nav-dropdown-facility">
+                    <button class="nav-dropdown-toggle" type="button" aria-expanded="false">
+                        Facility <span class="chevron"></span>
+                    </button>
+                    <ul class="dropdown-menu facility-dropdown-menu">
+                        <li><a href="program.html">Program Kami</a></li>
+                        <li><a href="facility.html">Fasilitas Sekolah</a></li>
+                    </ul>
+                </li>
                 <li><a class="join-link" href="#admission">Join Alazka</a></li>
             </ul>
         </nav>
@@ -77,7 +85,7 @@
             </div>
         </section>
 
-        <section class="reasons-section clipped-green" aria-labelledby="reasons-title">
+        <section class="reasons-section clipped-green" id="reasons" aria-labelledby="reasons-title">
             <div class="section-container">
                 <h2 id="reasons-title">Kenapa Pilih<br>Al-Azhar Kelapa Gading</h2>
                 <div class="reason-grid">
@@ -86,7 +94,7 @@
                         <img src="assets/images/why-1.webp" alt="Siswa Al-Azhar menggunakan laptop untuk belajar">
                         <h3>Kurikulum Modern</h3>
                         <p>Menggabungkan kurikulum nasional dengan pembelajaran relevan global.</p>
-                        <a class="outline-button" href="#profile">Pelajari Selengkapnya <span class="arrow"></span></a>
+                        <a class="outline-button" href="kurikulum-modern.html">Pelajari Selengkapnya <span class="arrow"></span></a>
                     </article>
                     <article class="reason-card">
                         <span class="reason-number">02</span>
@@ -113,66 +121,95 @@
             </div>
         </section>
 
-        <section class="program-section clipped-black" aria-labelledby="program-title">
+        <section class="program-section clipped-black" id="program" aria-labelledby="program-title">
             <div class="section-container">
                 <div class="program-header">
                     <h2 id="program-title">Program<br>Pendidikan</h2>
-                    <div class="program-controls" aria-label="Kontrol program pendidikan">
-                        <button class="program-control" type="button" data-program-prev aria-label="Program sebelumnya">
-                            <i class="ri-arrow-left-line" aria-hidden="true"></i>
-                        </button>
-                        <button class="program-control" type="button" data-program-next aria-label="Program berikutnya">
-                            <i class="ri-arrow-right-line" aria-hidden="true"></i>
-                        </button>
-                    </div>
-                </div>
-                <div class="program-timeline" aria-hidden="true">
-                    <i class="timeline-icon ri-leaf-line"></i>
-                    <div class="timeline-bar">
-                        <span class="timeline-line timeline-line-track"></span>
-                        <span class="timeline-line timeline-line-progress" data-program-progress></span>
-                    </div>
-                    <i class="timeline-icon ri-leaf-line"></i>
                 </div>
                 <div class="program-carousel">
                     <div class="program-track" data-program-track>
                         <article class="program-feature program-slide" data-theme="tk">
-                            <img class="program-main-image" src="assets/images/program-1.webp" alt="Anak-anak taman kanak-kanak melukis di sekolah">
-                            <div class="program-copy">
-                                <span class="age-badge">Usia 4-6 Tahun</span>
-                                <h3>Taman Kanak-Kanak (TK)</h3>
-                                <p>Belajar sambil bermain dalam lingkungan yang menyenangkan, membantu anak mengembangkan motorik, sosial, dan rasa percaya diri sejak dini</p>
-                                <a class="outline-button" href="#admission">Pelajari Selengkapnya <span class="arrow"></span></a>
+                            <div class="program-slide-timeline" aria-hidden="true">
+                                <i class="timeline-icon ri-leaf-line"></i>
+                                <div class="timeline-bar">
+                                    <span class="timeline-line timeline-line-track"></span>
+                                    <span class="timeline-line timeline-line-progress" data-program-progress></span>
+                                </div>
+                            </div>
+                            <div class="program-slide-body">
+                                <img class="program-main-image" src="assets/images/program-1.webp" alt="Anak-anak taman kanak-kanak melukis di sekolah">
+                                <div class="program-copy">
+                                    <span class="age-badge">Usia 4-6 Tahun</span>
+                                    <h3>Taman Kanak-Kanak (TK)</h3>
+                                    <p>Belajar sambil bermain dalam lingkungan yang menyenangkan, membantu anak mengembangkan motorik, sosial, dan rasa percaya diri sejak dini</p>
+                                    <a class="outline-button" href="program-tk.html">Pelajari Selengkapnya <span class="arrow"></span></a>
+                                </div>
                             </div>
                         </article>
                         <article class="program-feature program-slide" data-theme="sd">
-                            <img class="program-main-image" src="assets/images/program-2.webp" alt="Siswa sekolah dasar mengikuti kegiatan pembelajaran di kelas">
-                            <div class="program-copy">
-                                <span class="age-badge">Usia 6-12 Tahun</span>
-                                <h3>Sekolah Dasar (SD)</h3>
-                                <p>Membangun fondasi akademik, karakter Islami, kemandirian, dan rasa ingin tahu melalui pembelajaran aktif yang terarah.</p>
-                                <a class="outline-button" href="#admission">Pelajari Selengkapnya <span class="arrow"></span></a>
+                            <div class="program-slide-timeline" aria-hidden="true">
+                                <i class="timeline-icon ri-seedling-line"></i>
+                                <div class="timeline-bar">
+                                    <span class="timeline-line timeline-line-track"></span>
+                                    <span class="timeline-line timeline-line-progress" data-program-progress></span>
+                                </div>
+                            </div>
+                            <div class="program-slide-body">
+                                <img class="program-main-image" src="assets/images/program-2.webp" alt="Siswa sekolah dasar mengikuti kegiatan pembelajaran di kelas">
+                                <div class="program-copy">
+                                    <span class="age-badge">Usia 6-12 Tahun</span>
+                                    <h3>Sekolah Dasar (SD)</h3>
+                                    <p>Membangun fondasi akademik, karakter Islami, kemandirian, dan rasa ingin tahu melalui pembelajaran aktif yang terarah.</p>
+                                    <a class="outline-button" href="#admission">Pelajari Selengkapnya <span class="arrow"></span></a>
+                                </div>
                             </div>
                         </article>
                         <article class="program-feature program-slide" data-theme="smp">
-                            <img class="program-main-image" src="assets/images/program-2.webp" alt="Siswa sekolah menengah pertama belajar bersama di kelas">
-                            <div class="program-copy">
-                                <span class="age-badge">Usia 12-15 Tahun</span>
-                                <h3>Sekolah Menengah Pertama (SMP)</h3>
-                                <p>Mengarahkan siswa menjadi pembelajar mandiri, komunikatif, dan berakhlak melalui penguatan ilmu, iman, dan keterampilan sosial.</p>
-                                <a class="outline-button" href="#admission">Pelajari Selengkapnya <span class="arrow"></span></a>
+                            <div class="program-slide-timeline" aria-hidden="true">
+                                <i class="timeline-icon ri-plant-line"></i>
+                                <div class="timeline-bar">
+                                    <span class="timeline-line timeline-line-track"></span>
+                                    <span class="timeline-line timeline-line-progress" data-program-progress></span>
+                                </div>
+                            </div>
+                            <div class="program-slide-body">
+                                <img class="program-main-image" src="assets/images/program-2.webp" alt="Siswa sekolah menengah pertama belajar bersama di kelas">
+                                <div class="program-copy">
+                                    <span class="age-badge">Usia 12-15 Tahun</span>
+                                    <h3>Sekolah Menengah Pertama (SMP)</h3>
+                                    <p>Mengarahkan siswa menjadi pembelajar mandiri, komunikatif, dan berakhlak melalui penguatan ilmu, iman, dan keterampilan sosial.</p>
+                                    <a class="outline-button" href="#admission">Pelajari Selengkapnya <span class="arrow"></span></a>
+                                </div>
                             </div>
                         </article>
                         <article class="program-feature program-slide" data-theme="sma">
-                            <img class="program-main-image" src="assets/images/program-2.webp" alt="Siswa sekolah menengah atas mengikuti proses pembelajaran">
-                            <div class="program-copy">
-                                <span class="age-badge">Usia 15-18 Tahun</span>
-                                <h3>Sekolah Menengah Atas (SMA)</h3>
-                                <p>Mempersiapkan siswa menghadapi pendidikan tinggi dengan kemampuan akademik kuat, kepemimpinan, dan karakter Islami yang matang.</p>
-                                <a class="outline-button" href="#admission">Pelajari Selengkapnya <span class="arrow"></span></a>
+                            <div class="program-slide-timeline" aria-hidden="true">
+                                <i class="timeline-icon ri-tree-line"></i>
+                                <div class="timeline-bar">
+                                    <span class="timeline-line timeline-line-track"></span>
+                                    <span class="timeline-line timeline-line-progress" data-program-progress></span>
+                                </div>
+                            </div>
+                            <div class="program-slide-body">
+                                <img class="program-main-image" src="assets/images/program-2.webp" alt="Siswa sekolah menengah atas mengikuti proses pembelajaran">
+                                <div class="program-copy">
+                                    <span class="age-badge">Usia 15-18 Tahun</span>
+                                    <h3>Sekolah Menengah Atas (SMA)</h3>
+                                    <p>Mempersiapkan siswa menghadapi pendidikan tinggi dengan kemampuan akademik kuat, kepemimpinan, dan karakter Islami yang matang.</p>
+                                    <a class="outline-button" href="#admission">Pelajari Selengkapnya <span class="arrow"></span></a>
+                                </div>
                             </div>
                         </article>
                     </div>
+                </div>
+                <div class="program-carousel-controls" aria-label="Kontrol program pendidikan">
+                    <button class="program-carousel-arrow" type="button" data-program-prev aria-label="Program sebelumnya">
+                        <i class="ri-arrow-left-s-line" aria-hidden="true"></i>
+                    </button>
+                    <div class="program-pagination" data-program-pagination aria-label="Halaman program"></div>
+                    <button class="program-carousel-arrow" type="button" data-program-next aria-label="Program berikutnya">
+                        <i class="ri-arrow-right-s-line" aria-hidden="true"></i>
+                    </button>
                 </div>
             </div>
         </section>
@@ -185,7 +222,7 @@
                         <img src="assets/images/sekilas-jakarta.webp" alt="Gedung kampus Al-Azhar Kelapa Gading Jakarta">
                         <div class="campus-overlay">
                             <h3>Jakarta</h3>
-                            <a class="outline-button" href="#facility">Pelajari Selengkapnya <span class="arrow"></span></a>
+                            <a class="outline-button" href="jakarta.html">Pelajari Selengkapnya <span class="arrow"></span></a>
                         </div>
                     </article>
                     <article class="campus-card">

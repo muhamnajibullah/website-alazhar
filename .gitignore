@@ -6,3 +6,4 @@ storage/cache/*
 assets/uploads/*
 *.log
 *.sql.bak
+design

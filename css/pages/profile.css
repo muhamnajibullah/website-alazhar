@@ -26,8 +26,9 @@
 
 .profile-intro {
     margin-top: calc(var(--section-cut-height) * -1);
-    padding: calc(78px + var(--section-cut-height)) 0 96px;
-    background: var(--color-white);
+    padding: calc(78px + var(--section-cut-height)) 0 104px;
+    color: var(--color-white);
+    background: var(--color-green);
     clip-path: polygon(0 0, var(--section-cut-edge) 0, var(--section-cut-width) var(--section-cut-height), 100% var(--section-cut-height), 100% 100%, 0 100%);
 }
 
@@ -51,18 +52,19 @@
     margin: 54px 0 0;
     max-width: 650px;
     font-size: 22px;
-    line-height: 1.02;
+    line-height: 1.18;
     text-align: right;
 }
 
 .awards-section {
-    padding: 24px 0 122px;
+    padding: 80px 0 122px;
+    color: var(--color-black);
     background: var(--color-white);
 }
 
 .awards-carousel {
     position: relative;
-    margin-top: 82px;
+    margin-top: 76px;
 }
 
 .smooth-scroll-track {
@@ -84,22 +86,27 @@
 }
 
 .awards-track {
-    gap: 24px;
-    padding: 0 2px;
+    gap: 25px;
+    align-items: stretch;
+    padding: 0 2px 2px;
 }
 
+/* Kartu prestasi default-nya ramping; saat hover/focus kartu melebar dan kartu lain collapse. */
 .award-card {
     position: relative;
     flex: 0 0 166px;
-    height: 455px;
+    height: 413px;
     overflow: hidden;
     color: var(--color-white);
     border-radius: 6px;
     scroll-snap-align: start;
+    transition: flex-basis 520ms cubic-bezier(0.22, 1, 0.36, 1), filter 420ms ease;
 }
 
-.award-card-feature {
+.award-card:hover,
+.award-card:focus-visible {
     flex-basis: 730px;
+    outline: 0;
 }
 
 .award-card img {
@@ -119,51 +126,121 @@
 .award-overlay,
 .event-overlay {
     position: absolute;
-    right: 24px;
-    bottom: 28px;
-    left: 24px;
+    right: 16px;
+    bottom: 31px;
+    left: 16px;
     z-index: 1;
+    transition: right 520ms cubic-bezier(0.22, 1, 0.36, 1), bottom 520ms cubic-bezier(0.22, 1, 0.36, 1), left 520ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .award-overlay p,
 .event-overlay p {
-    margin: 0 0 7px;
+    margin: 0 0 9px;
     font-size: 14px;
     line-height: 1.15;
+    transition: transform 420ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .award-overlay h3 {
     margin: 0;
-    font-size: 30px;
+    max-width: 420px;
+    font-size: 24px;
     font-weight: 800;
     line-height: 0.98;
+    transition: font-size 520ms cubic-bezier(0.22, 1, 0.36, 1), transform 420ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.award-card:not(.award-card-feature) .award-overlay {
-    right: 18px;
-    left: 18px;
+.award-card:hover .award-overlay,
+.award-card:focus-visible .award-overlay {
+    right: 31px;
+    bottom: 48px;
+    left: 31px;
 }
 
-.award-card:not(.award-card-feature) .award-overlay h3 {
-    font-size: 21px;
+.award-card:hover .award-overlay h3,
+.award-card:focus-visible .award-overlay h3 {
+    font-size: 36px;
 }
 
-.award-overlay span {
+.award-rank {
+    position: static;
     display: inline-flex;
     align-items: center;
-    gap: 7px;
-    margin-top: 8px;
-    font-size: 13px;
+    gap: 0;
+    margin-top: 13px;
+    color: rgba(255, 255, 255, 0.92);
+    font-size: 0;
+    transition: right 520ms cubic-bezier(0.22, 1, 0.36, 1), bottom 520ms cubic-bezier(0.22, 1, 0.36, 1), margin 420ms ease, gap 420ms ease;
 }
 
-.award-overlay strong {
+.award-card:hover .award-rank,
+.award-card:focus-visible .award-rank {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    gap: 10px;
+    margin-top: 0;
+    font-size: 14px;
+}
+
+.award-rank strong {
+    position: relative;
     display: inline-grid;
-    width: 32px;
-    height: 32px;
+    width: 43px;
+    height: 43px;
     place-items: center;
     color: var(--color-black);
     background: #ffc83d;
+    border: 3px solid rgba(255, 255, 255, 0.72);
     border-radius: 999px;
+    font-size: 21px;
+    line-height: 1;
+    transition: transform 520ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.award-card:hover .award-rank strong,
+.award-card:focus-visible .award-rank strong {
+    transform: scale(1.04);
+}
+
+/* Pita medal dibuat dengan CSS agar tetap tajam dan tidak perlu aset tambahan. */
+.award-rank strong::before,
+.award-rank strong::after {
+    content: "";
+    position: absolute;
+    top: calc(100% - 4px);
+    width: 13px;
+    height: 22px;
+    background: #d91f2d;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 75%, 0 100%);
+}
+
+.award-rank strong::before {
+    left: 5px;
+    transform: rotate(10deg);
+}
+
+.award-rank strong::after {
+    right: 5px;
+    transform: rotate(-10deg);
+}
+
+.award-rank strong[data-rank="2"] {
+    background: #cfd3d6;
+}
+
+.award-rank strong[data-rank="2"]::before,
+.award-rank strong[data-rank="2"]::after {
+    background: #85d46d;
+}
+
+.award-rank strong[data-rank="3"] {
+    background: #f19a39;
+}
+
+.award-rank strong[data-rank="3"]::before,
+.award-rank strong[data-rank="3"]::after {
+    background: #1698f2;
 }
 
 .floating-control {
@@ -198,11 +275,15 @@
     margin-top: 28px;
 }
 
-.carousel-dots span {
+.carousel-dots button {
     width: 16px;
     height: 16px;
+    padding: 0;
     background: #dedede;
+    border: 0;
     border-radius: 999px;
+    cursor: pointer;
+    transition: width 260ms ease, background 260ms ease;
 }
 
 .carousel-dots .is-active {
@@ -246,6 +327,17 @@
     scroll-snap-align: start;
 }
 
+.detail-card-link {
+    position: absolute;
+    inset: 0;
+    z-index: 4;
+}
+
+.detail-card-link:focus-visible {
+    outline: 3px solid var(--color-green);
+    outline-offset: -3px;
+}
+
 .event-card img {
     width: 100%;
     height: 100%;
@@ -261,7 +353,10 @@
 }
 
 .event-overlay {
+    display: flex;
+    flex-direction: column;
     z-index: 2;
+    min-height: 45%;
 }
 
 .event-overlay h3 {
@@ -271,21 +366,51 @@
     line-height: 0.95;
 }
 
+.event-meta {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: end;
+    gap: 16px;
+    margin-top: auto;
+}
+
 .event-overlay address {
-    margin: 34px 0 0;
-    color: rgba(255, 255, 255, 0.78);
+    min-width: 0;
+    margin: 0;
+    color: rgba(139, 192, 203, 1);
     font-size: 12px;
     line-height: 1.45;
     font-style: normal;
+    overflow-wrap: anywhere;
+}
+
+.event-overlay address strong,
+.event-overlay address span {
+    display: block;
+}
+
+.event-overlay address strong {
+    margin-bottom: 7px;
+    color: var(--color-white);
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 1.15;
 }
 
 .event-overlay time {
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    color: rgba(255, 255, 255, 0.9);
+    display: grid;
+    gap: 4px;
+    min-width: 44px;
+    color: rgba(139, 192, 203, 1);
     font-size: 13px;
     line-height: 1.25;
+    text-align: right;
+    white-space: normal;
+}
+
+.event-overlay time span:first-child {
+    color: var(--color-white);
+    font-weight: 500;
 }
 
 @media (max-width: 1024px) {
@@ -299,7 +424,8 @@
         text-align: left;
     }
 
-    .award-card-feature {
+    .award-card:hover,
+    .award-card:focus-visible {
         flex-basis: min(620px, calc(100vw - 80px));
     }
 }
@@ -338,9 +464,33 @@
     }
 
     .award-card,
-    .award-card-feature {
+    .award-card:hover,
+    .award-card:focus-visible {
         flex-basis: calc(100vw - 72px);
         height: 410px;
+    }
+
+    .award-overlay,
+    .award-card:hover .award-overlay,
+    .award-card:focus-visible .award-overlay {
+        right: 20px;
+        bottom: 34px;
+        left: 20px;
+    }
+
+    .award-overlay h3,
+    .award-card:hover .award-overlay h3,
+    .award-card:focus-visible .award-overlay h3 {
+        font-size: 28px;
+    }
+
+    .award-rank,
+    .award-card:hover .award-rank,
+    .award-card:focus-visible .award-rank {
+        position: static;
+        gap: 0;
+        margin-top: 13px;
+        font-size: 0;
     }
 
     .events-track {
@@ -351,6 +501,20 @@
     .event-card {
         flex-basis: calc(100vw - 72px);
         height: 450px;
+    }
+
+    .event-overlay {
+        right: 18px;
+        bottom: 24px;
+        left: 18px;
+    }
+
+    .event-meta {
+        gap: 12px;
+    }
+
+    .event-overlay time {
+        position: static;
     }
 
     .floating-control {

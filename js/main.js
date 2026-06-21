@@ -63,24 +63,42 @@ function initializeNavigationDropdowns() {
 initializeNavigationDropdowns();
 
 /**
- * Mengatur carousel Program Pendidikan agar bisa digeser dengan tombol maupun scroll horizontal.
- * Function ini juga memperbarui warna timeline berdasarkan slide program yang paling dekat dengan viewport.
+ * Mengatur carousel Program Pendidikan agar tiap jenjang tampil sebagai satu slide penuh.
+ * Function ini juga memperbarui warna dan progress timeline berdasarkan slide aktif.
  */
 function initializeProgramCarousel() {
     const programSection = document.querySelector('.program-section');
     const track = document.querySelector('[data-program-track]');
-    const progressBar = document.querySelector('[data-program-progress]');
+    const progressBars = Array.from(document.querySelectorAll('[data-program-progress]'));
     const previousButton = document.querySelector('[data-program-prev]');
     const nextButton = document.querySelector('[data-program-next]');
+    const pagination = document.querySelector('[data-program-pagination]');
 
-    if (!programSection || !track || !progressBar || !previousButton || !nextButton) {
+    if (!programSection || !track) {
         return;
     }
 
     const slides = Array.from(track.querySelectorAll('.program-slide'));
+    const progressWidths = [84, 88, 92, 100];
+    const dots = pagination ? slides.map(function (_, index) {
+        const dot = document.createElement('button');
+        dot.className = 'program-dot';
+        dot.type = 'button';
+        dot.setAttribute('aria-label', 'Buka program ke-' + (index + 1));
+        dot.addEventListener('click', function () {
+            slides[index].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
+        });
+        pagination.appendChild(dot);
+        return dot;
+    }) : [];
     let isDragging = false;
     let dragStartX = 0;
     let dragStartScrollLeft = 0;
+
+    progressBars.forEach(function (progressBar, index) {
+        const progressStep = progressWidths[index] || 100;
+        progressBar.parentElement.style.setProperty('--program-progress-width', progressStep.toFixed(2) + '%');
+    });
 
     /**
      * Mengambil index slide yang paling dekat dengan posisi scroll saat ini.
@@ -99,13 +117,19 @@ function initializeProgramCarousel() {
     function updateProgramState() {
         const activeIndex = Math.min(Math.max(getActiveSlideIndex(), 0), slides.length - 1);
         const activeSlide = slides[activeIndex];
-        const maxScrollLeft = Math.max(track.scrollWidth - track.clientWidth, 1);
-        const scrollProgress = Math.min(Math.max(track.scrollLeft / maxScrollLeft, 0), 1);
 
         programSection.dataset.activeTheme = activeSlide.dataset.theme || 'tk';
-        previousButton.disabled = activeIndex === 0;
-        nextButton.disabled = activeIndex === slides.length - 1;
-        progressBar.style.setProperty('--program-scroll-progress', scrollProgress.toFixed(4));
+        programSection.dataset.activeIndex = String(activeIndex);
+        if (previousButton) {
+            previousButton.disabled = activeIndex === 0;
+        }
+        if (nextButton) {
+            nextButton.disabled = activeIndex === slides.length - 1;
+        }
+        dots.forEach(function (dot, index) {
+            dot.classList.toggle('is-active', index === activeIndex);
+            dot.setAttribute('aria-current', index === activeIndex ? 'true' : 'false');
+        });
     }
 
     /**
@@ -123,6 +147,10 @@ function initializeProgramCarousel() {
      * @param {PointerEvent} event Event pointer dari mouse atau touch.
      */
     function startDrag(event) {
+        if (event.target.closest('a, button')) {
+            return;
+        }
+
         isDragging = true;
         dragStartX = event.clientX;
         dragStartScrollLeft = track.scrollLeft;
@@ -158,13 +186,17 @@ function initializeProgramCarousel() {
         slides[getActiveSlideIndex()].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
     }
 
-    previousButton.addEventListener('click', function () {
-        scrollProgram(-1);
-    });
+    if (previousButton) {
+        previousButton.addEventListener('click', function () {
+            scrollProgram(-1);
+        });
+    }
 
-    nextButton.addEventListener('click', function () {
-        scrollProgram(1);
-    });
+    if (nextButton) {
+        nextButton.addEventListener('click', function () {
+            scrollProgram(1);
+        });
+    }
 
     track.addEventListener('scroll', function () {
         window.requestAnimationFrame(updateProgramState);
@@ -198,6 +230,10 @@ function initializeSmoothScrollTracks() {
          * @param {PointerEvent} event Event pointer mouse atau sentuhan.
          */
         function startDrag(event) {
+            if (event.target.closest('a, button')) {
+                return;
+            }
+
             isDragging = true;
             dragStartX = event.clientX;
             dragStartScrollLeft = track.scrollLeft;
@@ -258,3 +294,326 @@ function initializeSmoothScrollTracks() {
 }
 
 initializeSmoothScrollTracks();
+
+/**
+ * Menjaga indikator pagination tetap selaras dengan posisi scroll track.
+ * Dot juga dapat diklik untuk lompat ke bagian track penghargaan yang sesuai.
+ */
+function initializeTrackPagination() {
+    const paginations = Array.from(document.querySelectorAll('[data-track-pagination]'));
+
+    paginations.forEach(function (pagination) {
+        const track = document.getElementById(pagination.dataset.trackPagination);
+        const dots = Array.from(pagination.querySelectorAll('button'));
+
+        if (!track || dots.length === 0) {
+            return;
+        }
+
+        function getScrollProgress() {
+            const maxScrollLeft = Math.max(track.scrollWidth - track.clientWidth, 1);
+            return Math.min(Math.max(track.scrollLeft / maxScrollLeft, 0), 1);
+        }
+
+        function updateActiveDot() {
+            const activeIndex = Math.min(dots.length - 1, Math.round(getScrollProgress() * (dots.length - 1)));
+
+            dots.forEach(function (dot, index) {
+                const isActive = index === activeIndex;
+                dot.classList.toggle('is-active', isActive);
+                dot.setAttribute('aria-current', isActive ? 'true' : 'false');
+            });
+        }
+
+        dots.forEach(function (dot, index) {
+            dot.addEventListener('click', function () {
+                const maxScrollLeft = Math.max(track.scrollWidth - track.clientWidth, 0);
+                const targetProgress = dots.length === 1 ? 0 : index / (dots.length - 1);
+
+                track.scrollTo({
+                    left: maxScrollLeft * targetProgress,
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        track.addEventListener('scroll', function () {
+            window.requestAnimationFrame(updateActiveDot);
+        });
+        window.addEventListener('resize', updateActiveDot);
+        updateActiveDot();
+    });
+}
+
+initializeTrackPagination();
+
+/**
+ * Mengatur popup pendaftaran event.
+ * Popup bisa dibuka dari tombol detail event, ditutup lewat tombol X, tombol Batal, backdrop, atau Escape.
+ */
+function initializeRegistrationModal() {
+    const modal = document.getElementById('registration-modal');
+
+    if (!modal) {
+        return;
+    }
+
+    const openButtons = Array.from(document.querySelectorAll('[data-modal-open="registration-modal"]'));
+    const closeButtons = Array.from(modal.querySelectorAll('[data-modal-close]'));
+    const form = modal.querySelector('form');
+
+    function openModal() {
+        modal.classList.add('is-open');
+        modal.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+
+        const firstInput = modal.querySelector('input, select, button');
+        if (firstInput) {
+            firstInput.focus();
+        }
+    }
+
+    function closeModal() {
+        modal.classList.remove('is-open');
+        modal.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+    }
+
+    openButtons.forEach(function (button) {
+        button.addEventListener('click', openModal);
+    });
+
+    closeButtons.forEach(function (button) {
+        button.addEventListener('click', closeModal);
+    });
+
+    document.addEventListener('keydown', function (event) {
+        if (event.key === 'Escape' && modal.classList.contains('is-open')) {
+            closeModal();
+        }
+    });
+
+    if (form) {
+        form.addEventListener('submit', function (event) {
+            event.preventDefault();
+            closeModal();
+        });
+    }
+}
+
+initializeRegistrationModal();
+
+/**
+ * Mengatur modal pembelian tiket NAC beserta kalkulasi total pembayaran.
+ */
+function initializeNacTicketModal() {
+    const modal = document.getElementById('nac-ticket-modal');
+
+    if (!modal) {
+        return;
+    }
+
+    const openButtons = Array.from(document.querySelectorAll('[data-nac-ticket-open]'));
+    const closeButtons = Array.from(modal.querySelectorAll('[data-nac-ticket-close]'));
+    const form = modal.querySelector('.nac-ticket-form');
+    const ticketOptions = Array.from(modal.querySelectorAll('[data-ticket-price]'));
+    const minusButton = modal.querySelector('[data-ticket-minus]');
+    const plusButton = modal.querySelector('[data-ticket-plus]');
+    const countOutput = modal.querySelector('[data-ticket-count]');
+    const totalOutput = modal.querySelector('[data-ticket-total]');
+    const dateField = modal.querySelector('.nac-date-field');
+    const dateDisplay = modal.querySelector('[data-nac-date-display]');
+    const dateValue = modal.querySelector('[data-nac-date-value]');
+    const calendar = modal.querySelector('[data-nac-calendar]');
+    const calendarMonth = modal.querySelector('[data-calendar-month]');
+    const calendarDays = modal.querySelector('[data-calendar-days]');
+    const calendarPrevious = modal.querySelector('[data-calendar-prev]');
+    const calendarNext = modal.querySelector('[data-calendar-next]');
+    let ticketCount = 1;
+    let selectedDate = null;
+    let calendarDate = new Date();
+    calendarDate.setDate(1);
+
+    function getSelectedPrice() {
+        const selectedOption = ticketOptions.find(function (option) {
+            return option.checked;
+        });
+
+        return selectedOption ? Number(selectedOption.dataset.ticketPrice) : 15000;
+    }
+
+    function formatCurrency(value) {
+        return 'Rp ' + value.toLocaleString('id-ID');
+    }
+
+    function updateTotal() {
+        if (countOutput) {
+            countOutput.textContent = String(ticketCount);
+        }
+
+        if (totalOutput) {
+            totalOutput.textContent = formatCurrency(getSelectedPrice() * ticketCount);
+        }
+    }
+
+    function formatDateValue(date) {
+        const year = date.getFullYear();
+        const month = String(date.getMonth() + 1).padStart(2, '0');
+        const day = String(date.getDate()).padStart(2, '0');
+        return year + '-' + month + '-' + day;
+    }
+
+    function formatDateLabel(date) {
+        return date.toLocaleDateString('id-ID', {
+            day: '2-digit',
+            month: 'long',
+            year: 'numeric'
+        });
+    }
+
+    function renderCalendar() {
+        if (!calendarMonth || !calendarDays) {
+            return;
+        }
+
+        const month = calendarDate.getMonth();
+        const year = calendarDate.getFullYear();
+        const firstDay = new Date(year, month, 1).getDay();
+        const daysInMonth = new Date(year, month + 1, 0).getDate();
+
+        calendarMonth.textContent = calendarDate.toLocaleDateString('id-ID', {
+            month: 'long',
+            year: 'numeric'
+        });
+        calendarDays.innerHTML = '';
+
+        for (let blankIndex = 0; blankIndex < firstDay; blankIndex += 1) {
+            const spacer = document.createElement('span');
+            spacer.className = 'is-muted';
+            spacer.setAttribute('aria-hidden', 'true');
+            calendarDays.appendChild(spacer);
+        }
+
+        for (let day = 1; day <= daysInMonth; day += 1) {
+            const date = new Date(year, month, day);
+            const button = document.createElement('button');
+            button.type = 'button';
+            button.textContent = String(day);
+
+            if (selectedDate && formatDateValue(selectedDate) === formatDateValue(date)) {
+                button.classList.add('is-selected');
+            }
+
+            button.addEventListener('click', function () {
+                selectedDate = date;
+                if (dateDisplay) {
+                    dateDisplay.value = formatDateLabel(date);
+                }
+                if (dateValue) {
+                    dateValue.value = formatDateValue(date);
+                }
+                if (dateField) {
+                    dateField.classList.remove('is-open');
+                }
+                renderCalendar();
+            });
+
+            calendarDays.appendChild(button);
+        }
+    }
+
+    function openModal() {
+        modal.classList.add('is-open');
+        modal.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+        updateTotal();
+
+        const firstInput = modal.querySelector('input, button');
+        if (firstInput) {
+            firstInput.focus();
+        }
+    }
+
+    function closeModal() {
+        modal.classList.remove('is-open');
+        modal.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+    }
+
+    openButtons.forEach(function (button) {
+        button.addEventListener('click', openModal);
+    });
+
+    closeButtons.forEach(function (button) {
+        button.addEventListener('click', closeModal);
+    });
+
+    ticketOptions.forEach(function (option) {
+        option.addEventListener('change', updateTotal);
+    });
+
+    if (minusButton) {
+        minusButton.addEventListener('click', function () {
+            ticketCount = Math.max(1, ticketCount - 1);
+            updateTotal();
+        });
+    }
+
+    if (plusButton) {
+        plusButton.addEventListener('click', function () {
+            ticketCount += 1;
+            updateTotal();
+        });
+    }
+
+    if (dateField && dateDisplay && calendar) {
+        dateDisplay.addEventListener('click', function () {
+            dateField.classList.toggle('is-open');
+            calendar.setAttribute('aria-hidden', dateField.classList.contains('is-open') ? 'false' : 'true');
+            renderCalendar();
+        });
+
+        calendar.addEventListener('click', function (event) {
+            event.stopPropagation();
+        });
+
+        document.addEventListener('click', function (event) {
+            if (!dateField.contains(event.target)) {
+                dateField.classList.remove('is-open');
+                calendar.setAttribute('aria-hidden', 'true');
+            }
+        });
+    }
+
+    if (calendarPrevious) {
+        calendarPrevious.addEventListener('click', function () {
+            calendarDate.setMonth(calendarDate.getMonth() - 1);
+            renderCalendar();
+        });
+    }
+
+    if (calendarNext) {
+        calendarNext.addEventListener('click', function () {
+            calendarDate.setMonth(calendarDate.getMonth() + 1);
+            renderCalendar();
+        });
+    }
+
+    document.addEventListener('keydown', function (event) {
+        if (event.key === 'Escape' && modal.classList.contains('is-open')) {
+            closeModal();
+        }
+    });
+
+    if (form) {
+        form.addEventListener('submit', function (event) {
+            event.preventDefault();
+            closeModal();
+        });
+    }
+
+    updateTotal();
+    renderCalendar();
+}
+
+initializeNacTicketModal();

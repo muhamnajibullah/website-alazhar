@@ -1,0 +1,544 @@
+.detail-page {
+    color: var(--color-white);
+    background: var(--color-black);
+}
+
+.detail-header {
+    padding: 166px 0 28px;
+    background: var(--color-black);
+}
+
+.detail-breadcrumb {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 14px;
+    color: rgba(255, 255, 255, 0.42);
+    font-size: 15px;
+}
+
+.detail-breadcrumb a:hover,
+.detail-breadcrumb a:focus-visible,
+.detail-breadcrumb span:last-child {
+    color: var(--color-white);
+}
+
+.award-detail-hero,
+.event-detail-hero {
+    min-height: 500px;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.award-detail-hero {
+    background-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 45%, var(--color-black) 100%), url("../../assets/images/back-penghargaan-1.png");
+}
+
+.event-detail-hero {
+    background-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 42%, rgba(0, 0, 0, 0.76) 100%), url("../../assets/images/back-quran.png");
+}
+
+.award-detail-title,
+.event-detail-title {
+    padding: 64px 0 0;
+}
+
+.award-detail-title h1,
+.event-detail-title h1 {
+    margin: 0;
+    font-size: 66px;
+    font-weight: 800;
+    line-height: 0.98;
+}
+
+.award-title-meta,
+.event-title-meta {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 22px;
+    margin-top: 31px;
+    font-size: 22px;
+}
+
+.award-title-meta span:not(.achievement-badge) {
+    padding: 6px 14px;
+    font-size: 13px;
+    border: 1px solid var(--color-white);
+    border-radius: 999px;
+}
+
+.achievement-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 16px;
+    color: var(--color-black);
+    font-size: 14px;
+    font-weight: 800;
+    background: #ffe66b;
+    border-radius: 999px;
+}
+
+.event-title-meta span {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding-right: 30px;
+    border-right: 1px solid rgba(255, 255, 255, 0.28);
+}
+
+.event-title-meta span:last-child {
+    border-right: 0;
+}
+
+.award-detail-content,
+.event-detail-content {
+    padding: 164px 0 118px;
+}
+
+.award-detail-grid,
+.event-detail-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(420px, 0.74fr);
+    gap: 92px;
+    align-items: start;
+}
+
+.award-detail-copy h2,
+.event-detail-copy h2 {
+    margin: 0 0 34px;
+    font-size: 39px;
+    font-weight: 800;
+    line-height: 1;
+}
+
+.award-detail-copy p,
+.event-detail-copy p {
+    max-width: 704px;
+    margin: 0 0 25px;
+    color: rgba(255, 255, 255, 0.86);
+    font-size: 20px;
+    line-height: 1.55;
+}
+
+.award-summary {
+    display: flex;
+    gap: 52px;
+    margin-top: 56px;
+}
+
+.award-summary div {
+    padding-left: 18px;
+    border-left: 2px solid var(--color-green);
+}
+
+.award-summary span {
+    display: block;
+    margin-bottom: 8px;
+    color: rgba(255, 255, 255, 0.46);
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
+.award-summary strong {
+    font-size: 20px;
+}
+
+.award-info-panel,
+.event-info-panel {
+    background: #0f5b20;
+    border-radius: 22px;
+}
+
+.award-info-panel {
+    padding: 43px 46px 39px;
+}
+
+.award-info-panel h2 {
+    margin: 0 0 36px;
+    font-size: 22px;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+.award-info-panel ul {
+    display: grid;
+    gap: 28px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.award-info-panel li {
+    display: grid;
+    grid-template-columns: 24px minmax(0, 1fr);
+    gap: 18px;
+    align-items: start;
+    font-size: 18px;
+}
+
+.detail-outline-button {
+    grid-column: 2;
+    display: inline-flex;
+    justify-content: center;
+    min-height: 56px;
+    align-items: center;
+    color: var(--color-white);
+    font-size: 16px;
+    font-weight: 800;
+    border: 2px solid var(--color-white);
+    border-radius: 10px;
+}
+
+.event-info-panel {
+    padding: 33px 35px;
+    background: #111;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.event-info-panel dl {
+    display: grid;
+    gap: 25px;
+    margin: 0;
+}
+
+.event-info-panel dt {
+    color: #7fc5d0;
+    font-size: 14px;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+.event-info-panel dd {
+    margin: -17px 0 0;
+    font-size: 20px;
+}
+
+.event-register-button {
+    grid-column: 2;
+    min-height: 66px;
+    color: var(--color-white);
+    font-family: inherit;
+    font-size: 18px;
+    font-weight: 800;
+    background: #0f5b20;
+    border: 0;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.history-detail-page {
+    background: var(--color-white);
+}
+
+.history-detail-hero {
+    min-height: 510px;
+    background: url("../../assets/images/history-start-back.png") center / cover no-repeat;
+}
+
+.history-detail-heading {
+    padding: 38px 0 76px;
+    color: var(--color-white);
+    background: var(--color-black);
+}
+
+.history-detail-heading h1,
+.history-detail-heading h2 {
+    margin: 0 0 18px;
+    font-size: 54px;
+    font-weight: 800;
+    line-height: 1;
+}
+
+.history-detail-year {
+    display: inline-flex;
+    align-items: center;
+    min-height: 26px;
+    padding: 4px 12px;
+    color: var(--color-white);
+    font-size: 12px;
+    font-weight: 800;
+    border: 1px solid rgba(255, 255, 255, 0.72);
+    border-radius: 999px;
+}
+
+.history-detail-copy {
+    position: relative;
+    padding: 126px 0 92px;
+    color: var(--color-black);
+    background: var(--color-white);
+}
+
+.history-detail-copy-cut::before {
+    content: "";
+    position: absolute;
+    top: -1px;
+    left: 0;
+    width: 100%;
+    height: 84px;
+    background: var(--color-black);
+    clip-path: polygon(0 0, var(--section-cut-edge) 0, var(--section-cut-width) 100%, 100% 100%, 100% 0, 0 0);
+    pointer-events: none;
+}
+
+.history-detail-grid {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: minmax(0, 0.96fr) minmax(360px, 0.74fr);
+    gap: 94px;
+    align-items: start;
+}
+
+.history-detail-grid h2 {
+    max-width: 420px;
+    margin: 0 0 24px;
+    font-size: 28px;
+    font-weight: 800;
+    line-height: 1.05;
+}
+
+.history-detail-grid p {
+    margin: 0 0 18px;
+    color: #5f5f5f;
+    font-size: 15px;
+    line-height: 1.55;
+}
+
+.history-detail-grid figure {
+    margin: 0;
+}
+
+.history-detail-grid img {
+    width: 100%;
+    aspect-ratio: 550 / 342;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.history-detail-grid figcaption {
+    margin-top: 12px;
+    color: #8f8f8f;
+    font-size: 11px;
+    line-height: 1.4;
+}
+
+.history-detail-wide-image {
+    width: 100%;
+    min-height: 330px;
+    max-height: 560px;
+    object-fit: cover;
+}
+
+/* Overlay modal dibuat fixed agar popup selalu berada di tengah layar seperti referensi. */
+.registration-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    display: none;
+    place-items: center;
+    padding: 32px;
+}
+
+.registration-modal.is-open {
+    display: grid;
+}
+
+.registration-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.76);
+}
+
+.registration-dialog {
+    position: relative;
+    z-index: 1;
+    width: min(560px, 100%);
+    padding: 32px 32px 30px;
+    color: var(--color-black);
+    background: var(--color-white);
+    border-radius: 10px;
+}
+
+.registration-close {
+    position: absolute;
+    top: 28px;
+    right: 30px;
+    display: grid;
+    width: 34px;
+    height: 34px;
+    place-items: center;
+    color: var(--color-white);
+    background: #334155;
+    border: 0;
+    border-radius: 999px;
+    cursor: pointer;
+}
+
+.registration-dialog header {
+    padding-bottom: 27px;
+    margin-bottom: 24px;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.registration-dialog h2 {
+    margin: 0 0 5px;
+    font-size: 25px;
+    font-weight: 800;
+}
+
+.registration-dialog p {
+    margin: 0;
+    color: #6b7280;
+    font-size: 15px;
+}
+
+.registration-form {
+    display: grid;
+    gap: 19px;
+}
+
+.registration-form label {
+    display: grid;
+    gap: 8px;
+    color: #374151;
+    font-size: 14px;
+    font-weight: 800;
+}
+
+.registration-form input,
+.registration-form select {
+    width: 100%;
+    height: 48px;
+    padding: 0 16px;
+    color: #6b7280;
+    font: inherit;
+    background: var(--color-white);
+    border: 1px solid #d1d5db;
+    border-radius: 7px;
+}
+
+.registration-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 16px;
+    padding-top: 25px;
+    margin-top: 5px;
+    border-top: 1px solid #e5e7eb;
+}
+
+.registration-cancel,
+.registration-submit {
+    min-width: 108px;
+    min-height: 39px;
+    padding: 0 22px;
+    font-family: inherit;
+    font-size: 16px;
+    font-weight: 800;
+    border-radius: 999px;
+    cursor: pointer;
+}
+
+.registration-cancel {
+    color: #374151;
+    background: var(--color-white);
+    border: 1px solid #6b7280;
+}
+
+.registration-submit {
+    color: var(--color-white);
+    background: #0f5b20;
+    border: 1px solid #0f5b20;
+}
+
+@media (max-width: 900px) {
+    .award-detail-grid,
+    .event-detail-grid {
+        grid-template-columns: 1fr;
+        gap: 48px;
+    }
+
+    .detail-outline-button,
+    .event-register-button {
+        grid-column: 1;
+    }
+
+    .award-detail-title h1,
+    .event-detail-title h1 {
+        font-size: 42px;
+    }
+
+    .history-detail-grid {
+        grid-template-columns: 1fr;
+        gap: 42px;
+    }
+
+    .history-detail-heading h1,
+    .history-detail-heading h2 {
+        font-size: 42px;
+    }
+}
+
+@media (max-width: 576px) {
+    .detail-header {
+        padding-top: 126px;
+    }
+
+    .award-detail-hero,
+    .event-detail-hero {
+        min-height: 320px;
+    }
+
+    .award-detail-title,
+    .event-detail-title {
+        padding-top: 42px;
+    }
+
+    .award-detail-content,
+    .event-detail-content {
+        padding: 80px 0 88px;
+    }
+
+    .award-title-meta,
+    .event-title-meta,
+    .award-summary {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .registration-modal {
+        padding: 16px;
+    }
+
+    .history-detail-hero {
+        min-height: 300px;
+    }
+
+    .history-detail-heading {
+        padding: 30px 0 62px;
+    }
+
+    .history-detail-heading h1,
+    .history-detail-heading h2 {
+        font-size: 34px;
+    }
+
+    .history-detail-copy {
+        padding: 96px 0 72px;
+    }
+
+    .history-detail-copy-cut::before {
+        height: 54px;
+        clip-path: polygon(0 0, 42% 0, 52% 100%, 100% 100%, 100% 0, 0 0);
+    }
+
+    .history-detail-grid h2 {
+        font-size: 24px;
+    }
+
+    .history-detail-wide-image {
+        min-height: 240px;
+    }
+}

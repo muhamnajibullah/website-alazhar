@@ -1,0 +1,49 @@
+:root {
+    --responsive-container-gutter: 112px;
+    --responsive-hero-gutter: 88px;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+@media (min-width: 2200px) {
+    :root {
+        --container-width: min(1540px, calc(100vw - 224px));
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1180px) {
+    :root {
+        --responsive-container-gutter: 56px;
+        --responsive-hero-gutter: 56px;
+    }
+
+    .section-container,
+    .footer-container,
+    .about-hero-content,
+    .profile-hero-content,
+    .vision-hero-content,
+    .program-page-hero-content,
+    .facility-hero-content,
+    .contact-hero-content {
+        width: min(var(--container-width), calc(100% - var(--responsive-container-gutter)));
+    }
+
+    .profile-intro-grid,
+    .vision-intro-grid,
+    .program-page-intro-grid,
+    .facility-intro-grid,
+    .contact-intro-grid {
+        gap: clamp(28px, 6vw, 72px);
+    }
+
+    .stats-grid,
+    .reason-grid,
+    .values-grid,
+    .founders-grid,
+    .vision-card-grid,
+    .mission-card-grid {
+        gap: clamp(24px, 4vw, 48px);
+    }
+}

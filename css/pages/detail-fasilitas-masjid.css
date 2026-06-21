@@ -1,0 +1,306 @@
+.mosque-page {
+    color: var(--color-white);
+    background: var(--color-black);
+}
+
+.mosque-header {
+    padding: 166px 0 26px;
+    background: var(--color-black);
+}
+
+.mosque-breadcrumb {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 14px;
+    color: rgba(255, 255, 255, 0.38);
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.mosque-breadcrumb a:hover,
+.mosque-breadcrumb a:focus-visible,
+.mosque-breadcrumb span:last-child {
+    color: var(--color-white);
+}
+
+.mosque-hero {
+    min-height: 500px;
+    background: url("../../assets/images/masjid-detail-hero.png") center / cover no-repeat;
+}
+
+.mosque-title-band {
+    padding: 62px 0 90px;
+    background: var(--color-black);
+}
+
+.mosque-title-band h1 {
+    margin: 0 0 24px;
+    font-size: 58px;
+    font-weight: 800;
+    line-height: 1;
+}
+
+.mosque-title-band span {
+    display: inline-flex;
+    align-items: center;
+    min-height: 34px;
+    padding: 0 18px;
+    font-size: 15px;
+    font-weight: 800;
+    border: 1px solid rgba(255, 255, 255, 0.82);
+    border-radius: 999px;
+}
+
+.mosque-about {
+    position: relative;
+    padding: 116px 0 100px;
+    color: var(--color-black);
+    background: var(--color-white);
+}
+
+.mosque-about::before {
+    content: "";
+    position: absolute;
+    top: -1px;
+    left: 0;
+    width: 100%;
+    height: 84px;
+    background: var(--color-black);
+    clip-path: polygon(0 0, var(--section-cut-edge) 0, var(--section-cut-width) 100%, 100% 100%, 100% 0, 0 0);
+    pointer-events: none;
+}
+
+.mosque-about-grid {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 600px;
+    gap: 78px;
+    align-items: start;
+}
+
+.mosque-about-copy {
+    padding-top: 8px;
+}
+
+.mosque-about-copy h2,
+.mosque-activities h2 {
+    margin: 0 0 44px;
+    font-size: 34px;
+    font-weight: 800;
+    line-height: 1;
+}
+
+.mosque-about-copy p {
+    max-width: 630px;
+    margin: 0 0 26px;
+    color: #59616d;
+    font-size: 17px;
+    line-height: 1.55;
+}
+
+.mosque-about-copy p:last-of-type {
+    color: #9a9a9a;
+}
+
+.mosque-about-grid > img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+.mosque-stat-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 54px;
+}
+
+.mosque-stat-grid div {
+    min-height: 100px;
+    padding: 20px 24px 18px;
+    background: #f6f7f8;
+    border-top: 4px solid var(--color-green);
+    border-radius: 8px;
+}
+
+.mosque-stat-grid span {
+    display: block;
+    margin-bottom: 12px;
+    color: #9a9a9a;
+    font-size: 12px;
+    font-weight: 800;
+    line-height: 1;
+    text-transform: uppercase;
+}
+
+.mosque-stat-grid strong {
+    color: #111827;
+    font-size: 21px;
+    font-weight: 800;
+    line-height: 1.1;
+}
+
+.mosque-activities {
+    position: relative;
+    padding: 148px 0 136px;
+    color: var(--color-white);
+    background: var(--color-black);
+}
+
+.mosque-activities::before {
+    content: "";
+    position: absolute;
+    top: -1px;
+    left: 0;
+    width: 100%;
+    height: 84px;
+    background: var(--color-white);
+    clip-path: polygon(0 0, var(--section-cut-edge) 0, var(--section-cut-width) 100%, 100% 100%, 100% 0, 0 0);
+    pointer-events: none;
+}
+
+.mosque-activity-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    margin-top: 76px;
+}
+
+.mosque-activity-card {
+    overflow: hidden;
+    color: #111827;
+    background: var(--color-white);
+    border-radius: 8px;
+}
+
+.mosque-activity-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.mosque-activity-card div {
+    display: flex;
+    min-height: 236px;
+    flex-direction: column;
+    padding: 24px 24px 22px;
+}
+
+.mosque-activity-card span {
+    display: inline-flex;
+    align-items: center;
+    align-self: flex-start;
+    min-height: 22px;
+    margin-bottom: 22px;
+    padding: 0 12px;
+    color: #858d98;
+    font-size: 11px;
+    font-weight: 800;
+    line-height: 1;
+    text-transform: uppercase;
+    background: #eef0f2;
+    border-radius: 999px;
+}
+
+.mosque-activity-card h3 {
+    margin: 0 0 20px;
+    font-size: 21px;
+    font-weight: 800;
+    line-height: 1.1;
+}
+
+.mosque-activity-card p {
+    margin: 0 0 22px;
+    color: #858d98;
+    font-size: 16px;
+    line-height: 1.42;
+}
+
+.mosque-activity-card a {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: auto;
+    color: var(--color-green);
+    font-size: 13px;
+    font-weight: 800;
+}
+
+.mosque-activity-card .arrow {
+    width: 9px;
+    height: 9px;
+}
+
+@media (max-width: 1180px) {
+    .mosque-about-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .mosque-about-grid > img {
+        max-width: 600px;
+    }
+
+    .mosque-activity-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .mosque-header {
+        padding-top: 126px;
+    }
+
+    .mosque-hero {
+        min-height: 320px;
+    }
+
+    .mosque-title-band h1 {
+        font-size: 44px;
+    }
+
+    .mosque-about {
+        padding: 92px 0 82px;
+    }
+
+    .mosque-about::before,
+    .mosque-activities::before {
+        height: 54px;
+        clip-path: polygon(0 0, 42% 0, 52% 100%, 100% 100%, 100% 0, 0 0);
+    }
+
+    .mosque-stat-grid,
+    .mosque-activity-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .mosque-activities {
+        padding: 112px 0 96px;
+    }
+}
+
+@media (max-width: 576px) {
+    .mosque-breadcrumb {
+        font-size: 12px;
+    }
+
+    .mosque-title-band {
+        padding: 46px 0 68px;
+    }
+
+    .mosque-title-band h1 {
+        font-size: 38px;
+    }
+
+    .mosque-about-copy h2,
+    .mosque-activities h2 {
+        margin-bottom: 30px;
+        font-size: 29px;
+    }
+
+    .mosque-about-grid > img {
+        height: 320px;
+    }
+}

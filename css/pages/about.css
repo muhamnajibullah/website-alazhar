@@ -232,46 +232,97 @@
     font-weight: 800;
 }
 
-.history-timeline {
-    display: grid;
-    grid-template-columns: 144px 28px 1fr 144px;
-    align-items: center;
-    gap: 16px;
-    margin-bottom: 76px;
-}
-
-.history-timeline span {
-    display: inline-flex;
-    justify-content: center;
-    padding: 10px 32px;
-    color: #cfcfcf;
-    background: linear-gradient(180deg, #5c5c5c, #2f2f2f);
-    border-radius: 999px;
-}
-
-.history-timeline i {
-    color: #35cfd0;
-    font-size: 28px;
-}
-
-.history-timeline div {
-    height: 4px;
-    background: #35cfd0;
-    border-radius: 999px;
-}
-
 .history-track {
-    gap: 78px;
-    padding-right: 120px;
+    gap: 0;
+    padding-right: 0;
+    scroll-snap-type: x mandatory;
 }
 
 .history-item {
+    --history-accent: #35cfd0;
     display: grid;
     grid-template-columns: 520px 420px;
+    grid-template-rows: auto auto;
     align-items: center;
     gap: 58px;
-    flex: 0 0 auto;
+    flex: 0 0 100%;
+    min-width: 100%;
+    max-width: 100%;
     scroll-snap-align: start;
+    scroll-snap-stop: always;
+}
+
+.history-item-cyan {
+    --history-accent: #35cfd0;
+}
+
+.history-item-yellow {
+    --history-accent: #f1c64f;
+}
+
+.history-item-rose {
+    --history-accent: #c7627e;
+}
+
+.history-item-blue {
+    --history-accent: #527dbd;
+}
+
+.history-item-blue .history-timeline-year {
+    width: 132px;
+}
+
+.history-item-timeline {
+    display: grid;
+    grid-column: 1 / -1;
+    grid-template-columns: 96px minmax(220px, 1fr);
+    grid-template-rows: 28px 26px;
+    align-items: end;
+    column-gap: 42px;
+    margin: 0 0 68px;
+}
+
+.history-timeline-year {
+    display: inline-flex;
+    grid-column: 1;
+    grid-row: 1;
+    align-items: center;
+    justify-content: center;
+    width: 96px;
+    min-height: 24px;
+    padding: 0 16px;
+    color: #cfcfcf;
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 1;
+    white-space: nowrap;
+    background: radial-gradient(circle at 50% 40%, #4d4d4d 0%, #303030 58%, #272727 100%);
+    border: 1px solid #777777;
+    border-radius: 999px;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.18);
+}
+
+.history-timeline-bar {
+    position: relative;
+    grid-column: 1 / -1;
+    grid-row: 2;
+    height: 4px;
+    margin-left: 50px;
+    background: var(--history-accent);
+    border-radius: 999px;
+}
+
+.history-timeline-bar::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 13px;
+    height: 13px;
+    background: var(--color-black);
+    border: 4px solid var(--history-accent);
+    border-radius: 999px;
+    transform: translate(-50%, -50%);
 }
 
 .history-item img {
@@ -295,12 +346,22 @@
     margin: 0 0 18px;
     font-size: 34px;
     font-weight: 800;
+    line-height: 1;
 }
 
 .history-item p {
     margin: 0 0 32px;
     font-size: 18px;
     line-height: 1.35;
+}
+
+.history-item .outline-button {
+    border-color: rgba(255, 255, 255, 0.88);
+}
+
+.history-item .outline-button:focus-visible {
+    outline: 3px solid var(--history-accent);
+    outline-offset: 3px;
 }
 
 @media (max-width: 1024px) {
@@ -319,6 +380,16 @@
 
     .history-item img {
         width: 420px;
+    }
+
+    .history-item-timeline {
+        grid-template-columns: 96px minmax(180px, 1fr);
+        column-gap: 34px;
+    }
+
+    .history-timeline-year {
+        width: 96px;
+        font-size: 13px;
     }
 }
 
@@ -356,19 +427,28 @@
         height: 230px;
     }
 
-    .history-timeline {
-        grid-template-columns: 94px 22px 1fr 94px;
-        gap: 10px;
-    }
-
-    .history-timeline span {
-        padding: 8px 18px;
-    }
-
     .history-item {
         grid-template-columns: 1fr;
-        flex-basis: calc(100vw - 56px);
+        flex-basis: 100%;
         gap: 24px;
+    }
+
+    .history-item-timeline {
+        grid-template-columns: 96px minmax(80px, 1fr);
+        grid-template-rows: 28px 26px;
+        column-gap: 18px;
+        margin-bottom: 42px;
+    }
+
+    .history-timeline-year {
+        width: 96px;
+        min-height: 24px;
+        padding: 0 12px;
+        font-size: 13px;
+    }
+
+    .history-timeline-bar {
+        margin-left: 72px;
     }
 
     .history-item img {

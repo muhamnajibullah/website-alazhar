@@ -1,0 +1,403 @@
+.jakarta-page {
+    color: var(--color-white);
+    background: var(--color-black);
+}
+
+.jakarta-header {
+    color: var(--color-white);
+    background: var(--color-black);
+}
+
+.jakarta-hero {
+    padding: 152px 0 78px;
+    background: var(--color-black);
+}
+
+.jakarta-breadcrumb {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 72px;
+    color: rgba(255, 255, 255, 0.46);
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.jakarta-breadcrumb a:hover,
+.jakarta-breadcrumb a:focus-visible {
+    color: var(--color-white);
+}
+
+.jakarta-breadcrumb span:last-child {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.jakarta-hero-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(320px, 360px);
+    align-items: start;
+    gap: 92px;
+}
+
+.jakarta-hero h1,
+.jakarta-facilities h2,
+.jakarta-programs h2,
+.jakarta-gallery h2,
+.jakarta-cta h2 {
+    margin: 0;
+    font-size: 37px;
+    font-weight: 800;
+    line-height: 1;
+}
+
+.jakarta-lead {
+    max-width: 690px;
+    margin: 41px 0 35px;
+    color: rgba(255, 255, 255, 0.78);
+    font-size: 17px;
+    line-height: 1.62;
+}
+
+.jakarta-note {
+    max-width: 690px;
+    margin: 0;
+    color: rgba(255, 255, 255, 0.42);
+    font-size: 16px;
+    line-height: 1.62;
+}
+
+.jakarta-hero-image {
+    width: 100%;
+    aspect-ratio: 360 / 360;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.jakarta-stat-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+    margin-top: 59px;
+}
+
+.jakarta-stat {
+    min-height: 92px;
+    padding: 24px 28px 22px;
+    background: #151515;
+    border-radius: 8px;
+    border-left: 3px solid var(--color-green);
+}
+
+.jakarta-stat span {
+    display: block;
+    margin-bottom: 10px;
+    color: rgba(255, 255, 255, 0.42);
+    font-size: 12px;
+    font-weight: 800;
+    line-height: 1;
+    text-transform: uppercase;
+}
+
+.jakarta-stat strong {
+    display: block;
+    font-size: 25px;
+    font-weight: 800;
+    line-height: 1;
+}
+
+.jakarta-facilities {
+    position: relative;
+    padding: 126px 0 143px;
+    background: var(--color-green);
+    clip-path: polygon(0 0, var(--section-cut-edge) 0, var(--section-cut-width) var(--section-cut-height), 100% var(--section-cut-height), 100% 100%, var(--section-cut-width) 100%, var(--section-cut-edge) calc(100% - var(--section-cut-height)), 0 calc(100% - var(--section-cut-height)));
+}
+
+.featured-facility-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 32px;
+    margin-top: 36px;
+}
+
+.featured-facility-card {
+    min-height: 232px;
+    padding: 36px 37px 32px;
+    color: var(--color-black);
+    background: var(--color-white);
+    border-radius: 8px;
+}
+
+.featured-facility-card i {
+    display: grid;
+    width: 46px;
+    height: 46px;
+    place-items: center;
+    margin-bottom: 41px;
+    color: var(--color-green);
+    font-size: 20px;
+    background: #f0f8f2;
+    border-radius: 999px;
+}
+
+.featured-facility-card h3 {
+    margin: 0 0 15px;
+    font-size: 19px;
+    font-weight: 800;
+    line-height: 1.1;
+}
+
+.featured-facility-card p {
+    margin: 0;
+    color: #777;
+    font-size: 14px;
+    line-height: 1.55;
+}
+
+.jakarta-programs {
+    margin-top: calc(var(--section-cut-height) * -1);
+    padding: calc(92px + var(--section-cut-height)) 0 111px;
+    background: var(--color-black);
+}
+
+.jakarta-program-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 16px;
+    margin-top: 78px;
+}
+
+.jakarta-program-card {
+    min-height: 230px;
+    padding: 35px 30px 29px;
+    color: var(--color-black);
+    background: var(--color-white);
+    border-left: 4px solid var(--color-green);
+}
+
+.jakarta-program-card h3 {
+    margin: 0 0 24px;
+    font-size: 21px;
+    font-weight: 800;
+    line-height: 1;
+}
+
+.jakarta-program-card p {
+    min-height: 79px;
+    margin: 0 0 25px;
+    color: #7d7d7d;
+    font-size: 14px;
+    line-height: 1.55;
+}
+
+.jakarta-program-card a {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--color-green);
+    font-size: 13px;
+    font-weight: 800;
+}
+
+.jakarta-gallery {
+    position: relative;
+    margin-top: -2px;
+    padding: calc(78px + var(--section-cut-height)) 0 109px;
+    color: var(--color-black);
+    background: var(--color-white);
+}
+
+.jakarta-gallery::before {
+    content: "";
+    position: absolute;
+    top: -2px;
+    left: 0;
+    width: 100%;
+    height: calc(var(--section-cut-height) + 4px);
+    background: var(--color-black);
+    clip-path: polygon(0 0, var(--section-cut-edge) 0, var(--section-cut-width) 100%, 100% 100%, 100% 0);
+}
+
+.jakarta-gallery .section-container,
+.jakarta-cta .section-container {
+    position: relative;
+    z-index: 1;
+}
+
+.jakarta-gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 32px;
+    margin-top: 62px;
+}
+
+.jakarta-gallery-card {
+    overflow: hidden;
+    color: var(--color-white);
+    background: #151515;
+    border-radius: 8px;
+}
+
+.jakarta-gallery-card img {
+    width: 100%;
+    aspect-ratio: 417 / 240;
+    object-fit: cover;
+    border-bottom: 3px solid #35cfd0;
+}
+
+.jakarta-gallery-card div {
+    padding: 25px 25px 27px;
+}
+
+.jakarta-gallery-card h3 {
+    margin: 0 0 13px;
+    font-size: 18px;
+    font-weight: 800;
+    line-height: 1.2;
+}
+
+.jakarta-gallery-card p {
+    margin: 0;
+    color: rgba(255, 255, 255, 0.42);
+    font-size: 14px;
+    line-height: 1.55;
+}
+
+.jakarta-cta {
+    position: relative;
+    margin-top: -2px;
+    padding: calc(74px + var(--section-cut-height)) 0 116px;
+    text-align: center;
+    background: var(--color-black);
+}
+
+.jakarta-cta::before {
+    content: "";
+    position: absolute;
+    top: -2px;
+    left: 0;
+    width: 100%;
+    height: calc(var(--section-cut-height) + 4px);
+    background: var(--color-white);
+    clip-path: polygon(0 0, var(--section-cut-edge) 0, var(--section-cut-width) 100%, 100% 100%, 100% 0);
+}
+
+.jakarta-cta .section-container {
+    display: grid;
+    justify-items: center;
+}
+
+.jakarta-cta h2 {
+    font-size: 47px;
+}
+
+.jakarta-cta p {
+    max-width: 590px;
+    margin: 18px 0 35px;
+    color: rgba(255, 255, 255, 0.42);
+    font-size: 17px;
+    line-height: 1.35;
+}
+
+.jakarta-cta-actions {
+    display: flex;
+    justify-content: center;
+    gap: 18px;
+}
+
+.jakarta-solid-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 45px;
+    padding: 9px 30px;
+    color: var(--color-white);
+    font-size: 14px;
+    font-weight: 800;
+    line-height: 1;
+    background: var(--color-green);
+    border: 1px solid var(--color-green);
+    border-radius: 4px;
+    transition: background 180ms ease, border-color 180ms ease;
+}
+
+.jakarta-solid-button:hover,
+.jakarta-solid-button:focus-visible {
+    background: #3e824d;
+    border-color: #3e824d;
+}
+
+@media (max-width: 1180px) {
+    .jakarta-hero-grid {
+        grid-template-columns: 1fr;
+        gap: 44px;
+    }
+
+    .jakarta-hero-image {
+        max-width: 460px;
+    }
+
+    .jakarta-program-grid,
+    .featured-facility-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .jakarta-hero {
+        padding: 142px 0 72px;
+    }
+
+    .jakarta-breadcrumb {
+        margin-bottom: 34px;
+    }
+
+    .jakarta-hero h1,
+    .jakarta-facilities h2,
+    .jakarta-programs h2,
+    .jakarta-gallery h2 {
+        font-size: 32px;
+    }
+
+    .jakarta-lead {
+        margin-top: 30px;
+        font-size: 16px;
+    }
+
+    .jakarta-stat-grid,
+    .featured-facility-grid,
+    .jakarta-program-grid,
+    .jakarta-gallery-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .jakarta-facilities {
+        padding: 106px 0 138px;
+    }
+
+    .featured-facility-grid,
+    .jakarta-program-grid,
+    .jakarta-gallery-grid {
+        margin-top: 48px;
+    }
+
+    .jakarta-cta h2 {
+        font-size: 36px;
+    }
+
+    .jakarta-cta-actions {
+        flex-wrap: wrap;
+    }
+}
+
+@media (max-width: 576px) {
+    .jakarta-stat,
+    .featured-facility-card,
+    .jakarta-program-card {
+        padding: 24px;
+    }
+
+    .jakarta-program-card p {
+        min-height: 0;
+    }
+}
