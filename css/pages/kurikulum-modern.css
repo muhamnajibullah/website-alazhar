@@ -1,0 +1,368 @@
+.curriculum-page {
+    color: var(--color-white);
+    background: var(--color-black);
+}
+
+.curriculum-header {
+    color: var(--color-white);
+    background: var(--color-black);
+}
+
+.curriculum-hero {
+    padding: 176px 0 100px;
+    background: var(--color-black);
+}
+
+.breadcrumb {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 48px;
+    color: rgba(255, 255, 255, 0.48);
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.breadcrumb a:hover,
+.breadcrumb a:focus-visible {
+    color: var(--color-white);
+}
+
+.breadcrumb span:last-child {
+    color: rgba(255, 255, 255, 0.68);
+}
+
+.curriculum-hero-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(420px, 560px);
+    align-items: start;
+    gap: 84px;
+}
+
+.curriculum-hero-copy h1,
+.curriculum-pillars h2,
+.classroom-section h2,
+.curriculum-benefits h2,
+.curriculum-cta h2 {
+    margin: 0;
+    font-size: 37px;
+    font-weight: 800;
+    line-height: 1;
+}
+
+.curriculum-lead {
+    max-width: 520px;
+    margin: 42px 0 31px;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 22px;
+    line-height: 1.46;
+}
+
+.curriculum-note {
+    max-width: 550px;
+    margin: 0;
+    color: rgba(255, 255, 255, 0.42);
+    font-size: 16px;
+    line-height: 1.58;
+}
+
+.curriculum-hero-image {
+    width: 100%;
+    aspect-ratio: 560 / 400;
+    object-fit: cover;
+    border-radius: 16px;
+}
+
+.curriculum-stat-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+    margin-top: 60px;
+}
+
+.curriculum-stat {
+    min-height: 102px;
+    padding: 25px 28px 24px;
+    background: #151515;
+    border-radius: 8px;
+    border-left: 3px solid var(--color-green);
+}
+
+.curriculum-stat span {
+    display: block;
+    margin-bottom: 8px;
+    color: rgba(255, 255, 255, 0.42);
+    font-size: 12px;
+    font-weight: 800;
+    line-height: 1;
+    text-transform: uppercase;
+}
+
+.curriculum-stat strong {
+    display: block;
+    font-size: 25px;
+    font-weight: 800;
+    line-height: 1;
+}
+
+.curriculum-pillars {
+    position: relative;
+    padding: 122px 0 162px;
+    background: var(--color-green);
+    clip-path: polygon(0 0, var(--section-cut-edge) 0, var(--section-cut-width) var(--section-cut-height), 100% var(--section-cut-height), 100% 100%, var(--section-cut-width) 100%, var(--section-cut-edge) calc(100% - var(--section-cut-height)), 0 calc(100% - var(--section-cut-height)));
+}
+
+.pillar-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 24px;
+    margin-top: 76px;
+}
+
+.pillar-card {
+    min-height: 244px;
+    padding: 32px 31px 29px;
+    color: var(--color-white);
+    background: #101010;
+    border-radius: 8px;
+}
+
+.pillar-card span {
+    display: block;
+    margin-bottom: 29px;
+    color: #35cfd0;
+    font-size: 47px;
+    font-weight: 800;
+    line-height: 1;
+}
+
+.pillar-card h3 {
+    margin: 0 0 15px;
+    font-size: 21px;
+    font-weight: 800;
+    line-height: 1.1;
+}
+
+.pillar-card p {
+    margin: 0;
+    color: rgba(255, 255, 255, 0.48);
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.classroom-section {
+    margin-top: calc(var(--section-cut-height) * -1);
+    padding: calc(96px + var(--section-cut-height)) 0 103px;
+    color: var(--color-black);
+    background: var(--color-white);
+    clip-path: polygon(0 0, var(--section-cut-edge) 0, var(--section-cut-width) var(--section-cut-height), 100% var(--section-cut-height), 100% 100%, 0 100%);
+}
+
+.classroom-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+    margin-top: 76px;
+}
+
+.classroom-card img {
+    width: 100%;
+    aspect-ratio: 411 / 240;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.classroom-card h3 {
+    margin: 18px 0 0;
+    font-size: 18px;
+    font-weight: 800;
+    line-height: 1.2;
+}
+
+.curriculum-benefits {
+    position: relative;
+    margin-top: -2px;
+    padding: calc(88px + var(--section-cut-height)) 0 104px;
+    background: var(--color-black);
+}
+
+.curriculum-benefits::before {
+    content: "";
+    position: absolute;
+    top: -2px;
+    left: 0;
+    width: 100%;
+    height: calc(var(--section-cut-height) + 4px);
+    background: var(--color-white);
+    clip-path: polygon(0 0, var(--section-cut-edge) 0, var(--section-cut-width) 100%, 100% 100%, 100% 0);
+}
+
+.benefit-list {
+    display: grid;
+    gap: 35px;
+    max-width: 1040px;
+    margin: 72px 0 0;
+    padding: 0;
+    list-style: none;
+}
+
+.benefit-list li {
+    position: relative;
+    min-height: 28px;
+    padding-left: 48px;
+    color: rgba(255, 255, 255, 0.72);
+    font-size: 18px;
+    line-height: 1.55;
+}
+
+.benefit-list li::before {
+    content: "\2713";
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: grid;
+    width: 28px;
+    height: 28px;
+    place-items: center;
+    color: var(--color-green);
+    font-size: 16px;
+    font-weight: 800;
+    background: var(--color-white);
+    border-radius: 999px;
+}
+
+.curriculum-cta {
+    padding: 94px 0 116px;
+    text-align: center;
+    background: var(--color-black);
+}
+
+.curriculum-cta .section-container {
+    display: grid;
+    justify-items: center;
+}
+
+.curriculum-cta h2 {
+    font-size: 47px;
+}
+
+.curriculum-cta p {
+    max-width: 440px;
+    margin: 18px 0 35px;
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 17px;
+    line-height: 1.35;
+}
+
+.curriculum-cta-actions {
+    display: flex;
+    justify-content: center;
+    gap: 18px;
+}
+
+.solid-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 45px;
+    padding: 9px 30px;
+    color: var(--color-white);
+    font-size: 14px;
+    font-weight: 800;
+    line-height: 1;
+    background: var(--color-green);
+    border: 1px solid var(--color-green);
+    border-radius: 4px;
+    transition: background 180ms ease, border-color 180ms ease;
+}
+
+.solid-button:hover,
+.solid-button:focus-visible {
+    background: #3e824d;
+    border-color: #3e824d;
+}
+
+@media (max-width: 1180px) {
+    .curriculum-hero-grid {
+        grid-template-columns: 1fr;
+        gap: 44px;
+    }
+
+    .curriculum-hero-image {
+        max-width: 680px;
+    }
+
+    .pillar-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .curriculum-hero {
+        padding: 142px 0 72px;
+    }
+
+    .breadcrumb {
+        margin-bottom: 36px;
+    }
+
+    .curriculum-hero-copy h1,
+    .curriculum-pillars h2,
+    .classroom-section h2,
+    .curriculum-benefits h2 {
+        font-size: 32px;
+    }
+
+    .curriculum-lead {
+        margin-top: 28px;
+        font-size: 18px;
+    }
+
+    .curriculum-stat-grid,
+    .classroom-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .curriculum-pillars {
+        padding: 106px 0 138px;
+    }
+
+    .pillar-grid {
+        grid-template-columns: 1fr;
+        margin-top: 48px;
+    }
+
+    .classroom-grid,
+    .benefit-list {
+        margin-top: 48px;
+    }
+
+    .curriculum-cta h2 {
+        font-size: 36px;
+    }
+
+    .curriculum-cta-actions {
+        flex-wrap: wrap;
+    }
+}
+
+@media (max-width: 576px) {
+    .curriculum-hero {
+        padding-bottom: 62px;
+    }
+
+    .curriculum-stat {
+        padding: 22px;
+    }
+
+    .pillar-card {
+        min-height: 0;
+        padding: 28px 24px;
+    }
+
+    .benefit-list li {
+        padding-left: 42px;
+        font-size: 16px;
+    }
+}

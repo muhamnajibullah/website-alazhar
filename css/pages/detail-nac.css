@@ -1,0 +1,665 @@
+.nac-page {
+    color: var(--color-white);
+    background: var(--color-black);
+}
+
+.nac-header {
+    padding: 166px 0 28px;
+    background: var(--color-black);
+}
+
+.nac-breadcrumb {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 14px;
+    color: rgba(255, 255, 255, 0.38);
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.nac-breadcrumb a:hover,
+.nac-breadcrumb a:focus-visible,
+.nac-breadcrumb span:last-child {
+    color: var(--color-white);
+}
+
+.nac-hero {
+    min-height: 500px;
+    background: url("../../assets/images/nac-detail-hero.png") center / cover no-repeat;
+}
+
+.nac-title-band {
+    padding: 62px 0 88px;
+    background: var(--color-black);
+}
+
+.nac-title-band h1 {
+    margin: 0 0 24px;
+    font-size: 54px;
+    font-weight: 800;
+    line-height: 1;
+}
+
+.nac-title-band span {
+    display: inline-flex;
+    align-items: center;
+    min-height: 32px;
+    padding: 0 18px;
+    font-size: 15px;
+    font-weight: 800;
+    border: 1px solid rgba(255, 255, 255, 0.78);
+    border-radius: 999px;
+}
+
+.nac-about {
+    position: relative;
+    padding: 116px 0 90px;
+    color: var(--color-black);
+    background: var(--color-white);
+}
+
+.nac-cut-white::before {
+    content: "";
+    position: absolute;
+    top: -1px;
+    left: 0;
+    width: 100%;
+    height: 84px;
+    background: var(--color-black);
+    clip-path: polygon(0 0, var(--section-cut-edge) 0, var(--section-cut-width) 100%, 100% 100%, 100% 0, 0 0);
+    pointer-events: none;
+}
+
+.nac-about-grid {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(420px, 0.82fr);
+    gap: 84px;
+    align-items: start;
+}
+
+.nac-about-copy h2,
+.nac-facilities h2,
+.nac-visit-info h2 {
+    margin: 0 0 46px;
+    font-size: 34px;
+    font-weight: 800;
+    line-height: 1;
+}
+
+.nac-about-copy p {
+    max-width: 650px;
+    margin: 0 0 26px;
+    color: #484848;
+    font-size: 17px;
+    line-height: 1.55;
+}
+
+.nac-about-copy p:last-of-type {
+    color: #9a9a9a;
+}
+
+.nac-about-grid > img {
+    width: 100%;
+    aspect-ratio: 560 / 470;
+    object-fit: cover;
+}
+
+.nac-stat-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 54px;
+}
+
+.nac-stat-grid div {
+    padding-top: 18px;
+    border-top: 4px solid var(--color-green);
+}
+
+.nac-stat-grid span {
+    display: block;
+    margin-bottom: 10px;
+    color: #9a9a9a;
+    font-size: 13px;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+.nac-stat-grid strong {
+    color: var(--color-black);
+    font-size: 18px;
+}
+
+.nac-facilities {
+    position: relative;
+    padding: 148px 0 150px;
+    color: var(--color-white);
+    background: var(--color-black);
+}
+
+.nac-facilities::before {
+    content: "";
+    position: absolute;
+    top: -1px;
+    left: 0;
+    width: 100%;
+    height: 84px;
+    background: var(--color-white);
+    clip-path: polygon(0 0, var(--section-cut-edge) 0, var(--section-cut-width) 100%, 100% 100%, 100% 0, 0 0);
+    pointer-events: none;
+}
+
+.nac-facility-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 26px;
+    margin-top: 78px;
+}
+
+.nac-facility-card {
+    min-height: 220px;
+    padding: 32px 30px 30px;
+    color: var(--color-black);
+    background: var(--color-white);
+    border-radius: 8px;
+}
+
+.nac-facility-card span {
+    display: grid;
+    width: 45px;
+    height: 45px;
+    place-items: center;
+    margin-bottom: 30px;
+    color: var(--color-white);
+    font-size: 22px;
+    background: var(--color-green);
+    border-radius: 999px;
+}
+
+.nac-facility-card h3 {
+    margin: 0 0 18px;
+    font-size: 22px;
+    font-weight: 800;
+}
+
+.nac-facility-card p {
+    margin: 0;
+    color: #969696;
+    font-size: 16px;
+    line-height: 1.35;
+}
+
+.nac-visit {
+    padding: 24px 0 132px;
+    background: var(--color-black);
+}
+
+.nac-visit-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(380px, 470px);
+    gap: 96px;
+    align-items: end;
+}
+
+.nac-visit-info dl {
+    display: grid;
+    gap: 29px;
+    margin: 0;
+}
+
+.nac-visit-info dt {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 7px;
+    color: rgba(255, 255, 255, 0.45);
+    font-size: 14px;
+    font-weight: 800;
+}
+
+.nac-visit-info dt i {
+    color: var(--color-green);
+    font-size: 20px;
+}
+
+.nac-visit-info dd {
+    margin: 0 0 0 36px;
+    color: var(--color-white);
+    font-size: 17px;
+    font-weight: 800;
+}
+
+.nac-reservation {
+    padding: 48px 50px;
+    background: #0f5b20;
+    border-radius: 14px;
+}
+
+.nac-reservation h2 {
+    margin: 0 0 18px;
+    font-size: 32px;
+    font-weight: 800;
+}
+
+.nac-reservation p {
+    margin: 0 0 44px;
+    color: rgba(255, 255, 255, 0.72);
+    font-size: 17px;
+    line-height: 1.42;
+}
+
+.nac-primary-button,
+.nac-secondary-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 58px;
+    font-family: inherit;
+    font-size: 16px;
+    font-weight: 800;
+    border-radius: 8px;
+}
+
+.nac-primary-button {
+    color: #0f5b20;
+    background: var(--color-white);
+    border: 0;
+    cursor: pointer;
+}
+
+.nac-secondary-button {
+    margin-top: 18px;
+    color: var(--color-white);
+    border: 2px solid rgba(255, 255, 255, 0.88);
+}
+
+.nac-ticket-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 120;
+    display: none;
+    place-items: center;
+    padding: 32px;
+}
+
+.nac-ticket-modal.is-open {
+    display: grid;
+}
+
+.nac-ticket-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.72);
+}
+
+.nac-ticket-dialog {
+    position: relative;
+    z-index: 1;
+    width: min(520px, 100%);
+    overflow: hidden;
+    color: var(--color-black);
+    background: var(--color-white);
+    border-radius: 8px;
+}
+
+.nac-ticket-dialog header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 24px 26px 22px;
+    color: var(--color-white);
+    background: #0f5b20;
+}
+
+.nac-ticket-dialog h2 {
+    margin: 0 0 5px;
+    font-size: 24px;
+    font-weight: 800;
+}
+
+.nac-ticket-dialog header p {
+    margin: 0;
+    color: rgba(255, 255, 255, 0.74);
+    font-size: 13px;
+}
+
+.nac-ticket-close {
+    display: grid;
+    width: 33px;
+    height: 33px;
+    place-items: center;
+    color: #0f5b20;
+    font-size: 18px;
+    background: var(--color-white);
+    border: 0;
+    border-radius: 999px;
+    cursor: pointer;
+}
+
+.nac-ticket-form {
+    display: grid;
+    gap: 19px;
+    padding: 25px 26px 28px;
+}
+
+.nac-ticket-type {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+.nac-ticket-type label {
+    cursor: pointer;
+}
+
+.nac-ticket-type input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.nac-ticket-type span {
+    display: block;
+    min-height: 62px;
+    padding: 14px 18px;
+    color: #374151;
+    font-size: 13px;
+    font-weight: 800;
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+}
+
+.nac-ticket-type strong {
+    display: block;
+    margin-top: 4px;
+    color: #0f5b20;
+    font-size: 17px;
+}
+
+.nac-ticket-type input:checked + span {
+    background: #eaf7ec;
+    border-color: #0f5b20;
+    box-shadow: inset 0 0 0 1px #0f5b20;
+}
+
+.nac-ticket-form label {
+    display: grid;
+    gap: 9px;
+    color: #222;
+    font-size: 13px;
+    font-weight: 800;
+}
+
+.nac-ticket-form input {
+    width: 100%;
+    min-height: 46px;
+    padding: 0 16px;
+    color: #4b5563;
+    font: inherit;
+    border: 1px solid #dedede;
+    border-radius: 6px;
+}
+
+.nac-ticket-form input::placeholder {
+    color: #a0a0a0;
+}
+
+.nac-date-field {
+    position: relative;
+    display: block;
+}
+
+.nac-date-field input {
+    padding-right: 48px;
+    cursor: pointer;
+}
+
+.nac-date-field input[type="hidden"] {
+    display: none;
+}
+
+.nac-date-field i {
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    color: #777;
+    font-size: 18px;
+    pointer-events: none;
+    transform: translateY(-50%);
+}
+
+.nac-calendar-picker {
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    z-index: 4;
+    display: none;
+    width: min(312px, 100%);
+    padding: 14px;
+    color: #111;
+    background: var(--color-white);
+    border: 1px solid #d8d8d8;
+    border-radius: 8px;
+    box-shadow: 0 18px 36px rgba(0, 0, 0, 0.18);
+}
+
+.nac-date-field.is-open .nac-calendar-picker {
+    display: block;
+}
+
+.nac-calendar-head,
+.nac-calendar-weekdays,
+.nac-calendar-days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 6px;
+}
+
+.nac-calendar-head {
+    grid-template-columns: 32px 1fr 32px;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.nac-calendar-head strong {
+    text-align: center;
+    font-size: 14px;
+}
+
+.nac-calendar-head button {
+    display: grid;
+    width: 32px;
+    height: 32px;
+    place-items: center;
+    color: #0f5b20;
+    font-family: inherit;
+    font-size: 24px;
+    font-weight: 800;
+    line-height: 1;
+    background: #eaf7ec;
+    border: 0;
+    border-radius: 999px;
+    cursor: pointer;
+}
+
+.nac-calendar-weekdays {
+    margin-bottom: 7px;
+    color: #8b8b8b;
+    font-size: 11px;
+    font-weight: 800;
+    text-align: center;
+}
+
+.nac-calendar-days button,
+.nac-calendar-days .is-muted {
+    display: grid;
+    place-items: center;
+    min-height: 34px;
+}
+
+.nac-calendar-days button {
+    color: #333;
+    font: inherit;
+    font-size: 12px;
+    font-weight: 800;
+    background: #f7f7f7;
+    border: 0;
+    border-radius: 7px;
+    cursor: pointer;
+}
+
+.nac-calendar-days button:hover,
+.nac-calendar-days button:focus-visible,
+.nac-calendar-days button.is-selected {
+    color: var(--color-white);
+    background: #0f5b20;
+}
+
+.nac-calendar-days .is-muted {
+    background: transparent;
+}
+
+.nac-ticket-quantity {
+    display: grid;
+    gap: 10px;
+    color: #222;
+    font-size: 13px;
+    font-weight: 800;
+}
+
+.nac-ticket-quantity div {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.nac-ticket-quantity button {
+    display: grid;
+    width: 30px;
+    height: 30px;
+    place-items: center;
+    color: #111;
+    font: inherit;
+    background: var(--color-white);
+    border: 1px solid #d8d8d8;
+    border-radius: 999px;
+    cursor: pointer;
+}
+
+.nac-ticket-total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 18px;
+    color: #9a9a9a;
+    font-size: 14px;
+    border-top: 1px solid #e7e7e7;
+}
+
+.nac-ticket-total strong {
+    color: #0f5b20;
+    font-size: 19px;
+}
+
+.nac-ticket-submit,
+.nac-ticket-cancel {
+    min-height: 47px;
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: 800;
+    border-radius: 7px;
+    cursor: pointer;
+}
+
+.nac-ticket-submit {
+    margin-top: 22px;
+    color: var(--color-white);
+    background: #0f5b20;
+    border: 0;
+}
+
+.nac-ticket-cancel {
+    color: #9a9a9a;
+    background: var(--color-white);
+    border: 1px solid #b8b8b8;
+}
+
+@media (max-width: 1024px) {
+    .nac-about-grid,
+    .nac-visit-grid {
+        grid-template-columns: 1fr;
+        gap: 48px;
+    }
+
+    .nac-facility-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 576px) {
+    .nac-header {
+        padding-top: 126px;
+    }
+
+    .nac-hero {
+        min-height: 300px;
+    }
+
+    .nac-title-band {
+        padding: 42px 0 68px;
+    }
+
+    .nac-title-band h1 {
+        font-size: 38px;
+    }
+
+    .nac-about {
+        padding: 86px 0 72px;
+    }
+
+    .nac-cut-white::before,
+    .nac-facilities::before {
+        height: 54px;
+        clip-path: polygon(0 0, 42% 0, 52% 100%, 100% 100%, 100% 0, 0 0);
+    }
+
+    .nac-about-copy h2,
+    .nac-facilities h2,
+    .nac-visit-info h2 {
+        margin-bottom: 30px;
+        font-size: 29px;
+    }
+
+    .nac-about-grid > img {
+        min-height: 260px;
+    }
+
+    .nac-stat-grid,
+    .nac-facility-grid,
+    .nac-ticket-type {
+        grid-template-columns: 1fr;
+    }
+
+    .nac-facilities {
+        padding: 112px 0 96px;
+    }
+
+    .nac-visit {
+        padding-bottom: 92px;
+    }
+
+    .nac-reservation {
+        padding: 34px 28px;
+    }
+
+    .nac-ticket-modal {
+        padding: 16px;
+    }
+}

@@ -75,15 +75,29 @@
 }
 
 .facility-grid {
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+    display: flex;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
     margin-top: 72px;
+    cursor: grab;
+}
+
+.facility-grid::-webkit-scrollbar {
+    display: none;
 }
 
 .facility-card {
-    min-width: 0;
+    display: flex;
+    flex: 0 0 25%;
+    flex-direction: column;
+    min-width: 25%;
+    max-width: 25%;
     padding: 0 25px 0 24px;
     border-right: 1px solid #d8d8d8;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
 }
 
 .facility-card:first-child {
@@ -91,12 +105,17 @@
 }
 
 .facility-card img {
+    display: block;
     width: 100%;
+    height: 228px;
     aspect-ratio: 279 / 228;
     object-fit: cover;
 }
 
 .facility-card-body {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
     padding: 28px 0 0 24px;
 }
 
@@ -120,11 +139,12 @@
     font-size: 30px;
     font-weight: 800;
     line-height: 0.96;
+    min-height: 58px;
 }
 
 .facility-card p {
     margin: 28px 0 24px;
-    min-height: 76px;
+    min-height: 112px;
     color: #8e8e8e;
     font-size: 22px;
     line-height: 1.2;
@@ -141,6 +161,7 @@
     font-weight: 700;
     border: 1px solid #cfcfcf;
     border-radius: 4px;
+    margin-top: auto;
 }
 
 .facility-detail-button .arrow {
@@ -151,13 +172,10 @@
 }
 
 @media (max-width: 1180px) {
-    .facility-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 48px 0;
-    }
-
-    .facility-card:nth-child(2n) {
-        border-right: 0;
+    .facility-card {
+        flex-basis: 50%;
+        min-width: 50%;
+        max-width: 50%;
     }
 }
 
@@ -192,19 +210,19 @@
     }
 
     .facility-grid {
-        grid-template-columns: 1fr;
         margin-top: 52px;
     }
 
-    .facility-card,
-    .facility-card:first-child {
-        padding: 0 0 34px;
+    .facility-card {
+        flex-basis: 86%;
+        min-width: 86%;
+        max-width: 86%;
+        padding: 0 20px 0 0;
         border-right: 0;
-        border-bottom: 1px solid #d8d8d8;
     }
 
-    .facility-card:last-child {
-        border-bottom: 0;
+    .facility-card img {
+        height: 236px;
     }
 
     .facility-card-body {
