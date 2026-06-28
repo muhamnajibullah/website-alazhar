@@ -187,6 +187,10 @@ function initializeProgramCarousel() {
     }
 
     const slides = Array.from(track.querySelectorAll('.program-slide'));
+    if (slides.length === 0) {
+        return;
+    }
+
     const progressWidths = [84, 88, 92, 100];
     const dots = pagination ? slides.map(function (_, index) {
         const dot = document.createElement('button');
@@ -194,15 +198,13 @@ function initializeProgramCarousel() {
         dot.type = 'button';
         dot.setAttribute('aria-label', 'Buka program ke-' + (index + 1));
         dot.addEventListener('click', function () {
-            slides[index].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
+            scrollToProgramSlide(index);
         });
         pagination.appendChild(dot);
         return dot;
     }) : [];
     let isDragging = false;
-    let isHorizontalDragging = false;
     let dragStartX = 0;
-    let dragStartY = 0;
     let dragStartScrollLeft = 0;
 
     progressBars.forEach(function (progressBar, index) {
@@ -216,9 +218,22 @@ function initializeProgramCarousel() {
      */
     function getActiveSlideIndex() {
         const slideDistances = slides.map(function (slide) {
-            return Math.abs(slide.offsetLeft - track.scrollLeft);
+            return Math.abs((slide.offsetLeft - slides[0].offsetLeft) - track.scrollLeft);
         });
         return slideDistances.indexOf(Math.min.apply(null, slideDistances));
+    }
+
+    /**
+     * Menggeser track ke slide tertentu dengan animasi halus yang stabil.
+     * @param {number} index Index slide tujuan.
+     */
+    function scrollToProgramSlide(index) {
+        const targetIndex = Math.min(Math.max(index, 0), slides.length - 1);
+
+        track.scrollTo({
+            left: slides[targetIndex].offsetLeft - slides[0].offsetLeft,
+            behavior: 'smooth'
+        });
     }
 
     /**
@@ -249,7 +264,7 @@ function initializeProgramCarousel() {
     function scrollProgram(direction) {
         const activeIndex = getActiveSlideIndex();
         const targetIndex = Math.min(Math.max(activeIndex + direction, 0), slides.length - 1);
-        slides[targetIndex].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
+        scrollToProgramSlide(targetIndex);
     }
 
     /**
@@ -261,16 +276,15 @@ function initializeProgramCarousel() {
             return;
         }
 
-        isDragging = true;
-        isHorizontalDragging = event.pointerType === 'mouse';
-        dragStartX = event.clientX;
-        dragStartY = event.clientY;
-        dragStartScrollLeft = track.scrollLeft;
-
-        if (event.pointerType === 'mouse') {
-            track.classList.add('is-dragging');
-            track.setPointerCapture(event.pointerId);
+        if (event.pointerType !== 'mouse') {
+            return;
         }
+
+        isDragging = true;
+        dragStartX = event.clientX;
+        dragStartScrollLeft = track.scrollLeft;
+        track.classList.add('is-dragging');
+        track.setPointerCapture(event.pointerId);
     }
 
     /**
@@ -283,24 +297,6 @@ function initializeProgramCarousel() {
         }
 
         const deltaX = event.clientX - dragStartX;
-        const deltaY = event.clientY - dragStartY;
-        const isTouchPointer = event.pointerType === 'touch' || event.pointerType === 'pen';
-
-        if (isTouchPointer && !isHorizontalDragging) {
-            if (Math.abs(deltaY) > 8 && Math.abs(deltaY) > Math.abs(deltaX)) {
-                isDragging = false;
-                return;
-            }
-
-            if (Math.abs(deltaX) > 8 && Math.abs(deltaX) > Math.abs(deltaY)) {
-                isHorizontalDragging = true;
-                track.classList.add('is-dragging');
-                track.setPointerCapture(event.pointerId);
-            } else {
-                return;
-            }
-        }
-
         event.preventDefault();
         track.scrollLeft = dragStartScrollLeft - deltaX;
     }
@@ -315,11 +311,10 @@ function initializeProgramCarousel() {
         }
 
         isDragging = false;
-        isHorizontalDragging = false;
         track.classList.remove('is-dragging');
         if (track.hasPointerCapture(event.pointerId)) {
             track.releasePointerCapture(event.pointerId);
-            slides[getActiveSlideIndex()].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
+            scrollToProgramSlide(getActiveSlideIndex());
         }
     }
 

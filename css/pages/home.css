@@ -160,8 +160,30 @@
     display: none;
 }
 
+.mobile-menu-brand {
+    display: none;
+}
+
 .mobile-brand-copy {
     display: none;
+}
+
+@media (min-width: 769px) {
+    .mobile-menu-list {
+        display: flex;
+        flex: 1;
+    }
+
+    .mobile-menu-list > ul {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex: 1;
+        gap: 26px;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
 }
 
 .hero-section {
@@ -281,6 +303,8 @@
 }
 
 .reason-card {
+    display: flex;
+    flex-direction: column;
     min-width: 0;
 }
 
@@ -300,6 +324,7 @@
 }
 
 .reason-card h3 {
+    min-height: 58px;
     margin: 32px 0 19px;
     font-size: 29px;
     font-weight: 800;
@@ -307,11 +332,15 @@
 }
 
 .reason-card p {
-    min-height: 70px;
+    min-height: 112px;
     margin: 0 0 28px;
     color: rgba(255, 255, 255, 0.6);
     font-size: 17px;
     line-height: 1.65;
+}
+
+.reason-card .outline-button {
+    margin-top: auto;
 }
 
 .program-section {
@@ -1932,11 +1961,14 @@
 
     .program-slide {
         flex-basis: 100%;
+        scroll-snap-stop: normal;
     }
 
     .program-track {
         gap: 0;
         padding-right: 0;
+        scroll-snap-type: x proximity;
+        touch-action: pan-x pan-y;
     }
 
     .campus-overlay {
