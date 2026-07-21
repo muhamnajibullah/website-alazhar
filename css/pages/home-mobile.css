@@ -1,0 +1,630 @@
+/* Mobile homepage is matched to the 390 px design in design/21 july 22026/home.png. */
+@media (max-width: 768px) {
+    :root {
+        --home-mobile-gutter: 20px;
+    }
+
+    .site-header,
+    .site-header .hero-section,
+    main,
+    .site-footer {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .section-container,
+    .campus-section .section-container,
+    .footer-container {
+        width: calc(100% - (var(--home-mobile-gutter) * 2));
+        max-width: none;
+    }
+
+    /* Header and hero */
+    .main-nav,
+    .main-nav:not(.is-open):not(.is-closing),
+    .main-nav.is-open.is-closing {
+        width: 100%;
+        height: 72px;
+        min-height: 72px;
+        padding: 0 20px;
+    }
+
+    .main-nav .brand-logo,
+    .main-nav:not(.is-open) .brand-logo {
+        height: 72px;
+    }
+
+    .main-nav .brand-logo img,
+    .main-nav:not(.is-open) .brand-logo img {
+        width: 35px;
+        height: 35px;
+    }
+
+    .main-nav .brand-logo::after,
+    .main-nav:not(.is-open) .brand-logo::after {
+        font-size: 18px;
+        font-weight: 600;
+    }
+
+    .hero-section {
+        min-height: 800px;
+        border: 0;
+        border-radius: 0;
+        background-position: center, center 38%;
+    }
+
+    .hero-section::after {
+        content: "";
+        position: absolute;
+        inset: auto 0 0;
+        z-index: 1;
+        height: 310px;
+        background: linear-gradient(180deg, transparent, rgba(0, 0, 0, .78) 55%, #282828 100%);
+        pointer-events: none;
+    }
+
+    .hero-content {
+        right: 20px;
+        bottom: 39px;
+        left: 20px;
+        z-index: 2;
+    }
+
+    .eyebrow {
+        margin-bottom: 22px;
+        padding: 7px 12px;
+        font-size: 11px;
+        border-radius: 5px;
+    }
+
+    .hero-content h1 {
+        max-width: 330px;
+        margin-bottom: 18px;
+        font-size: 34px;
+        line-height: .94;
+    }
+
+    .hero-description {
+        max-width: 335px;
+        font-size: 13px;
+        line-height: 1.25;
+    }
+
+    .hero-actions {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 12px;
+        margin-top: 22px;
+    }
+
+    .hero-action {
+        width: 100%;
+        min-height: 52px;
+        font-size: 12px;
+        border-radius: 5px;
+    }
+
+    /* Statistics */
+    .about-section {
+        min-height: 448px;
+        margin-top: 0;
+        padding: 43px 0 32px;
+        background: #f7f9fd;
+        clip-path: none;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+        gap: 23px;
+        margin: 0;
+    }
+
+    .stat-item {
+        min-height: 69px;
+        padding-left: 15px;
+        border-left: 2px solid #8e9299;
+    }
+
+    .stat-item strong {
+        margin-bottom: 8px;
+        font-size: 30px;
+        line-height: .9;
+    }
+
+    .stat-item p {
+        max-width: none;
+        font-size: 11px;
+        line-height: 1.3;
+    }
+
+    /* Four principle cards */
+    .reasons-section {
+        min-height: 1527px;
+        margin-top: 0;
+        padding: 25px 0 69px;
+        color: #161b22;
+        background: #f7f9fd;
+        clip-path: none;
+    }
+
+    .reasons-section .section-heading,
+    .campus-section .section-heading,
+    .program-section .section-heading {
+        max-width: 350px;
+        margin-inline: auto;
+        text-align: center;
+    }
+
+    .section-badge {
+        margin-bottom: 11px;
+        padding: 5px 11px;
+        font-size: 9px;
+        line-height: 1;
+        border-radius: 999px;
+    }
+
+    .section-heading h2,
+    .reasons-section h2,
+    .program-section h2,
+    .campus-section h2 {
+        font-size: 25px;
+        line-height: .98;
+    }
+
+    .reasons-section .section-heading h2 {
+        font-size: 22px;
+    }
+
+    .section-heading > p:not(.section-badge) {
+        max-width: 330px;
+        margin: 14px auto 0;
+        font-size: 11px;
+        line-height: 1.27;
+    }
+
+    .reason-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+        margin-top: 27px;
+    }
+
+    .reason-card {
+        position: relative;
+        display: block;
+        min-height: 0;
+        height: 292px;
+        padding: 0 0 15px;
+        overflow: hidden;
+        color: #161b22;
+        background: #fff;
+        border: 1px solid #e5eaf0;
+        border-radius: 12px;
+        box-shadow: 0 8px 20px rgba(31, 42, 56, .07);
+    }
+
+    .reason-number {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 2;
+        width: 78px;
+        height: 60px;
+        margin: 0;
+        display: grid;
+        place-items: center;
+        color: #fff;
+        font-size: 31px;
+        border-radius: 12px 0 12px 0;
+    }
+
+    .reason-card:nth-child(1) .reason-number { background: #27c985; }
+    .reason-card:nth-child(2) .reason-number { background: #ffb51b; }
+    .reason-card:nth-child(3) .reason-number { background: #3991da; }
+    .reason-card:nth-child(4) .reason-number { background: #c653e5; }
+
+    .reason-card img {
+        display: block;
+        width: 100%;
+        height: 155px;
+        aspect-ratio: auto;
+        object-fit: cover;
+        border-radius: 0;
+    }
+
+    .reason-icon {
+        display: none;
+    }
+
+    .reason-card h3 {
+        min-height: 0;
+        margin: 15px 15px 9px;
+        font-size: 14px;
+        line-height: 1.05;
+    }
+
+    .reason-card p {
+        min-height: 0;
+        margin: 0 15px 10px;
+        color: #737b87;
+        font-size: 10px;
+        line-height: 1.25;
+    }
+
+    .reason-card .outline-button {
+        min-height: 16px;
+        margin: 0 15px;
+        padding: 0;
+        color: #2eac62;
+        font-size: 9px;
+        border: 0;
+    }
+
+    /* Event/program carousel. Keep a visible gap between its content blocks. */
+    .program-section {
+        min-height: 720px;
+        padding: 37px 0 30px;
+        background: #282828;
+    }
+
+    .program-section::before {
+        display: none;
+    }
+
+    .program-section::after {
+        top: 48px;
+        right: -104px;
+        width: 235px;
+        height: 235px;
+        opacity: .22;
+    }
+
+    .program-section .section-heading > p:not(.section-badge) {
+        color: #9da0a3;
+    }
+
+    .program-section .section-heading h2 {
+        font-size: 20px;
+        line-height: 1;
+    }
+
+    .program-carousel {
+        margin-top: 20px;
+    }
+
+    .program-track {
+        gap: 16px;
+    }
+
+    .program-slide {
+        flex-basis: calc(100% - 0px);
+        min-width: 100%;
+    }
+
+    .program-slide-timeline {
+        display: block;
+        height: 14px;
+        margin: 0 12px 22px;
+    }
+
+    .timeline-bar {
+        top: 5px;
+        height: 3px;
+    }
+
+    .timeline-line-progress::before {
+        z-index: 2;
+        width: 14px;
+        height: 14px;
+        box-sizing: border-box;
+        border-width: 3px;
+    }
+
+    .program-slide-body {
+        grid-template-columns: 1fr;
+        align-items: start;
+        gap: 13px;
+    }
+
+    .program-main-image {
+        height: 166px;
+        aspect-ratio: auto;
+        border-radius: 6px;
+    }
+
+    .program-copy {
+        padding: 0;
+    }
+
+    .age-badge {
+        margin-bottom: 8px;
+        padding: 5px 9px;
+        font-size: 8px;
+        border-radius: 4px;
+    }
+
+    .program-copy h3 {
+        min-height: 0;
+        margin-bottom: 12px;
+        font-size: 20px;
+        line-height: 1;
+    }
+
+    .program-copy p {
+        min-height: 0;
+        margin-bottom: 16px;
+        font-size: 10px;
+        line-height: 1.3;
+    }
+
+    .program-copy .outline-button {
+        min-height: 30px;
+        padding: 0 13px;
+        font-size: 9px;
+        border-radius: 4px;
+    }
+
+    .program-carousel-controls {
+        gap: 12px;
+        margin-top: 18px;
+    }
+
+    .program-carousel-arrow {
+        width: 18px;
+        height: 18px;
+        font-size: 20px;
+    }
+
+    .program-pagination { gap: 8px; }
+    .program-dot { width: 7px; height: 7px; }
+    .program-dot.is-active { width: 28px; }
+
+    /* Campuses */
+    .campus-section {
+        min-height: 1382px;
+        margin-top: 0;
+        padding: 36px 0 39px;
+        background: #f7f9fd;
+        clip-path: none;
+    }
+
+    .campus-grid {
+        grid-template-columns: 1fr;
+        gap: 28px;
+        margin-top: 25px;
+    }
+
+    .campus-section .campus-card {
+        grid-template-rows: 177px 1fr;
+        min-height: 0;
+        height: 545px;
+        border: 1px solid #e0e5ec;
+        border-radius: 11px;
+        box-shadow: 0 7px 17px rgba(31, 42, 56, .07);
+    }
+
+    .campus-section .campus-card::before {
+        height: 177px;
+    }
+
+    .campus-section .campus-card img,
+    .campus-section .campus-card:nth-child(2) img {
+        height: 177px;
+    }
+
+    .campus-section .campus-content {
+        min-height: 0;
+        padding: 19px 18px 18px;
+    }
+
+    .campus-section .campus-levels {
+        gap: 8px;
+        margin-bottom: 10px;
+        font-size: 11px;
+    }
+
+    .campus-section .level-sparkle {
+        width: 14px;
+        height: 14px;
+        flex-basis: 14px;
+    }
+
+    .campus-section .level-sparkle::before,
+    .campus-section .level-sparkle::after {
+        width: 5px;
+        height: 5px;
+    }
+
+    .campus-section .level-sparkle::before,
+    .campus-section .level-sparkle::after { box-shadow: 0 8px 0 #f8c62e; }
+
+    .campus-section .campus-content h3 {
+        font-size: 25px;
+    }
+
+    .campus-section .campus-content > p:not(.campus-levels) {
+        min-height: 0;
+        margin: 12px 0 17px;
+        font-size: 11px;
+        line-height: 1.32;
+    }
+
+    .campus-section .campus-feature-grid {
+        grid-template-columns: 1fr;
+        gap: 9px;
+        min-height: 0;
+        margin-bottom: 17px;
+    }
+
+    .campus-section .campus-feature-grid span {
+        grid-template-columns: 30px minmax(0, 1fr);
+        gap: 10px;
+        min-height: 36px;
+        font-size: 9px;
+    }
+
+    .campus-section .campus-feature-grid i {
+        width: 30px;
+        height: 30px;
+        font-size: 16px;
+    }
+
+    .campus-section .campus-button {
+        min-height: 35px;
+        padding: 0 12px;
+        font-size: 10px;
+        border-radius: 5px;
+    }
+
+    .campus-section .campus-button i {
+        width: 23px;
+        height: 23px;
+    }
+
+    /* Admission and footer */
+    .cta-section {
+        min-height: 550px;
+        padding: 38px 0 0;
+        background-position: center 42%;
+    }
+
+    .cta-section::before {
+        display: none;
+    }
+
+    .cta-content {
+        width: calc(100% - 40px);
+        margin-top: 0;
+    }
+
+    .cta-content h2 {
+        margin-bottom: 20px;
+        font-size: 25px;
+        line-height: 1.02;
+    }
+
+    .cta-content p {
+        max-width: 345px;
+        margin-bottom: 20px;
+        font-size: 11px;
+        line-height: 1.32;
+    }
+
+    .cta-actions {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .cta-actions .outline-button {
+        width: 100%;
+        min-height: 34px;
+        font-size: 10px;
+        border-radius: 4px;
+    }
+
+    .site-footer {
+        min-height: 710px;
+        padding: 44px 0 52px;
+        background: #000;
+    }
+
+    .site-footer::after {
+        content: "© 2026 Al-Azhar Kelapa Gading. All rights reserved.";
+        display: block;
+        width: calc(100% - 40px);
+        margin: 42px auto 0;
+        color: #555;
+        font-size: 8px;
+        line-height: 1.3;
+    }
+
+    .footer-container {
+        grid-template-columns: 1fr;
+        gap: 27px;
+    }
+
+    .site-footer .footer-container-unified {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .site-footer .footer-container-unified .footer-logo-row {
+        align-items: center;
+        margin-bottom: 14px;
+    }
+
+    .site-footer .footer-container-unified .footer-logo-row img {
+        width: 20px;
+        height: 20px;
+        padding: 2px;
+    }
+
+    .site-footer .footer-container-unified .footer-logo-row h2 {
+        font-size: 13px;
+        line-height: 1;
+    }
+
+    .site-footer .footer-container-unified .footer-logo-row h2 br {
+        display: none;
+    }
+
+    .site-footer .footer-container-unified .footer-contact-list {
+        gap: 4px;
+        margin-bottom: 13px;
+    }
+
+    .site-footer .footer-container-unified .footer-contact-list address,
+    .site-footer .footer-container-unified .footer-contact-list a {
+        grid-template-columns: 13px minmax(0, 1fr);
+        gap: 8px;
+        font-size: 9px;
+        line-height: 1.35;
+    }
+
+    .site-footer .footer-container-unified .footer-column {
+        gap: 13px;
+    }
+
+    .site-footer .footer-container-unified .footer-column h2 {
+        margin-bottom: 4px;
+        font-size: 12px;
+    }
+
+    .site-footer .footer-container-unified .footer-column a {
+        font-size: 9px;
+        line-height: 1.3;
+    }
+
+    .footer-logo-row {
+        gap: 11px;
+        margin-bottom: 18px;
+    }
+
+    .footer-logo-row img {
+        width: 20px;
+        height: 20px;
+    }
+
+    .footer-logo-row h2,
+    .footer-column h2 {
+        font-size: 13px;
+    }
+
+    .footer-brand address {
+        margin-bottom: 18px;
+        font-size: 9px;
+        line-height: 1.45;
+    }
+
+    .social-links { gap: 19px; }
+    .social-links a { font-size: 13px; }
+    .footer-column { gap: 8px; }
+    .footer-column a { font-size: 9px; }
+}
+
+/* Keep the shared copyright text encoding-safe on the homepage override. */
+@media (max-width: 768px) {
+    .site-footer.site-footer::after {
+        content: "\00A9  2026 Al-Azhar Kelapa Gading. All rights reserved.";
+    }
+}

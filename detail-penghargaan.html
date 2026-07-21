@@ -4,139 +4,73 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Detail penghargaan Olimpiade Matematika Nasional Al-Azhar Kelapa Gading.">
-    <link rel="icon" type="image/svg+xml" href="assets/images/logo al azhar.webp" />
+    <link rel="icon" type="image/webp" href="assets/images/logo al azhar.webp">
     <title>Detail Penghargaan - Al-Azhar Kelapa Gading</title>
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.6.0/fonts/remixicon.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/components.css">
     <link rel="stylesheet" href="css/pages/home.css">
+    <!-- Gaya dasar detail dipertahankan untuk konsistensi komponen bersama. -->
     <link rel="stylesheet" href="css/pages/detail-insider.css">
+    <link rel="stylesheet" href="css/pages/detail-penghargaan.css">
     <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/pages/mobile-pages-21-july.css">
 </head>
-<body class="detail-page">
-    <header class="detail-header" id="top">
-        <nav class="main-nav" aria-label="Navigasi utama">
-            <a class="brand-logo" href="index.html" aria-label="Al-Azhar Kelapa Gading">
-                <img src="assets/images/logo al azhar.webp" alt="Logo Al-Azhar Kelapa Gading">
-            </a>
-            <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-menu">
-                <span></span>
-                <span></span>
-                <span></span>
-                <span class="screen-reader-only">Buka menu navigasi</span>
-            </button>
-            <ul class="nav-menu" id="primary-menu">
-                <li><a href="index.html">Home</a></li>
-                <li class="nav-dropdown">
-                    <button class="nav-dropdown-toggle is-active" type="button" aria-expanded="false">
-                        Profile <span class="chevron"></span>
-                    </button>
-                    <ul class="dropdown-menu profile-dropdown-menu">
-                        <li><a href="profile.html">Penghargaan dan Event</a></li>
-                        <li><a href="about.html">Tentang Kami</a></li>
-                        <li><a href="vision.html">Visi &amp; Misi Yayasan</a></li>
-                        <li><a href="https://wa.me/6281519776556">Hubungi Kami</a></li>
-                    </ul>
-                </li>
-                <li class="nav-dropdown nav-dropdown-facility">
-                    <button class="nav-dropdown-toggle" type="button" aria-expanded="false">
-                        Facility <span class="chevron"></span>
-                    </button>
-                    <ul class="dropdown-menu facility-dropdown-menu">
-                        <li><a href="program.html">Program Kami</a></li>
-                        <li><a href="facility.html">Fasilitas Sekolah</a></li>
-                    </ul>
-                </li>
-                <li><a class="join-link" href="https://wa.me/6281519776556">Join Alazka</a></li>
-            </ul>
-        </nav>
+<body class="detail-page award-page">
+    <header class="detail-header award-header" id="top">
+        <!-- Navbar dibentuk oleh main.js agar konsisten di seluruh halaman. -->
+        <nav class="main-nav" aria-label="Navigasi utama"></nav>
 
+        <!-- Breadcrumb menunjukkan posisi pengguna pada halaman penghargaan. -->
         <div class="section-container">
             <nav class="detail-breadcrumb" aria-label="Breadcrumb">
                 <a href="profile.html">Penghargaan &amp; Event</a>
-                <span aria-hidden="true">›</span>
-                <a href="profile.html#achievements">Penghargaan Alazka</a>
-                <span aria-hidden="true">›</span>
+                <span aria-hidden="true">&rsaquo;</span>
+                <a href="penghargaan.html">Penghargaan Alazka</a>
+                <span aria-hidden="true">&rsaquo;</span>
                 <span>Detail Penghargaan</span>
             </nav>
         </div>
     </header>
 
     <main>
+        <!-- Gambar penghargaan yang telah tersedia tetap digunakan sebagai hero. -->
         <section class="award-detail-hero" aria-label="Foto penerima penghargaan"></section>
 
+        <!-- Identitas penghargaan dan penerima. -->
         <section class="award-detail-title section-container" aria-labelledby="award-detail-title">
-            <h1 id="award-detail-title">Olimpiade Matematika Nasional</h1>
+            <h1 id="award-detail-title">Duta Genre Putri Jakarta Utara 2026</h1>
             <div class="award-title-meta">
-                <strong>Annisa Ahlan</strong>
-                <span>Kelas XII A</span>
-                <span class="achievement-badge"><i class="ri-medal-line" aria-hidden="true"></i> Peringkat 1 Nasional</span>
+                <strong>Myiesha Sabrina Adnan</strong>
+                <span class="achievement-badge"><i class="ri-medal-line" aria-hidden="true"></i>Peringkat 3</span>
             </div>
         </section>
 
+        <!-- Deskripsi prestasi dan informasi penyelenggaraan. -->
         <section class="award-detail-content">
             <div class="section-container award-detail-grid">
                 <article class="award-detail-copy">
                     <h2>Tentang Prestasi Ini</h2>
-                    <p>Annisa Ahlan meraih Peringkat 1 Olimpiade Matematika Nasional tingkat SMA, mewakili Al-Azhar Kelapa Gading dalam kompetisi bergengsi yang diikuti ribuan siswa dari seluruh Indonesia.</p>
-                    <p>Pencapaian ini merupakan hasil dari dedikasi dan bimbingan intensif oleh guru-guru Al-Azhar selama 3 tahun terakhir. Annisa menunjukkan kemampuan luar biasa dalam pemecahan masalah kompleks dan logika matematika tingkat lanjut.</p>
-                    <div class="award-summary">
-                        <div><span>Tingkat</span><strong>Nasional</strong></div>
-                        <div><span>Bidang</span><strong>Matematika</strong></div>
-                        <div><span>Tahun</span><strong>2025</strong></div>
-                    </div>
+                    <p>Myiesha Sabrina Adnan menorehkan prestasi membanggakan dengan meraih Juara 3 Putri Duta Genre Jakarta Utara 2026. Dalam ajang yang berfokus pada pengembangan karakter, kepemimpinan, dan edukasi remaja ini, Myiesha berhasil menunjukkan kompetensi, kepercayaan diri, serta kemampuan menjadi teladan bagi generasi muda.</p>
+                    <p>Atas pencapaian tersebut, Myiesha akan mewakili Jakarta Utara pada seleksi Duta Genre tingkat Provinsi DKI Jakarta, sekaligus membawa nama baik Alazka Islamic Senior High School di tingkat yang lebih tinggi.</p>
                 </article>
 
-                <aside class="award-info-panel" aria-label="Detail penghargaan">
-                    <h2>Detail Penghargaan</h2>
+                <aside class="award-info-panel" aria-labelledby="award-info-title">
+                    <h2 id="award-info-title">Detail Penghargaan</h2>
                     <ul>
-                        <li><i class="ri-medal-line" aria-hidden="true"></i><span>Olimpiade Matematika Nasional 2025</span></li>
-                        <li><i class="ri-user-line" aria-hidden="true"></i><span>Annisa Ahlan, Kelas XII A</span></li>
-                        <li><i class="ri-calendar-line" aria-hidden="true"></i><span>15 Maret 2025</span></li>
-                        <li><i class="ri-map-pin-line" aria-hidden="true"></i><span>Jakarta Convention Center</span></li>
-                        <li><i class="ri-graduation-cap-line" aria-hidden="true"></i><span>Pembimbing: Ibu Ratna Dewi, S.Pd.</span></li>
+                        <li><i class="ri-medal-line" aria-hidden="true"></i><span>Juara 3 Putri Duta Genre Jakarta Utara 2026</span></li>
+                        <li><i class="ri-user-line" aria-hidden="true"></i><span>Myiesha Sabrina Adnan</span></li>
+                        <li><i class="ri-calendar-line" aria-hidden="true"></i><span>Tahun 2026</span></li>
+                        <li><i class="ri-map-pin-line" aria-hidden="true"></i><span>Jakarta Utara</span></li>
                     </ul>
                 </aside>
-                <a class="detail-outline-button" href="profile.html#achievements">Lihat Semua Penghargaan</a>
             </div>
         </section>
     </main>
 
-    <footer class="site-footer" id="contact">
-        <div class="footer-container">
-            <section class="footer-brand" aria-labelledby="footer-brand-title">
-                <div class="footer-logo-row">
-                    <img src="assets/images/logo al azhar.webp" alt="Logo Al-Azhar Kelapa Gading">
-                    <h2 id="footer-brand-title">Al Azhar Kelapa Gading</h2>
-                </div>
-                <address>Jl. Raya Bulevar Timur, Kelurahan Pegangsaan Dua,<br>Kecamatan Kelapa Gading, Kota Jakarta Utara,<br>Daerah Khusus Ibukota Jakarta 14250</address>
-                <ul class="social-links" aria-label="Media sosial">
-                    <li><a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a></li>
-                    <li><a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin" aria-hidden="true"></i></a></li>
-                    <li><a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook" aria-hidden="true"></i></a></li>
-                    <li><a href="mailto:info@alazka.sch.id" aria-label="Email"><i class="fa-solid fa-envelope" aria-hidden="true"></i></a></li>
-                    <li><a href="tel:+62214500000" aria-label="Telepon"><i class="fa-solid fa-phone" aria-hidden="true"></i></a></li>
-                </ul>
-            </section>
-            <section class="footer-column" aria-labelledby="footer-home-title">
-                <h2 id="footer-home-title">Home</h2>
-                <a href="profile.html#events">Events</a>
-                <a href="profile.html#achievements">Achievements</a>
-            </section>
-            <section class="footer-column" aria-labelledby="footer-profile-title">
-                <h2 id="footer-profile-title">Profile</h2>
-                <a href="https://wa.me/6281519776556">Contact Us</a>
-                <a href="vision.html">Vision</a>
-                <a href="vision.html">Mission</a>
-            </section>
-            <section class="footer-column" aria-labelledby="footer-facility-title">
-                <h2 id="footer-facility-title">Facility</h2>
-                <a href="about.html">About Us</a>
-                <a href="facility.html">Our Facility</a>
-            </section>
-        </div>
-    </footer>
+    <!-- Footer dibentuk oleh main.js agar sama dengan halaman lainnya. -->
+    <footer class="site-footer" id="contact"></footer>
 
     <script src="js/main.js"></script>
 </body>

@@ -13,8 +13,9 @@
     <link rel="stylesheet" href="css/pages/home.css">
     <link rel="stylesheet" href="css/pages/facility.css">
     <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/pages/mobile-pages-21-july.css">
 </head>
-<body>
+<body class="facility-list-page">
     <header class="facility-header" id="top">
         <nav class="main-nav" aria-label="Navigasi utama">
             <a class="brand-logo" href="index.html" aria-label="Al-Azhar Kelapa Gading">
@@ -36,7 +37,7 @@
                         <li><a href="profile.html">Penghargaan dan Event</a></li>
                         <li><a href="about.html">Tentang Kami</a></li>
                         <li><a href="vision.html">Visi &amp; Misi Yayasan</a></li>
-                        <li><a href="https://wa.me/6281519776556">Hubungi Kami</a></li>
+                        <li><a href="contact.html">Hubungi Kami</a></li>
                     </ul>
                 </li>
                 <li class="nav-dropdown nav-dropdown-facility">
@@ -48,7 +49,7 @@
                         <li><a href="facility.html">Fasilitas Sekolah</a></li>
                     </ul>
                 </li>
-                <li><a class="join-link" href="https://wa.me/6281519776556">Join Alazka</a></li>
+                <li><a class="join-link" href="https://wa.me/6281210300813">Join Alazka</a></li>
             </ul>
         </nav>
 
@@ -62,120 +63,95 @@
     <main>
         <section class="facility-intro clipped-white" aria-labelledby="facility-intro-title">
             <div class="section-container facility-intro-grid">
-                <h2 id="facility-intro-title">Fasilitas Pendukung<br>Pembelajaran</h2>
+                <!-- Pill Penjelasan menggunakan standar ukuran dan warna halaman lainnya. -->
+                <div class="facility-intro-heading">
+                    <p class="section-badge facility-intro-badge">Penjelasan</p>
+                    <h2 id="facility-intro-title">Fasilitas Pendukung<br>Pembelajaran</h2>
+                </div>
                 <p>Beragam unit strategis yang hadir untuk memperluas dampak pendidikan dan pengembangan di berbagai bidang.</p>
             </div>
         </section>
 
         <section class="facility-list" aria-labelledby="facility-list-title">
             <div class="section-container">
-                <h2 id="facility-list-title">Fasilitas<br>Unggulan</h2>
+                <!-- Heading Fasilitas Unggulan mengikuti komposisi pill, judul, dan deskripsi referensi. -->
+                <div class="section-heading facility-list-heading">
+                    <p class="section-badge">Fasilitas Unggulan</p>
+                    <h2 id="facility-list-title">Fasilitas Lengkap untuk Pengalaman<br>Belajar yang <span>Berkualitas</span></h2>
+                    <p>Setiap fasilitas dirancang untuk mendukung proses pembelajaran, pengembangan karakter, dan kesejahteraan seluruh warga sekolah.</p>
+                </div>
+
+                <!-- Delapan kartu fasilitas disusun dalam grid 4x2 sesuai referensi. -->
                 <div class="facility-grid">
                     <article class="facility-card">
-                        <img src="assets/images/fasilitas-1.webp" alt="Masjid sekolah Al-Azhar Kelapa Gading">
+                        <img src="assets/images/masjid.webp" alt="Masjid sekolah Al-Azhar Kelapa Gading">
                         <div class="facility-card-body">
                             <span class="facility-category">Ibadah</span>
                             <h3>Masjid<br>Sekolah</h3>
-                            <p>Membekali siswa menghadapi dunia yang terus berkembang</p>
+                            <p>Menumbuhkan iman dan akhlak melalui lingkungan ibadah yang nyaman.</p>
                             <a class="facility-detail-button" href="detail-fasilitas-masjid.html">Pelajari Selengkapnya <span class="arrow"></span></a>
                         </div>
                     </article>
                     <article class="facility-card">
-                        <img src="assets/images/fasilitas-2.webp" alt="Kolam renang sekolah Al-Azhar Kelapa Gading">
+                        <img src="assets/images/kolren.webp" alt="Kolam renang sekolah Al-Azhar Kelapa Gading">
                         <div class="facility-card-body">
                             <span class="facility-category">Olahraga</span>
                             <h3>Kolam<br>Renang</h3>
-                            <p>Membekali siswa menghadapi dunia yang terus berkembang</p>
+                            <p>Mendukung kebugaran dan keterampilan berenang dengan aman.</p>
                             <a class="facility-detail-button" href="#top">Pelajari Selengkapnya <span class="arrow"></span></a>
                         </div>
                     </article>
                     <article class="facility-card">
-                        <img src="assets/images/fasilitas-3.webp" alt="Lapangan basket sekolah Al-Azhar Kelapa Gading">
+                        <img src="assets/images/lapor.webp" alt="Lapangan olahraga Al-Azhar Kelapa Gading">
                         <div class="facility-card-body">
                             <span class="facility-category">Olahraga</span>
-                            <h3>Lapangan<br>Basket</h3>
-                            <p>Membekali siswa menghadapi dunia yang terus berkembang</p>
+                            <h3>Lapangan<br>Olahraga</h3>
+                            <p>Ruang aktif untuk berolahraga dan membangun sportivitas.</p>
                             <a class="facility-detail-button" href="#top">Pelajari Selengkapnya <span class="arrow"></span></a>
                         </div>
                     </article>
                     <article class="facility-card">
-                        <img src="assets/images/fasilitas-4.webp" alt="Ruang kesehatan sekolah Al-Azhar Kelapa Gading">
-                        <div class="facility-card-body">
-                            <span class="facility-category">Kesehatan</span>
-                            <h3>Ruang<br>Kesehatan</h3>
-                            <p>Membekali siswa menghadapi dunia yang terus berkembang</p>
-                            <a class="facility-detail-button" href="#top">Pelajari Selengkapnya <span class="arrow"></span></a>
-                        </div>
-                    </article>
-                    <article class="facility-card">
-                        <img src="assets/images/facility-kantin-back.png" alt="Kantin anak Al-Azhar Kelapa Gading">
-                        <div class="facility-card-body">
-                            <span class="facility-category">Kenyamanan</span>
-                            <h3>Kantin<br>Anak</h3>
-                            <p>Area makan yang bersih dan nyaman untuk mendukung kebutuhan siswa selama beraktivitas.</p>
-                            <a class="facility-detail-button" href="#top">Pelajari Selengkapnya <span class="arrow"></span></a>
-                        </div>
-                    </article>
-                    <article class="facility-card">
-                        <img src="assets/images/facility-studio-musik-back.png" alt="Studio musik Al-Azhar Kelapa Gading">
-                        <div class="facility-card-body">
-                            <span class="facility-category">Seni</span>
-                            <h3>Studio<br>Musik</h3>
-                            <p>Ruang kreatif untuk mengembangkan bakat musik, kolaborasi, dan ekspresi seni siswa.</p>
-                            <a class="facility-detail-button" href="#top">Pelajari Selengkapnya <span class="arrow"></span></a>
-                        </div>
-                    </article>
-                    <article class="facility-card">
-                        <img src="assets/images/facility-perpus-back.png" alt="Perpustakaan anak Al-Azhar Kelapa Gading">
-                        <div class="facility-card-body">
-                            <span class="facility-category">Literasi</span>
-                            <h3>Perpustakaan<br>Anak</h3>
-                            <p>Tempat membaca yang hangat untuk menumbuhkan minat literasi dan rasa ingin tahu siswa.</p>
-                            <a class="facility-detail-button" href="#top">Pelajari Selengkapnya <span class="arrow"></span></a>
-                        </div>
-                    </article>
-                    <article class="facility-card">
-                        <img src="assets/images/facility-lab-komputer-back.png" alt="Laboratorium komputer Al-Azhar Kelapa Gading">
-                        <div class="facility-card-body">
-                            <span class="facility-category">Teknologi</span>
-                            <h3>Laboratorium<br>Komputer</h3>
-                            <p>Fasilitas digital untuk melatih keterampilan teknologi, riset, dan pembelajaran interaktif.</p>
-                            <a class="facility-detail-button" href="#top">Pelajari Selengkapnya <span class="arrow"></span></a>
-                        </div>
-                    </article>
-                    <article class="facility-card">
-                        <img src="assets/images/facility-lab-sains-back.png" alt="Laboratorium sains Al-Azhar Kelapa Gading">
-                        <div class="facility-card-body">
-                            <span class="facility-category">Sains</span>
-                            <h3>Laboratorium<br>Sains</h3>
-                            <p>Ruang eksperimen untuk mengasah observasi, praktik ilmiah, dan pemecahan masalah.</p>
-                            <a class="facility-detail-button" href="#top">Pelajari Selengkapnya <span class="arrow"></span></a>
-                        </div>
-                    </article>
-                    <article class="facility-card">
-                        <img src="assets/images/facility-greenhouse-back.png" alt="Greenhouse Al-Azhar Kelapa Gading">
-                        <div class="facility-card-body">
-                            <span class="facility-category">Lingkungan</span>
-                            <h3>Green<br>House</h3>
-                            <p>Media belajar alam untuk mengenalkan budidaya tanaman, kepedulian lingkungan, dan riset hijau.</p>
-                            <a class="facility-detail-button" href="#top">Pelajari Selengkapnya <span class="arrow"></span></a>
-                        </div>
-                    </article>
-                    <article class="facility-card">
-                        <img src="assets/images/facility-ruang-kelas-back.png" alt="Ruang kelas modern Al-Azhar Kelapa Gading">
+                        <img src="assets/images/rkm.webp" alt="Ruang kelas modern Al-Azhar Kelapa Gading">
                         <div class="facility-card-body">
                             <span class="facility-category">Pembelajaran</span>
                             <h3>Ruang Kelas<br>Modern</h3>
-                            <p>Ruang belajar yang mendukung pembelajaran aktif, kolaboratif, dan nyaman bagi siswa.</p>
+                            <p>Menciptakan suasana belajar yang interaktif dan nyaman.</p>
                             <a class="facility-detail-button" href="#top">Pelajari Selengkapnya <span class="arrow"></span></a>
                         </div>
                     </article>
                     <article class="facility-card">
-                        <img src="assets/images/facility-auditorium-back.png" alt="Auditorium sekolah Al-Azhar Kelapa Gading">
+                        <img src="assets/images/kantin.webp" alt="Kantin anak Al-Azhar Kelapa Gading">
                         <div class="facility-card-body">
-                            <span class="facility-category">Kegiatan</span>
-                            <h3>Auditorium<br>Sekolah</h3>
-                            <p>Ruang serbaguna untuk acara sekolah, presentasi, pertunjukan, dan kegiatan bersama.</p>
+                            <span class="facility-category">Makanan</span>
+                            <h3>Kantin<br>Anak</h3>
+                            <p>Menyediakan makanan bergizi dalam lingkungan yang nyaman.</p>
+                            <a class="facility-detail-button" href="#top">Pelajari Selengkapnya <span class="arrow"></span></a>
+                        </div>
+                    </article>
+                    <article class="facility-card">
+                        <img src="assets/images/studio.webp" alt="Studio musik Al-Azhar Kelapa Gading">
+                        <div class="facility-card-body">
+                            <span class="facility-category">Musik</span>
+                            <h3>Studio<br>Musik</h3>
+                            <p>Mengembangkan kreativitas dan bakat dalam bermusik.</p>
+                            <a class="facility-detail-button" href="#top">Pelajari Selengkapnya <span class="arrow"></span></a>
+                        </div>
+                    </article>
+                    <article class="facility-card">
+                        <img src="assets/images/perpus.webp" alt="Perpustakaan anak Al-Azhar Kelapa Gading">
+                        <div class="facility-card-body">
+                            <span class="facility-category">Pembelajaran</span>
+                            <h3>Perpustakaan<br>Anak</h3>
+                            <p>Menghadirkan ruang membaca untuk menumbuhkan literasi.</p>
+                            <a class="facility-detail-button" href="#top">Pelajari Selengkapnya <span class="arrow"></span></a>
+                        </div>
+                    </article>
+                    <article class="facility-card">
+                        <img src="assets/images/greenhouse.webp" alt="Greenhouse anak Al-Azhar Kelapa Gading">
+                        <div class="facility-card-body">
+                            <span class="facility-category">Pembelajaran</span>
+                            <h3>Greenhouse<br>Anak</h3>
+                            <p>Mengenalkan kepedulian lingkungan melalui pembelajaran langsung.</p>
                             <a class="facility-detail-button" href="#top">Pelajari Selengkapnya <span class="arrow"></span></a>
                         </div>
                     </article>
@@ -207,7 +183,7 @@
             </section>
             <section class="footer-column" aria-labelledby="footer-profile-title">
                 <h2 id="footer-profile-title">Profile</h2>
-                <a href="https://wa.me/6281519776556">Contact Us</a>
+                <a href="https://wa.me/628119769799">Contact Us</a>
                 <a href="vision.html">Vision</a>
                 <a href="vision.html#mission-title">Mission</a>
             </section>

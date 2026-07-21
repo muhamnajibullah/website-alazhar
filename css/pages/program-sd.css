@@ -1,0 +1,150 @@
+/*
+ * Penyesuaian khusus halaman Sekolah Dasar.
+ * Tata letak utama diwarisi dari program-tk.css supaya ukuran dan ritme visual
+ * kedua halaman program pendidikan tetap konsisten serta mudah dipelihara.
+ */
+
+/* Warna judul SD mengikuti aksen emas pada referensi. */
+.sd-page .tk-hero-copy h1 {
+    color: #d9a62e;
+}
+
+/* Foto hero SD dipusatkan pada barisan siswa. */
+.sd-page .sd-hero-image {
+    object-position: center 46%;
+}
+
+/* Aksen statistik SD menggunakan warna emas seperti pada referensi. */
+.sd-page .tk-stat::before {
+    background: #d9b82e;
+}
+
+/* Kartu program SD memakai ilustrasi utuh di bagian bawah kartu. */
+.sd-page .tk-program-card > img {
+    object-fit: cover;
+    object-position: center;
+}
+
+/* Posisi ilustrasi disesuaikan per kartu agar subjek utama tidak terpotong. */
+.sd-page .tk-program-card:nth-child(1) > img,
+.sd-page .tk-program-card:nth-child(5) > img {
+    object-position: center 42%;
+}
+
+.sd-page .tk-program-card:nth-child(2) > img,
+.sd-page .tk-program-card:nth-child(6) > img {
+    object-position: center 46%;
+}
+
+.sd-page .tk-program-card:nth-child(3) > img,
+.sd-page .tk-program-card:nth-child(7) > img,
+.sd-page .tk-program-card:nth-child(4) > img,
+.sd-page .tk-program-card:nth-child(8) > img {
+    object-position: center 50%;
+}
+
+/* Warna ikon kegiatan dibuat berbeda sesuai identitas visual referensi. */
+.sd-page .activity-art i,
+.sd-page .activity-english-fun i {
+    color: #1f90bf;
+    background: #e1f7fb;
+}
+
+.sd-page .activity-arabic i {
+    color: #e7962e;
+    background: #fff0d9;
+}
+
+.sd-page .activity-coding i {
+    color: #269870;
+    background: #e2f7ee;
+}
+
+.sd-page .activity-comic i,
+.sd-page .activity-tahfidz i {
+    color: #8650d5;
+    background: #efe7ff;
+}
+
+.sd-page .activity-science i {
+    color: #397fd1;
+    background: #e5f1ff;
+}
+
+.sd-page .activity-basket i {
+    color: #ef982d;
+    background: #fff0dc;
+}
+
+.sd-page .activity-taekwondo i {
+    color: #e85e78;
+    background: #ffe8ed;
+}
+
+/* Foto-foto kegiatan memiliki fokus khusus agar sama dengan crop referensi. */
+.sd-page .activity-art > img {
+    object-position: center 58%;
+}
+
+.sd-page .activity-arabic > img,
+.sd-page .activity-coding > img,
+.sd-page .activity-comic > img {
+    object-position: center;
+}
+
+.sd-page .activity-dance > img {
+    object-position: center 24%;
+}
+
+.sd-page .activity-english-fun > img {
+    object-position: center 48%;
+}
+
+.sd-page .activity-science > img,
+.sd-page .activity-tahfidz > img,
+.sd-page .activity-basket > img,
+.sd-page .activity-taekwondo > img {
+    object-position: center 50%;
+}
+
+/* Fasilitas SD memakai rasio foto yang sama dengan halaman TK. */
+.sd-page .tk-unit-facility-card:first-child img {
+    object-position: center 62%;
+}
+
+.sd-page .tk-unit-facility-card:nth-child(2) img,
+.sd-page .tk-unit-facility-card:nth-child(8) img {
+    object-position: center;
+}
+
+/* Menjaga ritme kartu Program SD khusus mobile tetap konsisten. */
+@media (max-width: 768px) {
+    body.sd-page .tk-program-card {
+        height: auto;
+        min-height: 0;
+    }
+
+    body.sd-page .tk-program-card > div {
+        padding: 16px;
+    }
+
+    body.sd-page .tk-program-card h3 {
+        margin-bottom: 10px;
+    }
+
+    body.sd-page .tk-program-card > img {
+        height: 160px;
+        margin-top: 0;
+    }
+
+    body.sd-page .tk-activity-card,
+    body.sd-page .tk-activity-card > div,
+    body.sd-page .tk-unit-facility-card {
+        min-height: 0;
+    }
+
+    body.sd-page .tk-activity-card h3,
+    body.sd-page .tk-unit-facility-card h3 {
+        margin-bottom: 12px;
+    }
+}

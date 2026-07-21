@@ -1,43 +1,52 @@
+/* Dasar halaman kurikulum memakai palet gelap dan terang dari referensi. */
 .curriculum-page {
-    color: var(--color-white);
-    background: var(--color-black);
+    color: #fff;
+    background: #242424;
 }
 
-.curriculum-header {
-    color: var(--color-white);
-    background: var(--color-black);
+.curriculum-header,
+.curriculum-hero {
+    color: #fff;
+    background: #242424;
 }
 
 .curriculum-hero {
-    padding: 176px 0 100px;
-    background: var(--color-black);
+    min-height: 980px;
+    padding: 172px 0 150px;
 }
 
+/* Breadcrumb ditempatkan tepat di atas konten utama hero. */
 .breadcrumb {
     display: flex;
     align-items: center;
     flex-wrap: wrap;
     gap: 10px;
-    margin-bottom: 48px;
-    color: rgba(255, 255, 255, 0.48);
-    font-size: 13px;
-    font-weight: 700;
+    margin-bottom: 46px;
+    color: rgba(255, 255, 255, .38);
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.breadcrumb span[aria-hidden] {
+    font-size: 0;
+}
+
+.breadcrumb span[aria-hidden]::before {
+    content: ">";
+    font-size: 12px;
 }
 
 .breadcrumb a:hover,
-.breadcrumb a:focus-visible {
-    color: var(--color-white);
-}
-
+.breadcrumb a:focus-visible,
 .breadcrumb span:last-child {
-    color: rgba(255, 255, 255, 0.68);
+    color: rgba(255, 255, 255, .76);
 }
 
 .curriculum-hero-grid {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(420px, 560px);
+    grid-template-columns: minmax(0, 1fr) 560px;
     align-items: start;
-    gap: 84px;
+    gap: 86px;
 }
 
 .curriculum-hero-copy h1,
@@ -46,196 +55,377 @@
 .curriculum-benefits h2,
 .curriculum-cta h2 {
     margin: 0;
-    font-size: 37px;
+    font-size: 40px;
     font-weight: 800;
-    line-height: 1;
+    line-height: 1.08;
 }
 
 .curriculum-lead {
-    max-width: 520px;
-    margin: 42px 0 31px;
-    color: rgba(255, 255, 255, 0.8);
-    font-size: 22px;
-    line-height: 1.46;
+    max-width: 590px;
+    margin: 40px 0 32px;
+    color: rgba(255, 255, 255, .82);
+    font-size: 20px;
+    line-height: 1.55;
 }
 
 .curriculum-note {
-    max-width: 550px;
+    max-width: 590px;
     margin: 0;
-    color: rgba(255, 255, 255, 0.42);
-    font-size: 16px;
-    line-height: 1.58;
+    color: rgba(255, 255, 255, .42);
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+.curriculum-mobile-break {
+    display: none;
 }
 
 .curriculum-hero-image {
-    width: 100%;
-    aspect-ratio: 560 / 400;
+    display: block;
+    width: 560px;
+    height: 400px;
     object-fit: cover;
     border-radius: 16px;
 }
 
+/* Statistik hero dibuat sederhana dengan aksen garis hijau seperti referensi. */
 .curriculum-stat-grid {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 24px;
-    margin-top: 60px;
+    gap: 74px;
+    margin-top: 84px;
 }
 
 .curriculum-stat {
-    min-height: 102px;
-    padding: 25px 28px 24px;
-    background: #151515;
-    border-radius: 8px;
-    border-left: 3px solid var(--color-green);
+    min-height: 52px;
+    padding-left: 22px;
+    background: transparent;
+    border-left: 3px solid #55b96a;
 }
 
 .curriculum-stat span {
     display: block;
     margin-bottom: 8px;
-    color: rgba(255, 255, 255, 0.42);
-    font-size: 12px;
-    font-weight: 800;
+    color: rgba(255, 255, 255, .4);
+    font-size: 11px;
+    font-weight: 700;
     line-height: 1;
     text-transform: uppercase;
 }
 
 .curriculum-stat strong {
     display: block;
-    font-size: 25px;
+    font-size: 22px;
     font-weight: 800;
     line-height: 1;
 }
 
+/* Pill menjaga ukuran, warna, dan tipografi konsisten dengan halaman lain. */
+.curriculum-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: max-content;
+    min-width: 151px;
+    min-height: 43px;
+    margin: 0 0 28px;
+    padding: 8px 16px;
+    color: #55b96a;
+    font-family: "Inter", sans-serif;
+    font-size: 18px;
+    font-weight: 800;
+    line-height: 1.5;
+    text-transform: uppercase;
+    background: #dcf6e4;
+    border-radius: 20px;
+}
+
+/* Bagian pilar masuk ke hero melalui bentuk potongan diagonal. */
 .curriculum-pillars {
     position: relative;
-    padding: 122px 0 162px;
-    background: var(--color-green);
-    clip-path: polygon(0 0, var(--section-cut-edge) 0, var(--section-cut-width) var(--section-cut-height), 100% var(--section-cut-height), 100% 100%, var(--section-cut-width) 100%, var(--section-cut-edge) calc(100% - var(--section-cut-height)), 0 calc(100% - var(--section-cut-height)));
+    z-index: 1;
+    margin-top: -82px;
+    padding: 132px 0 142px;
+    color: #0c0d0e;
+    background: #f4f7fb;
+    clip-path: polygon(
+        0 0,
+        var(--section-cut-edge) 0,
+        var(--section-cut-width) var(--section-cut-height),
+        100% var(--section-cut-height),
+        100% 100%,
+        0 100%
+    );
 }
 
 .pillar-grid {
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 24px;
-    margin-top: 76px;
+    margin-top: 52px;
 }
 
 .pillar-card {
-    min-height: 244px;
-    padding: 32px 31px 29px;
-    color: var(--color-white);
-    background: #101010;
-    border-radius: 8px;
+    min-height: 278px;
+    padding: 36px 30px 30px;
+    color: #111317;
+    background: #fff;
+    border: 1px solid #d6d9de;
+    border-radius: 13px;
 }
 
-.pillar-card span {
+.pillar-card > span {
     display: block;
-    margin-bottom: 29px;
-    color: #35cfd0;
-    font-size: 47px;
+    margin-bottom: 31px;
+    color: #009214;
+    font-size: 50px;
     font-weight: 800;
     line-height: 1;
 }
 
 .pillar-card h3 {
-    margin: 0 0 15px;
-    font-size: 21px;
+    margin: 0 0 18px;
+    color: #009214;
+    font-size: 18px;
     font-weight: 800;
-    line-height: 1.1;
+    line-height: 1.2;
 }
 
 .pillar-card p {
     margin: 0;
-    color: rgba(255, 255, 255, 0.48);
-    font-size: 14px;
-    line-height: 1.5;
+    color: #8b929f;
+    font-size: 13px;
+    line-height: 1.55;
 }
 
+/* Implementasi kurikulum tetap menyatu dengan latar terang bagian pilar. */
 .classroom-section {
-    margin-top: calc(var(--section-cut-height) * -1);
-    padding: calc(96px + var(--section-cut-height)) 0 103px;
-    color: var(--color-black);
-    background: var(--color-white);
-    clip-path: polygon(0 0, var(--section-cut-edge) 0, var(--section-cut-width) var(--section-cut-height), 100% var(--section-cut-height), 100% 100%, 0 100%);
+    padding: 38px 0 112px;
+    color: #0c0d0e;
+    background: #f4f7fb;
+}
+
+.classroom-intro {
+    max-width: 1240px;
+    margin: 28px 0 0;
+    color: #8b929f;
+    font-size: 18px;
+    line-height: 1.5;
 }
 
 .classroom-grid {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 24px;
-    margin-top: 76px;
+    margin-top: 52px;
 }
 
-.classroom-card img {
+.classroom-card {
+    overflow: hidden;
+    background: #fff;
+    border: 1px solid #d6d9de;
+    border-radius: 12px;
+}
+
+.classroom-card > img {
+    display: block;
     width: 100%;
-    aspect-ratio: 411 / 240;
+    height: 164px;
     object-fit: cover;
-    border-radius: 8px;
+}
+
+/* Framing setiap foto diatur terpisah agar subjek mengikuti komposisi referensi. */
+.classroom-card-blue > img {
+    object-position: 45% 60%;
+}
+
+.classroom-card-green > img {
+    object-position: 50% 50%;
+}
+
+.classroom-card-orange > img {
+    object-position: 50% 13%;
+}
+
+.classroom-card-purple > img {
+    object-position: 50% 46%;
+}
+
+.classroom-card-pink > img {
+    object-position: 50% 38%;
+}
+
+.classroom-card-cyan > img {
+    object-position: 54% 43%;
+}
+
+.classroom-card-copy {
+    position: relative;
+    min-height: 138px;
+    padding: 34px 18px 19px;
+}
+
+.classroom-card-icon {
+    position: absolute;
+    top: -25px;
+    left: 16px;
+    display: grid;
+    width: 50px;
+    height: 50px;
+    place-items: center;
+    color: #fff;
+    font-size: 25px;
+    border: 4px solid #fff;
+    border-radius: 10px;
+}
+
+.classroom-card-icon i {
+    color: #fff;
 }
 
 .classroom-card h3 {
-    margin: 18px 0 0;
-    font-size: 18px;
+    margin: 0 0 14px;
+    color: currentColor;
+    font-size: 16px;
     font-weight: 800;
     line-height: 1.2;
 }
 
-.curriculum-benefits {
-    position: relative;
-    margin-top: -2px;
-    padding: calc(88px + var(--section-cut-height)) 0 104px;
-    background: var(--color-black);
+.classroom-card p {
+    margin: 0;
+    color: #747b87;
+    font-size: 12px;
+    line-height: 1.5;
 }
 
-.curriculum-benefits::before {
-    content: "";
-    position: absolute;
-    top: -2px;
-    left: 0;
-    width: 100%;
-    height: calc(var(--section-cut-height) + 4px);
-    background: var(--color-white);
-    clip-path: polygon(0 0, var(--section-cut-edge) 0, var(--section-cut-width) 100%, 100% 100%, 100% 0);
+.classroom-card-blue {
+    color: #2677d8;
+}
+
+.classroom-card-green {
+    color: #55b96a;
+}
+
+.classroom-card-orange {
+    color: #f17828;
+}
+
+.classroom-card-purple {
+    color: #792bd1;
+}
+
+.classroom-card-pink {
+    color: #e23181;
+}
+
+.classroom-card-cyan {
+    color: #17aeb4;
+}
+
+.classroom-card-blue .classroom-card-icon {
+    background: #2677d8;
+}
+
+.classroom-card-green .classroom-card-icon {
+    background: #55b96a;
+}
+
+.classroom-card-orange .classroom-card-icon {
+    background: #f17828;
+}
+
+.classroom-card-purple .classroom-card-icon {
+    background: #792bd1;
+}
+
+.classroom-card-pink .classroom-card-icon {
+    background: #e23181;
+}
+
+.classroom-card-cyan .classroom-card-icon {
+    background: #17aeb4;
+}
+
+/* Area keunggulan menggunakan kartu baris putih pada latar gelap. */
+.curriculum-benefits {
+    padding: 112px 0 176px;
+    color: #fff;
+    background: #242424;
+}
+
+.curriculum-badge-dark {
+    margin-bottom: 30px;
+}
+
+.benefits-intro {
+    max-width: 1240px;
+    margin: 26px 0 0;
+    color: rgba(255, 255, 255, .42);
+    font-size: 18px;
+    line-height: 1.5;
 }
 
 .benefit-list {
     display: grid;
-    gap: 35px;
-    max-width: 1040px;
-    margin: 72px 0 0;
+    gap: 18px;
+    margin: 56px 0 0;
     padding: 0;
     list-style: none;
 }
 
 .benefit-list li {
-    position: relative;
-    min-height: 28px;
-    padding-left: 48px;
-    color: rgba(255, 255, 255, 0.72);
-    font-size: 18px;
-    line-height: 1.55;
-}
-
-.benefit-list li::before {
-    content: "\2713";
-    position: absolute;
-    top: 0;
-    left: 0;
     display: grid;
-    width: 28px;
-    height: 28px;
-    place-items: center;
-    color: var(--color-green);
-    font-size: 16px;
-    font-weight: 800;
-    background: var(--color-white);
-    border-radius: 999px;
+    grid-template-columns: 58px minmax(0, 1fr) 42px;
+    align-items: center;
+    min-height: 88px;
+    padding: 12px 16px;
+    color: #121417;
+    background: #fff;
+    border-radius: 8px;
 }
 
+.benefit-icon {
+    display: grid;
+    width: 48px;
+    height: 48px;
+    place-items: center;
+    color: #55b96a;
+    font-size: 24px;
+    background: #dcf6e4;
+    border-radius: 8px;
+}
+
+.benefit-copy {
+    display: grid;
+    gap: 8px;
+    padding-left: 18px;
+    border-left: 1px solid #d9dde2;
+}
+
+.benefit-copy strong {
+    font-size: 15px;
+    font-weight: 800;
+    line-height: 1.2;
+}
+
+.benefit-copy small {
+    color: #8b929f;
+    font-size: 12px;
+    line-height: 1.35;
+}
+
+.benefit-check {
+    justify-self: end;
+    color: #32b77a;
+    font-size: 31px;
+}
+
+/* CTA ditempatkan lapang di bagian akhir area gelap. */
 .curriculum-cta {
-    padding: 94px 0 116px;
+    padding: 86px 0 150px;
+    color: #fff;
     text-align: center;
-    background: var(--color-black);
+    background: #242424;
 }
 
 .curriculum-cta .section-container {
@@ -248,11 +438,11 @@
 }
 
 .curriculum-cta p {
-    max-width: 440px;
-    margin: 18px 0 35px;
-    color: rgba(255, 255, 255, 0.4);
-    font-size: 17px;
-    line-height: 1.35;
+    max-width: 520px;
+    margin: 20px 0 36px;
+    color: rgba(255, 255, 255, .42);
+    font-size: 16px;
+    line-height: 1.45;
 }
 
 .curriculum-cta-actions {
@@ -265,32 +455,43 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    min-height: 45px;
-    padding: 9px 30px;
-    color: var(--color-white);
+    min-width: 185px;
+    min-height: 50px;
+    padding: 10px 24px;
+    color: #fff;
     font-size: 14px;
     font-weight: 800;
-    line-height: 1;
-    background: var(--color-green);
-    border: 1px solid var(--color-green);
+    background: #087f2c;
+    border: 1px solid #087f2c;
     border-radius: 4px;
-    transition: background 180ms ease, border-color 180ms ease;
 }
 
 .solid-button:hover,
 .solid-button:focus-visible {
-    background: #3e824d;
-    border-color: #3e824d;
+    background: #0b9636;
+    border-color: #0b9636;
+}
+
+.curriculum-cta .outline-button {
+    min-width: 208px;
+    min-height: 50px;
+    border-radius: 4px;
 }
 
 @media (max-width: 1180px) {
+    .curriculum-hero {
+        min-height: 0;
+    }
+
     .curriculum-hero-grid {
         grid-template-columns: 1fr;
         gap: 44px;
     }
 
     .curriculum-hero-image {
-        max-width: 680px;
+        width: min(100%, 680px);
+        height: auto;
+        aspect-ratio: 560 / 400;
     }
 
     .pillar-grid {
@@ -300,11 +501,7 @@
 
 @media (max-width: 768px) {
     .curriculum-hero {
-        padding: 142px 0 72px;
-    }
-
-    .breadcrumb {
-        margin-bottom: 36px;
+        padding: 142px 0 112px;
     }
 
     .curriculum-hero-copy h1,
@@ -324,18 +521,45 @@
         grid-template-columns: 1fr;
     }
 
+    .curriculum-stat-grid {
+        gap: 28px;
+    }
+
     .curriculum-pillars {
-        padding: 106px 0 138px;
+        padding-bottom: 96px;
     }
 
     .pillar-grid {
         grid-template-columns: 1fr;
-        margin-top: 48px;
     }
 
-    .classroom-grid,
-    .benefit-list {
-        margin-top: 48px;
+    .curriculum-badge {
+        min-width: 0;
+        min-height: 38px;
+        padding: 6px 14px;
+        font-size: 14px;
+    }
+
+    .curriculum-benefits {
+        padding-bottom: 108px;
+    }
+
+    .benefit-list li {
+        grid-template-columns: 48px minmax(0, 1fr) 30px;
+    }
+
+    .benefit-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
+    }
+
+    .benefit-copy {
+        padding-left: 12px;
+    }
+
+    .benefit-check {
+        font-size: 25px;
     }
 
     .curriculum-cta h2 {
@@ -347,22 +571,28 @@
     }
 }
 
-@media (max-width: 576px) {
-    .curriculum-hero {
-        padding-bottom: 62px;
-    }
-
-    .curriculum-stat {
-        padding: 22px;
+@media (max-width: 480px) {
+    .curriculum-pillars {
+        clip-path: polygon(
+            0 0,
+            62% 0,
+            78% var(--section-cut-height),
+            100% var(--section-cut-height),
+            100% 100%,
+            0 100%
+        );
     }
 
     .pillar-card {
         min-height: 0;
-        padding: 28px 24px;
     }
 
     .benefit-list li {
-        padding-left: 42px;
-        font-size: 16px;
+        grid-template-columns: 42px minmax(0, 1fr);
+        padding: 14px;
+    }
+
+    .benefit-check {
+        display: none;
     }
 }

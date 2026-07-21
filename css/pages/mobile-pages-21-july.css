@@ -1,0 +1,571 @@
+/* Mobile-only layouts matched to the 21 July 2026, 390 px artwork set. */
+@media (max-width: 768px) {
+    .profile-awards-page,
+    .profile-events-page,
+    .award-page,
+    .quranic-event-page,
+    .about-page,
+    .program-list-page,
+    .nac-page,
+    .facility-list-page,
+    .mosque-page,
+    .history-page {
+        width: 100%;
+        overflow-x: hidden;
+    }
+
+    .profile-awards-page .section-container,
+    .profile-events-page .section-container,
+    .award-page .section-container,
+    .quranic-event-page .section-container,
+    .about-page .section-container,
+    .program-list-page .section-container,
+    .nac-page .section-container,
+    .facility-list-page .section-container,
+    .mosque-page .section-container {
+        width: calc(100% - 40px);
+        max-width: none;
+    }
+
+    .profile-section-badge,
+    .about-page .section-badge,
+    .program-list-page .section-badge,
+    .facility-list-page .section-badge {
+        min-width: 0;
+        min-height: 27px;
+        margin: 0 0 18px;
+        padding: 5px 11px;
+        font-size: 9px;
+        line-height: 1;
+        border-radius: 999px;
+    }
+
+    /* Shared 538 px hero used by awards, events, about, programs, and facilities. */
+    .profile-awards-page .profile-hero,
+    .profile-events-page .profile-hero,
+    .about-page .about-hero,
+    .program-list-page .program-page-hero,
+    .facility-list-page .facility-hero {
+        min-height: 538px;
+        height: 538px;
+        padding: 0;
+        border: 0;
+        border-radius: 0;
+        background-size: cover;
+    }
+
+    .profile-awards-page .profile-hero-content,
+    .profile-events-page .profile-hero-content,
+    .about-page .about-hero-content,
+    .program-list-page .program-page-hero-content,
+    .facility-list-page .facility-hero-content {
+        right: 20px;
+        bottom: 43px;
+        left: 20px;
+        width: auto;
+        margin: 0;
+    }
+
+    .profile-awards-page .profile-hero h1,
+    .profile-events-page .profile-hero h1,
+    .about-page .about-hero h1,
+    .program-list-page .program-page-hero h1,
+    .facility-list-page .facility-hero h1 {
+        max-width: 230px;
+        font-size: 30px;
+        line-height: 1.02;
+    }
+
+    .profile-awards-page .profile-hero { background-position: center 12%; }
+    .profile-events-page .profile-hero { background-position: center 70%; }
+    .about-page .about-hero { background-position: center 50%; }
+    .program-list-page .program-page-hero { background-position: center 50%; }
+    .facility-list-page .facility-hero { background-position: center 50%; }
+
+    /* Awards list page. */
+    .profile-awards-page .profile-intro {
+        min-height: 328px;
+        margin: 0;
+        padding: 46px 0 35px;
+        background: #f7f9fd;
+        clip-path: none;
+    }
+
+    .profile-awards-page .profile-intro-grid,
+    .profile-events-page .profile-intro-grid {
+        display: block;
+    }
+
+    .profile-awards-page .profile-intro h2,
+    .profile-events-page .profile-intro h2 {
+        margin: 0;
+        font-size: 24px;
+        line-height: 1.08;
+    }
+
+    .profile-awards-page .profile-intro p:last-child,
+    .profile-events-page .profile-intro p:last-child {
+        margin: 30px 0 0;
+        font-size: 13px;
+        line-height: 1.55;
+    }
+
+    .profile-awards-page .awards-section {
+        min-height: 887px;
+        padding: 22px 0 15px;
+        background: #f7f9fd;
+    }
+
+    .profile-awards-page .awards-section::before,
+    .profile-awards-page .awards-section::after {
+        display: none;
+    }
+
+    .profile-awards-page .profile-section-heading h2,
+    .profile-events-page .profile-section-heading h2 {
+        margin: 0;
+        font-size: 22px;
+        line-height: 1.05;
+        overflow-wrap: anywhere;
+        white-space: normal;
+    }
+
+    .profile-awards-page .profile-section-heading > p:last-child,
+    .profile-events-page .profile-section-heading > p:last-child {
+        margin-top: 25px;
+        font-size: 11px;
+        line-height: 1.45;
+    }
+
+    .profile-awards-page .awards-carousel {
+        margin-top: 20px;
+    }
+
+    .profile-awards-page .awards-track {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 14px;
+        overflow: visible;
+        width: 100%;
+        max-width: 100%;
+        transform: none !important;
+    }
+
+    .profile-awards-page .award-card {
+        display: block;
+        width: auto;
+        min-width: 0;
+        height: 188px;
+        border-radius: 10px;
+    }
+
+    .profile-awards-page .award-card:first-child {
+        grid-column: 1 / -1;
+        height: 464px;
+    }
+
+    .profile-awards-page .award-card:nth-child(n+5) { display: none; }
+    .profile-awards-page .award-card img { width: 100%; height: 100%; object-fit: cover; }
+    .profile-awards-page .award-overlay { padding: 13px; }
+    .profile-awards-page .award-card:first-child .award-overlay { padding: 23px; }
+    .profile-awards-page .award-overlay p { font-size: 8px; }
+    .profile-awards-page .award-overlay h3 { font-size: 10px; line-height: 1.1; }
+    .profile-awards-page .award-card:first-child .award-overlay p { font-size: 12px; }
+    .profile-awards-page .award-card:first-child .award-overlay h3 { font-size: 23px; }
+    .profile-awards-page .award-rank { font-size: 8px; }
+    .profile-awards-page .award-rank strong { width: 24px; height: 24px; font-size: 11px; }
+    .profile-awards-page .floating-control,
+    .profile-awards-page .carousel-dots { display: none; }
+
+    /* Event list page. */
+    .profile-events-page .profile-intro {
+        min-height: 390px;
+        margin: 0;
+        padding: 46px 0 36px;
+        background: #f7f9fd;
+        clip-path: none;
+    }
+
+    .profile-events-page .event-page-events {
+        min-height: 3410px;
+        padding: 38px 0 49px;
+        background: #f7f9fd;
+    }
+
+    .profile-events-page .event-page-events::before,
+    .profile-events-page .event-page-events::after { display: none; }
+
+    .profile-events-page .events-track {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 24px;
+        margin-top: 42px;
+        overflow: visible;
+        width: 100%;
+        max-width: 100%;
+        transform: none !important;
+    }
+
+    .profile-events-page .event-card {
+        width: 100%;
+        min-width: 0;
+        height: 489px;
+        border-radius: 12px;
+    }
+
+    .profile-events-page .event-card img { width: 100%; height: 100%; object-fit: cover; }
+    .profile-events-page .event-overlay { padding: 22px 18px; }
+    .profile-events-page .event-overlay h3 { font-size: 18px; }
+    .profile-events-page .event-overlay > p { font-size: 10px; }
+    .profile-events-page .event-overlay address,
+    .profile-events-page .event-overlay time { font-size: 8px; }
+
+    /* Awards detail. */
+    .award-page .award-header { min-height: 72px; padding: 0; }
+    .award-page .detail-breadcrumb { display: none; }
+    .award-page .award-detail-hero {
+        min-height: 320px;
+        height: 320px;
+        margin-top: 0;
+        background-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 45%, rgba(0, 0, 0, 0.9) 100%), url("../../assets/images/detail-award-hero-crop.png");
+        background-position: center 39%;
+    }
+    .award-page .award-detail-title {
+        position: absolute;
+        top: 250px;
+        left: 20px;
+        z-index: 3;
+        width: calc(100% - 40px);
+        color: #fff;
+    }
+    .award-page .award-detail-title h1 { max-width: 315px; font-size: 25px; line-height: 1.08; }
+    .award-page .award-title-meta { margin-top: 14px; gap: 12px; font-size: 11px; }
+    .award-page .achievement-badge { padding: 7px 12px; font-size: 9px; }
+    .award-page .award-detail-content {
+        min-height: 726px;
+        padding: 32px 0 28px;
+        background: #282828;
+    }
+    .award-page .award-detail-grid { display: block; grid-template-columns: 1fr; gap: 28px; }
+    .award-page .award-detail-grid,
+    .award-page .award-detail-copy,
+    .award-page .award-info-panel {
+        width: 100%;
+        min-width: 0;
+        max-width: 100%;
+    }
+    .award-page .award-detail-copy h2 { font-size: 24px; }
+    .award-page .award-detail-copy p { width: 100%; max-width: 100%; margin-top: 20px; font-size: 15px; line-height: 1.6; white-space: normal; overflow-wrap: anywhere; }
+    .award-page .award-info-panel { padding: 22px 20px; border-radius: 20px; }
+    .award-page .award-info-panel h2 { font-size: 14px; }
+    .award-page .award-info-panel ul { gap: 18px; margin-top: 20px; }
+    .award-page .award-info-panel li { font-size: 12px; }
+    .award-page .award-info-panel { margin-top: 28px; }
+
+    /* Quranic Camp detail. */
+    .quranic-event-page .quranic-event-header { min-height: 72px; padding: 0; }
+    .quranic-event-page .detail-breadcrumb { display: none; }
+    .quranic-event-page .event-detail-hero {
+        min-height: 320px;
+        height: 320px;
+        background-position: center 50%;
+    }
+    .quranic-event-page .event-detail-title {
+        position: absolute;
+        top: 269px;
+        left: 20px;
+        z-index: 3;
+        width: calc(100% - 40px);
+        padding: 0;
+        color: #fff;
+    }
+    .quranic-event-page .event-detail-title h1 { font-size: 25px; line-height: 1.05; }
+    .quranic-event-page .event-title-meta { margin-top: 15px; flex-direction: row; gap: 8px; font-size: 8px; }
+    .quranic-event-page .event-title-meta span { padding-right: 8px; border-right: 1px solid #777; }
+    .quranic-event-page .event-detail-content {
+        min-height: 1058px;
+        padding: 30px 0 28px;
+        background: #282828;
+    }
+    .quranic-event-page .event-detail-grid { grid-template-columns: 1fr; gap: 26px; }
+    .quranic-event-page .event-detail-grid,
+    .quranic-event-page .event-detail-copy,
+    .quranic-event-page .event-detail-sidebar,
+    .quranic-event-page .event-info-panel {
+        width: 100%;
+        min-width: 0;
+        max-width: 100%;
+    }
+    .quranic-event-page .event-detail-copy h2 { font-size: 23px; }
+    .quranic-event-page .event-detail-copy p { margin-top: 20px; font-size: 14px; line-height: 1.55; white-space: normal; overflow-wrap: anywhere; }
+    .quranic-event-page .event-info-panel { padding: 20px; border-radius: 18px; }
+    .quranic-event-page .event-info-panel dl { gap: 17px; }
+    .quranic-event-page .event-info-panel dt { font-size: 10px; }
+    .quranic-event-page .event-info-panel dd { margin-top: 5px; font-size: 12px; }
+    .quranic-event-page .event-register-button { min-height: 48px; font-size: 13px; border-radius: 7px; }
+
+    /* About page. */
+    .about-page .about-intro {
+        min-height: 330px;
+        margin: 0;
+        padding: 46px 0 30px;
+        background: #f7f9fd;
+        clip-path: none;
+    }
+    .about-page .about-intro-grid { display: block; }
+    .about-page .about-intro h2,
+    .about-page .values-section h2,
+    .about-page .history-section h2 {
+        max-width: 100%;
+        font-size: 22px;
+        line-height: 1.06;
+        text-align: left;
+        white-space: normal;
+        overflow-wrap: anywhere;
+    }
+    .about-page .about-intro p:last-child { margin-top: 28px; font-size: 11px; line-height: 1.48; }
+    .about-page .about-intro p,
+    .about-page .about-section-heading p,
+    .about-page .history-section-heading p,
+    .about-page .value-card p { max-width: 100%; white-space: normal; overflow-wrap: anywhere; }
+    .about-page .values-section {
+        min-height: 1724px;
+        padding: 22px 0 45px;
+        background: #f7f9fd;
+    }
+    .about-page .values-section::before,
+    .about-page .values-section::after { display: none; }
+    .about-page .about-section-heading > p:last-child { margin-top: 23px; font-size: 10px; line-height: 1.45; }
+    .about-page .values-grid { grid-template-columns: 1fr; gap: 20px; margin-top: 34px; }
+    .about-page .value-card,
+    .about-page .value-profesional,
+    .about-page .value-inovatif,
+    .about-page .value-visioner,
+    .about-page .value-komitmen,
+    .about-page .value-terpercaya {
+        display: grid;
+        grid-template-rows: 170px auto;
+        min-height: 0;
+        height: 286px;
+        padding: 12px;
+        border: 1px solid #d5d7dc;
+        border-radius: 14px;
+    }
+    .about-page .value-card img,
+    .about-page .value-terpercaya img { width: 100%; height: 170px; object-fit: contain; border-radius: 9px; }
+    .about-page .value-card div { padding: 13px 0 0; }
+    .about-page .value-card h2 { font-size: 14px; }
+    .about-page .value-card p { margin-top: 8px; font-size: 10px; line-height: 1.4; }
+    .about-page .history-section {
+        min-height: 699px;
+        padding: 34px 0 42px;
+        background: #282828;
+    }
+    .about-page .history-section::before,
+    .about-page .history-section::after { display: none; }
+    .about-page .history-section-heading > p:last-child { margin-top: 20px; font-size: 10px; line-height: 1.4; }
+    .about-page .about-section-heading,
+    .about-page .history-section-heading { text-align: left; }
+    .about-page .history-track { margin-top: 30px; overflow: hidden; }
+    .about-page .history-item { display: none; grid-template-columns: 1fr; }
+    .about-page .history-item:first-child { display: grid; }
+    .about-page .history-item img { width: 100%; height: 180px; object-fit: cover; border-radius: 8px; }
+    .about-page .history-item-timeline { margin-bottom: 18px; }
+    .about-page .history-item h3 { font-size: 17px; }
+    .about-page .history-item p { font-size: 10px; line-height: 1.4; }
+    .about-page .history-item .outline-button { min-height: 30px; font-size: 9px; }
+
+    /* Program list page. */
+    .program-list-page .program-page-intro {
+        min-height: 330px;
+        padding: 46px 0 30px;
+        background: #f7f9fd;
+    }
+    .program-list-page .program-page-intro-grid { display: block; }
+    .program-list-page .program-page-intro h2,
+    .program-list-page .program-services h2 {
+        max-width: 100%;
+        font-size: 22px;
+        line-height: 1.06;
+        text-align: left;
+        white-space: normal;
+        overflow-wrap: anywhere;
+    }
+    .program-list-page .program-page-intro p:last-child { margin-top: 28px; font-size: 11px; line-height: 1.48; }
+    .program-list-page p { max-width: 100%; white-space: normal; overflow-wrap: anywhere; }
+    .program-list-page .program-services {
+        min-height: 1834px;
+        padding: 30px 0 45px;
+        background: #f7f9fd;
+    }
+    .program-list-page .program-services::before,
+    .program-list-page .program-services::after { display: none; }
+    .program-list-page .program-services-heading > p:last-child { margin-top: 22px; font-size: 10px; line-height: 1.42; }
+    .program-list-page .program-services-heading,
+    .program-list-page .featured-program-card,
+    .program-list-page .program-service-grid,
+    .program-list-page .program-service-card,
+    .program-list-page .featured-program-content,
+    .program-list-page .program-service-card-body {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+    }
+    .program-list-page .featured-program-card,
+    .program-list-page .program-service-grid { display: grid; grid-template-columns: 1fr; gap: 22px; }
+    .program-list-page .featured-program-card { margin-top: 35px; }
+    .program-list-page .featured-program-card,
+    .program-list-page .program-service-card { min-height: 0; height: 385px; padding: 0; overflow: hidden; border: 1px solid #d4d4d4; border-radius: 13px; }
+    .program-list-page .featured-program-card img,
+    .program-list-page .program-service-card img { width: 100%; height: 205px; object-fit: cover; }
+    .program-list-page .featured-program-content,
+    .program-list-page .program-service-card-body { min-height: 185px; padding: 20px; }
+    .program-list-page .featured-program-content h3,
+    .program-list-page .program-service-card h3 { font-size: 16px; }
+    .program-list-page .featured-program-content p,
+    .program-list-page .program-service-card p { margin-top: 14px; font-size: 11px; line-height: 1.4; }
+    .program-list-page .program-detail-button { min-height: 35px; margin-top: 15px; padding: 0 13px; font-size: 9px; }
+    .program-list-page .program-service-grid { margin-top: 22px; }
+
+    /* Facility list page. */
+    .facility-list-page .facility-intro {
+        min-height: 315px;
+        margin: 0;
+        padding: 45px 0 25px;
+        background: #f7f9fd;
+        clip-path: none;
+    }
+    .facility-list-page .facility-intro-grid { display: block; }
+    .facility-list-page .facility-intro h2,
+    .facility-list-page .facility-list h2 {
+        max-width: 100%;
+        font-size: 22px;
+        line-height: 1.06;
+        text-align: left;
+        white-space: normal;
+        overflow-wrap: anywhere;
+    }
+    .facility-list-page .facility-intro p:last-child { margin-top: 26px; font-size: 10px; line-height: 1.45; }
+    .facility-list-page p { max-width: 100%; white-space: normal; overflow-wrap: anywhere; }
+    .facility-list-page .facility-list {
+        min-height: 4626px;
+        padding: 28px 0 44px;
+        background: #f7f9fd;
+    }
+    .facility-list-page .facility-list::before,
+    .facility-list-page .facility-list::after { display: none; }
+    .facility-list-page .facility-list-heading > p:last-child { margin-top: 20px; font-size: 10px; line-height: 1.4; }
+    .facility-list-page .facility-grid { display: grid; grid-template-columns: 1fr; gap: 24px; margin-top: 36px; overflow: visible; }
+    .facility-list-page .facility-card,
+    .facility-list-page .facility-card:first-child { width: 100%; min-width: 0; height: 510px; padding: 0; overflow: hidden; border: 1px solid #d4d4d4; border-radius: 13px; }
+    .facility-list-page .facility-card img { width: 100%; height: 275px; object-fit: cover; }
+    .facility-list-page .facility-card-body { min-height: 235px; padding: 20px; }
+    .facility-list-page .facility-category { font-size: 8px; }
+    .facility-list-page .facility-card h3 { margin-top: 12px; font-size: 15px; }
+    .facility-list-page .facility-card p { margin-top: 13px; font-size: 10px; line-height: 1.4; }
+    .facility-list-page .facility-detail-button { min-height: 32px; margin-top: 15px; font-size: 8px; }
+    .facility-list-page .facility-detail-button {
+        display: inline-flex;
+        align-items: center;
+        width: max-content;
+        padding: 0 12px;
+        color: #555;
+        border: 1px solid #c9ccd1;
+        border-radius: 5px;
+    }
+
+    /* NAC detail. */
+    .nac-page .nac-header { min-height: 72px; padding: 0; }
+    .nac-page .nac-breadcrumb { display: none; }
+    .nac-page .nac-hero { min-height: 466px; height: 466px; background-position: center 50%; }
+    .nac-page .nac-title-band { position: absolute; top: 385px; left: 0; z-index: 3; width: 100%; padding: 0; background: transparent; }
+    .nac-page .nac-title-band h1 { max-width: 280px; color: #fff; font-size: 27px; line-height: 1.05; }
+    .nac-page .nac-title-band span { display: none; }
+    .nac-page .nac-about { min-height: 899px; padding: 52px 0 32px; background: #f7f9fd; }
+    .nac-page .nac-cut-white::before { top: -30px; height: 31px; }
+    .nac-page .nac-about-grid { display: flex; flex-direction: column; gap: 26px; }
+    .nac-page .nac-about-copy { display: contents; }
+    .nac-page .nac-about-copy h2,
+    .nac-page .nac-facilities h2,
+    .nac-page .nac-visit-info h2 { margin-bottom: 20px; font-size: 22px; }
+    .nac-page .nac-about-copy p { margin-bottom: 17px; font-size: 11px; line-height: 1.5; }
+    .nac-page p,
+    .nac-page dd { max-width: 100%; white-space: normal; overflow-wrap: anywhere; }
+    .nac-page .nac-about-grid > img { order: 4; width: 100%; min-height: 0; height: 220px; object-fit: cover; border-radius: 10px; }
+    .nac-page .nac-stat-grid { order: 5; grid-template-columns: 1fr; gap: 20px; margin-top: 0; }
+    .nac-page .nac-stat-grid div { min-height: 75px; padding: 14px; border-top: 3px solid #4b9f61; }
+    .nac-page .nac-stat-grid span { font-size: 9px; }
+    .nac-page .nac-stat-grid strong { margin-top: 8px; font-size: 14px; }
+    .nac-page .nac-facilities { min-height: 782px; padding: 45px 0 35px; background: #282828; }
+    .nac-page .nac-facilities::before { display: none; }
+    .nac-page .nac-facility-grid { grid-template-columns: 1fr; gap: 14px; }
+    .nac-page .nac-facility-card { min-height: 145px; padding: 18px; border-radius: 9px; }
+    .nac-page .nac-facility-card span { width: 30px; height: 30px; font-size: 16px; }
+    .nac-page .nac-facility-card h3 { margin-top: 15px; font-size: 13px; }
+    .nac-page .nac-facility-card p { margin-top: 10px; font-size: 10px; }
+    .nac-page .nac-visit { min-height: 633px; padding: 40px 0 32px; background: #282828; }
+    .nac-page .nac-visit-grid { grid-template-columns: 1fr; gap: 28px; }
+    .nac-page .nac-visit-info dl { gap: 18px; }
+    .nac-page .nac-visit-info dt { font-size: 9px; }
+    .nac-page .nac-visit-info dd { margin-top: 6px; font-size: 9px; }
+    .nac-page .nac-reservation { padding: 20px; border-radius: 10px; }
+    .nac-page .nac-reservation h2 { margin: 0; font-size: 17px; }
+    .nac-page .nac-reservation p { margin: 10px 0 15px; font-size: 10px; }
+    .nac-page .nac-primary-button,
+    .nac-page .nac-secondary-button { min-height: 38px; font-size: 10px; }
+
+    /* Mosque detail. */
+    .mosque-page .mosque-header { min-height: 72px; padding: 0; }
+    .mosque-page .mosque-breadcrumb { display: none; }
+    .mosque-page .mosque-hero { min-height: 466px; height: 466px; background-position: center 50%; }
+    .mosque-page .mosque-title-band { position: absolute; top: 385px; left: 0; z-index: 3; width: 100%; padding: 0; background: transparent; }
+    .mosque-page .mosque-title-band h1 { color: #fff; font-size: 27px; }
+    .mosque-page .mosque-title-band span { margin-top: 15px; padding: 7px 13px; color: #fff; font-size: 11px; border: 1px solid #fff; border-radius: 999px; }
+    .mosque-page .mosque-about { min-height: 862px; padding: 55px 0 35px; background: #f7f9fd; }
+    .mosque-page .mosque-about::before { top: -30px; height: 31px; }
+    .mosque-page .mosque-about-grid { display: flex; flex-direction: column; gap: 26px; }
+    .mosque-page .mosque-about-copy { display: contents; }
+    .mosque-page .mosque-about-copy h2 { margin-bottom: 22px; font-size: 22px; }
+    .mosque-page .mosque-about-copy p { margin-bottom: 18px; font-size: 11px; line-height: 1.52; }
+    .mosque-page p { max-width: 100%; white-space: normal; overflow-wrap: anywhere; }
+    .mosque-page .mosque-about-grid > img { order: 4; width: 100%; height: 210px; object-fit: cover; border-radius: 12px; }
+    .mosque-page .mosque-stat-grid { order: 5; grid-template-columns: 1fr; gap: 20px; margin-top: 0; }
+    .mosque-page .mosque-stat-grid div { min-height: 75px; padding: 14px; border-top: 3px solid #4b9f61; }
+    .mosque-page .mosque-stat-grid span { font-size: 9px; }
+    .mosque-page .mosque-stat-grid strong { margin-top: 8px; font-size: 15px; }
+
+    /* School history timeline. */
+    .history-page .history-page-header { min-height: 118px; }
+    .history-page .history-breadcrumb { width: calc(100% - 28px); padding-top: 94px; font-size: 8px; }
+    .history-page .history-intro { min-height: 164px; padding: 24px 20px 18px; }
+    .history-page .history-badge { min-width: 0; min-height: 27px; padding: 5px 11px; font-size: 9px; }
+    .history-page .history-intro h1 { margin-top: 20px; font-size: 21px; line-height: 1.08; }
+    .history-page .history-intro h1 {
+        max-width: 350px;
+        margin-inline: auto;
+        white-space: normal;
+        overflow-wrap: anywhere;
+    }
+    .history-page .history-intro > p:last-child { margin-top: 16px; font-size: 10px; line-height: 1.4; }
+    .history-page .history-timeline { width: calc(100% - 40px); padding-top: 24px; }
+    .history-page .history-stage,
+    .history-page .history-stage-purple {
+        display: flex;
+        min-height: 500px;
+        flex-direction: column;
+        padding: 0 0 55px 42px;
+    }
+    .history-page .history-stage::after { left: 15px; width: 5px; }
+    .history-page .history-stage-line { top: 15px; left: 18px; right: 22px; }
+    .history-page .history-stage-dot { top: 8px; left: 8px; width: 14px; height: 14px; }
+    .history-page .history-stage-icon { top: -7px; right: 0; width: 42px; height: 42px; font-size: 17px; }
+    .history-page .history-stage-content { display: contents; }
+    .history-page .history-stage-content img { order: 1; width: 100%; height: 175px; margin-top: 43px; aspect-ratio: auto; object-fit: cover; border-radius: 10px; }
+    .history-page .history-year { position: static; order: 2; width: max-content; min-height: 25px; margin-top: 14px; padding: 5px 10px; font-size: 9px; }
+    .history-page .history-stage-copy { order: 3; margin-top: 18px; }
+    .history-page .history-stage-label { font-size: 10px; }
+    .history-page .history-stage-copy h2 { margin-top: 15px; font-size: 18px; }
+    .history-page .history-stage-copy > p:last-child { margin-top: 15px; font-size: 11px; line-height: 1.45; }
+    .history-page .history-present-year { bottom: 18px; left: 0; width: 80px; min-height: 25px; font-size: 9px; }
+    .history-page .history-present-dot { display: none; }
+}

@@ -259,3 +259,391 @@
         font-size: 27px;
     }
 }
+
+/* Penyelarasan akhir halaman Fasilitas Sekolah dengan referensi desain terbaru. */
+.facility-hero {
+    min-height: 554px;
+    padding-bottom: calc(var(--section-cut-height) + 44px);
+    background-image: linear-gradient(90deg, rgba(0, 0, 0, 0.62) 0%, rgba(0, 0, 0, 0.28) 48%, rgba(0, 0, 0, 0.1) 100%), url("../../assets/images/lapangan.webp");
+    background-position: center;
+    background-size: cover;
+}
+
+/* Bidang potongan hero memakai warna section berikutnya agar tidak membentuk garis batas. */
+.facility-hero::after {
+    bottom: -1px;
+    height: calc(var(--section-cut-height) + 2px);
+    background: #f4f7fb;
+}
+
+.facility-intro,
+.facility-list {
+    color: var(--color-black);
+    background: #f4f7fb;
+}
+
+/* Kepala penjelasan mengelompokkan pill dan judul dengan jarak tetap. */
+.facility-intro-heading {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+/* Pill Penjelasan memakai ukuran khusus dan warna standar halaman lainnya. */
+.facility-intro .facility-intro-badge {
+    justify-content: center;
+    width: 151px;
+    height: 43px;
+    min-height: 43px;
+    margin: 0;
+    padding: 8px 16px;
+    color: #55b96a;
+    font-family: "Inter", sans-serif;
+    font-size: 18px;
+    font-weight: 800;
+    line-height: 150%;
+    letter-spacing: 0;
+    background: #dcf6e4;
+    border-radius: 20px;
+}
+
+.facility-intro p {
+    color: #8b929f;
+}
+
+/* Daftar fasilitas menggunakan heading terpusat dan dua lingkaran dekoratif. */
+.facility-list {
+    position: relative;
+    overflow: hidden;
+    padding: 70px 0 108px;
+}
+
+.facility-list::before,
+.facility-list::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    z-index: 0;
+    width: 410px;
+    height: 410px;
+    background: #e1efeb;
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.facility-list::before {
+    left: -285px;
+}
+
+.facility-list::after {
+    right: -285px;
+}
+
+.facility-list > .section-container {
+    position: relative;
+    z-index: 1;
+}
+
+.facility-list-heading {
+    max-width: 920px;
+}
+
+.facility-list .facility-list-heading h2 {
+    margin: 0;
+    font-size: 40px;
+    line-height: 1.02;
+}
+
+/* Delapan kartu fasilitas disusun menjadi grid 4x2 tanpa horizontal scroll. */
+.facility-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 24px;
+    margin-top: 76px;
+    overflow: visible;
+    cursor: default;
+}
+
+.facility-card,
+.facility-card:first-child {
+    display: flex;
+    min-width: 0;
+    max-width: none;
+    min-height: 600px;
+    overflow: hidden;
+    padding: 0;
+    background: #ffffff;
+    border: 1px solid #d4d4d4;
+    border-radius: 14px;
+}
+
+.facility-card img {
+    width: 100%;
+    max-width: none;
+    height: 250px;
+    aspect-ratio: auto;
+}
+
+.facility-card-body {
+    padding: 28px 24px 24px;
+}
+
+.facility-category {
+    width: fit-content;
+    margin-bottom: 22px;
+}
+
+.facility-card h3 {
+    min-height: 58px;
+}
+
+.facility-card p {
+    min-height: 112px;
+    margin: 28px 0 24px;
+}
+
+.facility-detail-button {
+    width: fit-content;
+}
+
+@media (max-width: 1180px) {
+    .facility-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .facility-card,
+    .facility-card:first-child {
+        min-width: 0;
+        max-width: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .facility-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .facility-card,
+    .facility-card:first-child {
+        min-height: 0;
+        padding: 0;
+        border: 1px solid #d4d4d4;
+    }
+
+    .facility-card-body {
+        padding: 28px 24px 24px;
+    }
+}
+
+@media (max-width: 576px) {
+    .facility-hero {
+        min-height: 430px;
+        padding-bottom: calc(var(--section-cut-height) + 32px);
+    }
+
+    .facility-list .facility-list-heading h2 {
+        font-size: 30px;
+    }
+
+    .facility-card img {
+        height: 230px;
+    }
+}
+
+/* Layout halaman fasilitas khusus mobile. */
+@media (max-width: 768px) {
+    body.facility-list-page {
+        width: 100%;
+        overflow-x: hidden;
+        background: #f7f9fd;
+    }
+
+    body.facility-list-page .section-container {
+        width: calc(100% - 40px);
+        max-width: none;
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    body.facility-list-page .facility-header {
+        padding-top: 72px;
+        background: #f7f9fd;
+    }
+
+    body.facility-list-page .facility-hero {
+        position: relative;
+        display: block;
+        width: 100%;
+        height: 466px;
+        min-height: 466px;
+        padding: 0;
+        background-position: center 50%;
+        background-size: cover;
+        border: 0;
+        border-radius: 0;
+    }
+
+    body.facility-list-page .facility-hero::after {
+        bottom: -1px;
+        height: 39px;
+        background: #f7f9fd;
+        clip-path: polygon(0 0, 155px 0, 184px 38px, 100% 38px, 100% 100%, 0 100%);
+    }
+
+    body.facility-list-page .facility-hero-content {
+        position: absolute;
+        right: 20px;
+        bottom: 75px;
+        left: 20px;
+        width: auto;
+        margin: 0;
+    }
+
+    body.facility-list-page .facility-hero h1 {
+        max-width: 230px;
+        margin: 0;
+        font-size: 30px;
+        line-height: 1.02;
+    }
+
+    body.facility-list-page .facility-intro {
+        min-height: 282px;
+        margin: 0;
+        padding: 45px 0 25px;
+        background: #f7f9fd;
+        clip-path: none;
+    }
+
+    body.facility-list-page .facility-intro-grid {
+        display: block;
+    }
+
+    body.facility-list-page .facility-intro-heading {
+        gap: 0;
+    }
+
+    body.facility-list-page .section-badge,
+    body.facility-list-page .facility-intro .facility-intro-badge {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: max-content;
+        height: 22px;
+        min-width: 0;
+        min-height: 22px;
+        margin: 0 0 18px;
+        padding: 0 10px;
+        font-size: 10px;
+        line-height: 1;
+        white-space: nowrap;
+        border-radius: 999px;
+    }
+
+    body.facility-list-page .facility-intro h2,
+    body.facility-list-page .facility-list h2 {
+        max-width: 100%;
+        margin: 0;
+        font-size: 22px;
+        line-height: 1.06;
+        text-align: left;
+        white-space: normal;
+        overflow-wrap: anywhere;
+    }
+
+    body.facility-list-page .facility-intro > .section-container > p {
+        margin: 26px 0 0;
+        font-size: 10px;
+        line-height: 1.45;
+        text-align: left;
+    }
+
+    body.facility-list-page .facility-list {
+        min-height: 0;
+        padding: 28px 0 44px;
+        background: #f7f9fd;
+    }
+
+    body.facility-list-page .facility-list::before,
+    body.facility-list-page .facility-list::after {
+        display: none;
+    }
+
+    body.facility-list-page .facility-list-heading {
+        max-width: 100%;
+        margin: 0;
+        text-align: left;
+    }
+
+    body.facility-list-page .facility-list-heading > p:last-child {
+        margin: 20px 0 0;
+        font-size: 10px;
+        line-height: 1.4;
+    }
+
+    body.facility-list-page .facility-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 24px;
+        margin-top: 36px;
+        overflow: visible;
+    }
+
+    body.facility-list-page .facility-card,
+    body.facility-list-page .facility-card:first-child {
+        width: 100%;
+        min-width: 0;
+        max-width: none;
+        height: auto;
+        min-height: 0;
+        padding: 0;
+        overflow: hidden;
+        background: #fff;
+        border: 1px solid #d4d4d4;
+        border-radius: 13px;
+    }
+
+    body.facility-list-page .facility-card img {
+        width: 100%;
+        height: 275px;
+        object-fit: cover;
+    }
+
+    body.facility-list-page .facility-card-body {
+        min-height: 0;
+        padding: 20px;
+    }
+
+    body.facility-list-page .facility-category {
+        width: max-content;
+        min-height: 25px;
+        margin: 0;
+        padding: 0 12px;
+        font-size: 10px;
+        white-space: nowrap;
+    }
+
+    body.facility-list-page .facility-card h3 {
+        min-height: 0;
+        margin: 12px 0 0;
+        font-size: 15px;
+        line-height: 1.08;
+    }
+
+    body.facility-list-page .facility-card p {
+        min-height: 0;
+        margin: 13px 0 12px;
+        font-size: 10px;
+        line-height: 1.4;
+    }
+
+    body.facility-list-page .facility-detail-button {
+        width: max-content;
+        min-height: 32px;
+        margin-top: 14px;
+        padding: 0 12px;
+        font-size: 8px;
+        white-space: nowrap;
+        border-radius: 5px;
+    }
+}

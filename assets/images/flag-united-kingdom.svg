@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 30" role="img" aria-label="United Kingdom flag">
+    <defs>
+        <clipPath id="flag-shape">
+            <rect width="60" height="30" rx="1" />
+        </clipPath>
+    </defs>
+    <g clip-path="url(#flag-shape)">
+        <rect width="60" height="30" fill="#012169" />
+        <path d="M0 0 60 30M60 0 0 30" stroke="#ffffff" stroke-width="7" />
+        <path d="M0 0 60 30M60 0 0 30" stroke="#c8102e" stroke-width="3" />
+        <path d="M30 0V30M0 15H60" stroke="#ffffff" stroke-width="10" />
+        <path d="M30 0V30M0 15H60" stroke="#c8102e" stroke-width="6" />
+    </g>
+</svg>

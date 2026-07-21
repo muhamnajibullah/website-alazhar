@@ -1,4 +1,235 @@
 /**
+ * Merender navbar utama dari satu sumber konfigurasi.
+ * Semua halaman cukup menyediakan <nav class="main-nav"> dan isi menunya akan disamakan di sini.
+ */
+function initializeSharedNavigation() {
+    const navigation = document.querySelector('.main-nav');
+
+    if (!navigation) {
+        return;
+    }
+
+    const currentPage = (window.location.pathname.split('/').pop() || 'index.html').toLowerCase();
+    const profilePages = ['profile.html', 'acara.html', 'about.html', 'vision.html', 'contact.html', 'sejarah-sekolah.html', 'detail-penghargaan.html', 'detail-event-quranic-camp.html'];
+    const facilityPages = ['program.html', 'facility.html', 'kurikulum-modern.html', 'jakarta.html', 'detail-program-nac.html', 'detail-fasilitas-masjid.html'];
+    const educationPages = ['program-tk.html', 'program-sd.html', 'program-smp.html', 'program-sma.html'];
+    const isHome = currentPage === 'index.html' || currentPage === '';
+    const isProfile = profilePages.includes(currentPage);
+    const isFacility = facilityPages.includes(currentPage);
+    const isEducation = educationPages.includes(currentPage);
+
+    navigation.innerHTML = [
+        '<a class="brand-logo" href="index.html" aria-label="Al-Azhar Kelapa Gading">',
+        '<img src="assets/images/logo al azhar.webp" alt="Logo Al-Azhar Kelapa Gading">',
+        '</a>',
+        '<button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-menu">',
+        '<span></span>',
+        '<span></span>',
+        '<span></span>',
+        '<span class="screen-reader-only">Buka menu navigasi</span>',
+        '</button>',
+        '<ul class="nav-menu" id="primary-menu">',
+        '<li><a' + (isHome ? ' class="is-active" aria-current="page"' : '') + ' href="index.html">Beranda</a></li>',
+        '<li class="nav-dropdown">',
+        '<button class="nav-dropdown-toggle' + (isProfile ? ' is-active' : '') + '" type="button" aria-expanded="false"' + (isProfile ? ' aria-current="page"' : '') + '>',
+        'Profil <span class="chevron"></span>',
+        '</button>',
+        '<ul class="dropdown-menu profile-dropdown-menu">',
+        /* Acara dan penghargaan memakai halaman serta status aktif yang terpisah. */
+        '<li><a' + (currentPage === 'acara.html' ? ' class="is-active" aria-current="page"' : '') + ' href="acara.html">Acara</a></li>',
+        '<li><a' + (currentPage === 'profile.html' ? ' class="is-active" aria-current="page"' : '') + ' href="profile.html">Penghargaan</a></li>',
+        '<li><a' + (currentPage === 'about.html' ? ' class="is-active" aria-current="page"' : '') + ' href="about.html">Tentang Kami</a></li>',
+        '<li><a' + (currentPage === 'vision.html' ? ' class="is-active" aria-current="page"' : '') + ' href="vision.html">Visi &amp; Misi Yayasan</a></li>',
+        '<li><a' + (currentPage === 'contact.html' ? ' class="is-active" aria-current="page"' : '') + ' href="contact.html">Hubungi Kami</a></li>',
+        '</ul>',
+        '</li>',
+        '<li class="nav-dropdown nav-dropdown-facility">',
+        '<button class="nav-dropdown-toggle' + (isFacility ? ' is-active' : '') + '" type="button" aria-expanded="false"' + (isFacility ? ' aria-current="page"' : '') + '>',
+        'Fasilitas <span class="chevron"></span>',
+        '</button>',
+        '<ul class="dropdown-menu facility-dropdown-menu">',
+        '<li><a' + (currentPage === 'program.html' ? ' class="is-active" aria-current="page"' : '') + ' href="program.html">Program Kami</a></li>',
+        '<li><a' + (currentPage === 'facility.html' ? ' class="is-active" aria-current="page"' : '') + ' href="facility.html">Fasilitas Sekolah</a></li>',
+        '</ul>',
+        '</li>',
+        '<li class="nav-dropdown nav-dropdown-program">',
+        '<button class="nav-dropdown-toggle' + (isEducation ? ' is-active' : '') + '" type="button" aria-expanded="false"' + (isEducation ? ' aria-current="page"' : '') + '>',
+        'Program Pendidikan <span class="chevron"></span>',
+        '</button>',
+        '<ul class="dropdown-menu program-education-dropdown-menu">',
+        '<li><a' + (currentPage === 'program-tk.html' ? ' class="is-active" aria-current="page"' : '') + ' href="program-tk.html">TK</a></li>',
+        '<li><a' + (currentPage === 'program-sd.html' ? ' class="is-active" aria-current="page"' : '') + ' href="program-sd.html">SD</a></li>',
+        '<li><a' + (currentPage === 'program-smp.html' ? ' class="is-active" aria-current="page"' : '') + ' href="program-smp.html">SMP</a></li>',
+        '<li><a' + (currentPage === 'program-sma.html' ? ' class="is-active" aria-current="page"' : '') + ' href="program-sma.html">SMA</a></li>',
+        '</ul>',
+        '</li>',
+        '<li><a class="join-link" href="https://wa.me/6281210300813">Gabung Alazka</a></li>',
+        '</ul>'
+    ].join('');
+}
+
+initializeSharedNavigation();
+
+/**
+ * Menambahkan pemilih bahasa yang sama pada seluruh halaman yang memiliki navbar.
+ * Pilihan disimpan agar status IND atau ENG tetap konsisten saat berpindah halaman.
+ */
+function initializeSharedLanguageSelector() {
+    const navigation = document.querySelector('.main-nav');
+
+    if (!navigation) {
+        return;
+    }
+
+    /* Selector lama di beberapa halaman dihapus untuk mencegah tombol bahasa ganda. */
+    document.querySelectorAll('.profile-language, .contact-language, .site-language').forEach(function (selector) {
+        selector.remove();
+    });
+
+    const selector = document.createElement('div');
+    selector.className = 'site-language';
+    selector.innerHTML = [
+        '<button class="site-language-toggle" type="button" aria-expanded="false" aria-haspopup="true">',
+        '<span class="language-flag language-flag-id" aria-hidden="true"></span>',
+        '<strong>IND</strong>',
+        '<i class="ri-arrow-down-s-line" aria-hidden="true"></i>',
+        '<span class="screen-reader-only">Pilih bahasa</span>',
+        '</button>',
+        '<div class="site-language-menu" role="menu">',
+        '<button type="button" role="menuitem" data-language="en">',
+        '<span class="language-flag language-flag-gb" aria-hidden="true"></span>',
+        '<strong>ENG</strong>',
+        '</button>',
+        '</div>'
+    ].join('');
+    /* Diletakkan di header agar mengikuti waktu dan animasi tampil navbar setelah opening screen. */
+    (navigation.closest('header') || document.body).appendChild(selector);
+
+    const toggle = selector.querySelector('.site-language-toggle');
+    const option = selector.querySelector('[data-language]');
+    let currentLanguage = 'id';
+
+    try {
+        currentLanguage = window.localStorage.getItem('alazka-language') === 'en' ? 'en' : 'id';
+    } catch (error) {
+        currentLanguage = 'id';
+    }
+
+    function renderLanguage() {
+        const isEnglish = currentLanguage === 'en';
+        const currentFlag = toggle.querySelector('.language-flag');
+        const currentLabel = toggle.querySelector('strong');
+        const optionFlag = option.querySelector('.language-flag');
+        const optionLabel = option.querySelector('strong');
+
+        currentFlag.className = 'language-flag ' + (isEnglish ? 'language-flag-gb' : 'language-flag-id');
+        currentFlag.textContent = '';
+        currentLabel.textContent = isEnglish ? 'ENG' : 'IND';
+        option.dataset.language = isEnglish ? 'id' : 'en';
+        optionFlag.className = 'language-flag ' + (isEnglish ? 'language-flag-id' : 'language-flag-gb');
+        optionFlag.textContent = '';
+        optionLabel.textContent = isEnglish ? 'IND' : 'ENG';
+        document.documentElement.lang = currentLanguage;
+        toggle.setAttribute('aria-label', 'Bahasa saat ini ' + (isEnglish ? 'English' : 'Indonesia'));
+    }
+
+    function closeLanguageMenu() {
+        selector.classList.remove('is-open');
+        toggle.setAttribute('aria-expanded', 'false');
+    }
+
+    toggle.addEventListener('click', function (event) {
+        event.stopPropagation();
+        const isOpen = selector.classList.toggle('is-open');
+        toggle.setAttribute('aria-expanded', String(isOpen));
+    });
+
+    option.addEventListener('click', function () {
+        currentLanguage = option.dataset.language === 'en' ? 'en' : 'id';
+
+        try {
+            window.localStorage.setItem('alazka-language', currentLanguage);
+        } catch (error) {
+            /* Selector tetap berfungsi pada browser yang membatasi localStorage. */
+        }
+
+        renderLanguage();
+        closeLanguageMenu();
+    });
+
+    document.addEventListener('click', function (event) {
+        if (!selector.contains(event.target)) {
+            closeLanguageMenu();
+        }
+    });
+
+    document.addEventListener('keydown', function (event) {
+        if (event.key === 'Escape') {
+            closeLanguageMenu();
+        }
+    });
+
+    renderLanguage();
+}
+
+initializeSharedLanguageSelector();
+
+/**
+ * Menyamakan footer pada seluruh halaman dari satu sumber markup.
+ * Struktur lama tetap menjadi fallback apabila JavaScript tidak tersedia.
+ */
+function initializeSharedFooter() {
+    const footer = document.querySelector('.site-footer');
+
+    if (!footer) {
+        return;
+    }
+
+    /* Tautan dan informasi kontak mengikuti susunan footer pada rancangan terbaru. */
+    footer.innerHTML = [
+        '<div class="footer-container footer-container-unified">',
+        '<section class="footer-brand" aria-labelledby="footer-brand-title">',
+        '<div class="footer-logo-row">',
+        '<img src="assets/images/logo al azhar.webp" alt="Logo Al-Azhar Kelapa Gading">',
+        '<h2 id="footer-brand-title">Al Azhar <br>Kelapa Gading</h2>',
+        '</div>',
+        '<div class="footer-contact-list">',
+        '<address><i class="fa-solid fa-location-dot" aria-hidden="true"></i><span>Jl. Raya Bulevar Timur, Kelurahan Pegangsaan Dua, Kecamatan Kelapa Gading, Kota Jakarta Utara, Daerah Khusus Ibukota Jakarta 14250</span></address>',
+        '<a href="tel:+628119769799"><i class="fa-solid fa-phone" aria-hidden="true"></i><span>+62 811-9769-799.</span></a>',
+        '<a href="mailto:info.jkt@alazka.sch.id"><i class="fa-solid fa-envelope" aria-hidden="true"></i><span>info.jkt@alazka.sch.id</span></a>',
+        '</div>',
+        '<ul class="social-links" aria-label="Media sosial">',
+        '<li><a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a></li>',
+        '<li><a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin" aria-hidden="true"></i></a></li>',
+        '<li><a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook" aria-hidden="true"></i></a></li>',
+        '<li><a href="mailto:info.jkt@alazka.sch.id" aria-label="Email"><i class="fa-solid fa-envelope" aria-hidden="true"></i></a></li>',
+        '<li><a href="tel:+628119769799" aria-label="Telepon"><i class="fa-solid fa-phone" aria-hidden="true"></i></a></li>',
+        '</ul>',
+        '</section>',
+        '<section class="footer-column" aria-labelledby="footer-registration-title">',
+        '<h2 id="footer-registration-title">Pendaftaran</h2>',
+        '<a href="https://wa.me/6281210300813">Penerimaan Siswa Baru</a>',
+        '<a href="detail-program-nac.html">North Aquatic Center</a>',
+        '</section>',
+        '<section class="footer-column footer-quick-links" aria-labelledby="footer-quick-title">',
+        '<h2 id="footer-quick-title">Akses Cepat</h2>',
+        '<a href="index.html">Beranda</a>',
+        '<a href="profile.html">Acara &amp; Penghargaan</a>',
+        '<a href="about.html">Tentang Kami</a>',
+        '<a href="vision.html">Visi &amp; Misi Yayasan</a>',
+        '<a href="contact.html">Hubungi Kami</a>',
+        '<a href="program.html">Program Kami</a>',
+        '<a href="facility.html">Fasilitas Kami</a>',
+        '<a href="index.html#program">Ekstrakurikuler &amp; Intrakurikuler</a>',
+        '<a href="#">Kebijakan Privasi</a>',
+        '</section>',
+        '</div>'
+    ].join('');
+}
+
+initializeSharedFooter();
+
+/**
  * Mengatur buka tutup menu utama pada layar kecil.
  * Function ini menjaga status aria-expanded agar menu tetap mudah diakses.
  */
@@ -49,14 +280,26 @@ function initializeMobileNavigation() {
         footer.innerHTML = [
             '<div class="mobile-nav-socials" aria-label="Media sosial">',
             '<a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>',
-            '<a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube" aria-hidden="true"></i></a>',
+            '<a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin" aria-hidden="true"></i></a>',
             '<a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></a>',
+            '<a href="mailto:info@alazka.sch.id" aria-label="Email"><i class="fa-solid fa-envelope" aria-hidden="true"></i></a>',
+            '<a href="tel:+628119769799" aria-label="Telepon"><i class="fa-solid fa-phone" aria-hidden="true"></i></a>',
             '</div>',
         ].join('');
         menu.appendChild(footer);
     }
 
     let closeTimer = null;
+    let lastFocusedElement = null;
+
+    function updateToggleLabel(isOpen) {
+        const label = toggleButton.querySelector('.screen-reader-only');
+        toggleButton.setAttribute('aria-expanded', String(isOpen));
+
+        if (label) {
+            label.textContent = isOpen ? 'Tutup menu navigasi' : 'Buka menu navigasi';
+        }
+    }
 
     function closeDropdowns() {
         dropdowns.forEach(function (dropdown) {
@@ -69,11 +312,11 @@ function initializeMobileNavigation() {
     }
 
     function closeMobileNavigation() {
-        if (!navigation.classList.contains('is-open')) {
+        if (!navigation.classList.contains('is-open') && !navigation.classList.contains('is-closing')) {
             return;
         }
 
-        toggleButton.setAttribute('aria-expanded', 'false');
+        updateToggleLabel(false);
         closeDropdowns();
 
         if (window.innerWidth <= 768) {
@@ -83,7 +326,10 @@ function initializeMobileNavigation() {
             closeTimer = window.setTimeout(function () {
                 navigation.classList.remove('is-open', 'is-closing');
                 document.body.classList.remove('mobile-nav-open', 'mobile-nav-closing');
-            }, 460);
+                if (lastFocusedElement && document.contains(lastFocusedElement)) {
+                    lastFocusedElement.focus();
+                }
+            }, 260);
             return;
         }
 
@@ -98,12 +344,23 @@ function initializeMobileNavigation() {
         }
 
         window.clearTimeout(closeTimer);
+        lastFocusedElement = document.activeElement;
+        closeDropdowns();
         navigation.classList.remove('is-closing');
         document.body.classList.remove('mobile-nav-closing');
         navigation.classList.add('is-open');
         document.body.classList.add('mobile-nav-open');
-        toggleButton.setAttribute('aria-expanded', 'true');
+        updateToggleLabel(true);
     });
+
+    /* Tautan menu menutup drawer, termasuk tautan hash yang tidak memuat ulang halaman. */
+    if (menu) {
+        menu.addEventListener('click', function (event) {
+            if (event.target.closest('a') && window.innerWidth <= 768) {
+                closeMobileNavigation();
+            }
+        });
+    }
 
     document.addEventListener('click', function (event) {
         if (navigation.classList.contains('is-open') && !navigation.contains(event.target)) {
@@ -113,13 +370,30 @@ function initializeMobileNavigation() {
 
     document.addEventListener('keydown', function (event) {
         if (event.key === 'Escape' && navigation.classList.contains('is-open')) {
+            const openDropdown = dropdowns.find(function (dropdown) {
+                return dropdown.classList.contains('is-open');
+            });
+
+            if (openDropdown) {
+                const openToggle = openDropdown.querySelector('.nav-dropdown-toggle');
+                closeDropdowns();
+                if (openToggle) {
+                    openToggle.focus();
+                }
+                return;
+            }
+
             closeMobileNavigation();
         }
     });
 
     window.addEventListener('resize', function () {
         if (window.innerWidth > 768) {
-            closeMobileNavigation();
+            window.clearTimeout(closeTimer);
+            closeDropdowns();
+            navigation.classList.remove('is-open', 'is-closing');
+            document.body.classList.remove('mobile-nav-open', 'mobile-nav-closing');
+            updateToggleLabel(false);
         }
     });
 }

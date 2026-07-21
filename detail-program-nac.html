@@ -13,45 +13,14 @@
     <link rel="stylesheet" href="css/pages/home.css">
     <link rel="stylesheet" href="css/pages/detail-nac.css">
     <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/pages/mobile-pages-21-july.css">
 </head>
 <body class="nac-page">
     <header class="nac-header" id="top">
-        <nav class="main-nav" aria-label="Navigasi utama">
-            <a class="brand-logo" href="index.html" aria-label="Al-Azhar Kelapa Gading">
-                <img src="assets/images/logo al azhar.webp" alt="Logo Al-Azhar Kelapa Gading">
-            </a>
-            <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-menu">
-                <span></span>
-                <span></span>
-                <span></span>
-                <span class="screen-reader-only">Buka menu navigasi</span>
-            </button>
-            <ul class="nav-menu" id="primary-menu">
-                <li><a href="index.html">Beranda</a></li>
-                <li class="nav-dropdown">
-                    <button class="nav-dropdown-toggle" type="button" aria-expanded="false">
-                        Profil <span class="chevron"></span>
-                    </button>
-                    <ul class="dropdown-menu profile-dropdown-menu">
-                        <li><a href="profile.html">Penghargaan dan Event</a></li>
-                        <li><a href="about.html">Tentang Kami</a></li>
-                        <li><a href="vision.html">Visi &amp; Misi Yayasan</a></li>
-                        <li><a href="https://wa.me/6281519776556">Hubungi Kami</a></li>
-                    </ul>
-                </li>
-                <li class="nav-dropdown nav-dropdown-facility">
-                    <button class="nav-dropdown-toggle is-active" type="button" aria-expanded="false">
-                        Fasilitas <span class="chevron"></span>
-                    </button>
-                    <ul class="dropdown-menu facility-dropdown-menu">
-                        <li><a href="program.html">Program Kami</a></li>
-                        <li><a href="facility.html">Fasilitas Sekolah</a></li>
-                    </ul>
-                </li>
-                <li><a class="join-link" href="https://wa.me/6281519776556">Gabung Alazka</a></li>
-            </ul>
-        </nav>
+        <!-- Navbar diisi oleh main.js agar konsisten dengan seluruh halaman. -->
+        <nav class="main-nav" aria-label="Navigasi utama"></nav>
 
+        <!-- Breadcrumb menunjukkan posisi halaman detail layanan NAC. -->
         <div class="section-container">
             <nav class="nac-breadcrumb" aria-label="Breadcrumb">
                 <a href="index.html">Beranda</a>
@@ -66,8 +35,10 @@
     </header>
 
     <main>
+        <!-- Foto utama kolam renang dibuat memenuhi lebar layar seperti referensi. -->
         <section class="nac-hero" aria-label="North Aquatic Center"></section>
 
+        <!-- Identitas layanan berada pada bidang gelap sebelum potongan diagonal. -->
         <section class="nac-title-band" aria-labelledby="nac-title">
             <div class="section-container">
                 <h1 id="nac-title">North Aquatic Center (NAC)</h1>
@@ -75,6 +46,7 @@
             </div>
         </section>
 
+        <!-- Ringkasan layanan dan statistik utama NAC. -->
         <section class="nac-about nac-cut-white" aria-labelledby="nac-about-title">
             <div class="section-container nac-about-grid">
                 <article class="nac-about-copy">
@@ -101,6 +73,7 @@
             </div>
         </section>
 
+        <!-- Empat fasilitas utama ditampilkan dalam kartu yang seragam. -->
         <section class="nac-facilities" aria-labelledby="nac-facilities-title">
             <div class="section-container">
                 <h2 id="nac-facilities-title">Fasilitas Tersedia</h2>
@@ -108,7 +81,7 @@
                     <article class="nac-facility-card">
                         <span><i class="ri-close-circle-line" aria-hidden="true"></i></span>
                         <h3>Kolam Olimpik</h3>
-                        <p>Standard internasional untuk pelatihan dan kompetisi profesional.</p>
+                        <p>Standar internasional untuk pelatihan dan kompetisi profesional.</p>
                     </article>
                     <article class="nac-facility-card">
                         <span><i class="ri-close-circle-line" aria-hidden="true"></i></span>
@@ -129,6 +102,7 @@
             </div>
         </section>
 
+        <!-- Informasi kunjungan dan tindakan reservasi. -->
         <section class="nac-visit" aria-labelledby="nac-visit-title">
             <div class="section-container nac-visit-grid">
                 <article class="nac-visit-info">
@@ -157,12 +131,13 @@
                     <h2 id="nac-reservation-title">Reservasi Sekarang</h2>
                     <p>Dapatkan jadwal pelatihan terbaik atau beli tiket harian Anda sekarang melalui layanan online kami.</p>
                     <button class="nac-primary-button" type="button" data-nac-ticket-open>Beli Tiket</button>
-                    <a class="nac-secondary-button" href="https://wa.me/6281519776556">Hubungi Kami</a>
+                    <a class="nac-secondary-button" href="https://wa.me/628119769799">Hubungi Kami</a>
                 </aside>
             </div>
         </section>
     </main>
 
+    <!-- Modal reservasi dipertahankan agar alur pembelian tiket tetap berfungsi. -->
     <div class="nac-ticket-modal" id="nac-ticket-modal" aria-hidden="true">
         <div class="nac-ticket-backdrop" data-nac-ticket-close></div>
         <section class="nac-ticket-dialog" role="dialog" aria-modal="true" aria-labelledby="nac-ticket-title">
@@ -228,40 +203,8 @@
         </section>
     </div>
 
-    <footer class="site-footer" id="contact">
-        <div class="footer-container">
-            <section class="footer-brand" aria-labelledby="footer-brand-title">
-                <div class="footer-logo-row">
-                    <img src="assets/images/logo al azhar.webp" alt="Logo Al-Azhar Kelapa Gading">
-                    <h2 id="footer-brand-title">Al Azhar Kelapa Gading</h2>
-                </div>
-                <address>Jl. Raya Bulevar Timur, Kelurahan Pegangsaan Dua,<br>Kecamatan Kelapa Gading, Kota Jakarta Utara,<br>Daerah Khusus Ibukota Jakarta 14250</address>
-                <ul class="social-links" aria-label="Media sosial">
-                    <li><a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a></li>
-                    <li><a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin" aria-hidden="true"></i></a></li>
-                    <li><a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook" aria-hidden="true"></i></a></li>
-                    <li><a href="mailto:info@alazka.sch.id" aria-label="Email"><i class="fa-solid fa-envelope" aria-hidden="true"></i></a></li>
-                    <li><a href="tel:+62214500000" aria-label="Telepon"><i class="fa-solid fa-phone" aria-hidden="true"></i></a></li>
-                </ul>
-            </section>
-            <section class="footer-column" aria-labelledby="footer-home-title">
-                <h2 id="footer-home-title">Home</h2>
-                <a href="profile.html#events">Events</a>
-                <a href="profile.html#achievements">Achievements</a>
-            </section>
-            <section class="footer-column" aria-labelledby="footer-profile-title">
-                <h2 id="footer-profile-title">Profile</h2>
-                <a href="https://wa.me/6281519776556">Contact Us</a>
-                <a href="vision.html">Vision</a>
-                <a href="vision.html#mission-title">Mission</a>
-            </section>
-            <section class="footer-column" aria-labelledby="footer-facility-title">
-                <h2 id="footer-facility-title">Facility</h2>
-                <a href="about.html">About Us</a>
-                <a href="facility.html">Our Facility</a>
-            </section>
-        </div>
-    </footer>
+    <!-- Footer diisi oleh main.js agar isi dan tampilannya konsisten. -->
+    <footer class="site-footer" id="contact"></footer>
 
     <script src="js/main.js"></script>
 </body>

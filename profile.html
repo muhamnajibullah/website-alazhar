@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Penghargaan dan event sekolah Al-Azhar Kelapa Gading.">
+    <meta name="description" content="Penghargaan siswa Al-Azhar Kelapa Gading.">
     <link rel="icon" type="image/svg+xml" href="assets/images/logo al azhar.webp" />
-    <title>Penghargaan & Event - Al-Azhar Kelapa Gading</title>
+    <title>Penghargaan - Al-Azhar Kelapa Gading</title>
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.6.0/fonts/remixicon.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/main.css">
@@ -13,8 +13,9 @@
     <link rel="stylesheet" href="css/pages/home.css">
     <link rel="stylesheet" href="css/pages/profile.css">
     <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/pages/mobile-pages-21-july.css">
 </head>
-<body>
+<body class="profile-awards-page">
     <header class="profile-header" id="top">
         <nav class="main-nav" aria-label="Navigasi utama">
             <a class="brand-logo" href="index.html" aria-label="Al-Azhar Kelapa Gading">
@@ -33,10 +34,12 @@
                         Profile <span class="chevron"></span>
                     </button>
                     <ul class="dropdown-menu profile-dropdown-menu">
-                        <li><a href="profile.html">Penghargaan dan Event</a></li>
+                        <!-- Acara dan penghargaan memiliki halaman yang terpisah. -->
+                        <li><a href="acara.html">Acara</a></li>
+                        <li><a href="profile.html">Penghargaan</a></li>
                         <li><a href="about.html">Tentang Kami</a></li>
                         <li><a href="vision.html">Visi &amp; Misi Yayasan</a></li>
-                        <li><a href="https://wa.me/6281519776556">Hubungi Kami</a></li>
+                        <li><a href="contact.html">Hubungi Kami</a></li>
                     </ul>
                 </li>
                 <li class="nav-dropdown nav-dropdown-facility">
@@ -48,13 +51,21 @@
                         <li><a href="facility.html">Fasilitas Sekolah</a></li>
                     </ul>
                 </li>
-                <li><a class="join-link" href="https://wa.me/6281519776556">Join Alazka</a></li>
+                <li><a class="join-link" href="https://wa.me/6281210300813">Join Alazka</a></li>
             </ul>
         </nav>
 
+        <!-- Selector bahasa visual mengikuti komposisi desktop pada referensi. -->
+        <button class="profile-language" type="button" aria-label="Bahasa saat ini Indonesia">
+            <span aria-hidden="true"></span>
+            <strong>IND</strong>
+            <i class="ri-arrow-down-s-line" aria-hidden="true"></i>
+        </button>
+
         <section class="profile-hero" aria-labelledby="profile-hero-title">
             <div class="profile-hero-content">
-                <h1 id="profile-hero-title">Penghargaan<br>&amp; Event</h1>
+                <!-- Judul hero mengikuti penamaan halaman pada rancangan terbaru. -->
+                <h1 id="profile-hero-title">Penghargaan<br>Kami</h1>
             </div>
         </section>
     </header>
@@ -62,14 +73,23 @@
     <main>
         <section class="profile-intro clipped-white" aria-labelledby="profile-intro-title">
             <div class="section-container profile-intro-grid">
-                <h2 id="profile-intro-title">Mengukir Prestasi,<br>Membangun Karakter</h2>
+                <!-- Label membantu membedakan bagian penjelasan tanpa mengubah ukuran blok utama. -->
+                <div class="profile-intro-heading">
+                    <p class="section-badge profile-section-badge">Penjelasan</p>
+                    <h2 id="profile-intro-title">Mengukir Prestasi,<br>Membangun Karakter</h2>
+                </div>
                 <p>Setiap penghargaan mencerminkan dedikasi, sementara setiap kegiatan memperkuat kebersamaan. Bersama, keduanya membentuk pengalaman belajar yang utuh di Al Azhar Kelapa Gading.</p>
             </div>
         </section>
 
         <section class="awards-section" id="achievements" aria-labelledby="awards-title">
             <div class="section-container">
-                <h2 id="awards-title">Penghargaan dan<br>Kejuaraan Alazka</h2>
+                <!-- Kepala bagian penghargaan diselaraskan dengan referensi desain. -->
+                <div class="profile-section-heading">
+                    <p class="section-badge profile-section-badge">Penghargaan Siswa</p>
+                    <h2 id="awards-title">Mengapresiasi Setiap Langkah<br><span>Menuju Keunggulan</span></h2>
+                    <p>Setiap penghargaan menjadi motivasi untuk terus mencetak generasi yang unggul, berkarakter, dan siap bersaing di tingkat nasional maupun global.</p>
+                </div>
                 <div class="awards-carousel">
                     <button class="floating-control floating-control-prev" type="button" data-scroll-prev="awards-track" aria-label="Penghargaan sebelumnya">
                         <i class="ri-arrow-left-s-line" aria-hidden="true"></i>
@@ -78,34 +98,34 @@
                     <div class="awards-track smooth-scroll-track" id="awards-track">
                         <article class="award-card" tabindex="0">
                             <a class="detail-card-link" href="detail-penghargaan.html" aria-label="Buka detail Olimpiade Matematika Nasional"></a>
-                            <img src="assets/images/award-anisa.webp" alt="Annisa Ahlan meraih Olimpiade Matematika Nasional">
+                            <img src="assets/images/foto-penghargaan-contoh.webp" alt="Myiesha Sabrina Adnan meraih Duta Genre Putri Jakarta Utara 2026">
                             <div class="award-overlay">
-                                <p>Annisa Ahlan, Kelas XII A</p>
-                                <h3>Olimpiade<br>Matematika Nasional</h3>
-                                <span class="award-rank">Peringkat <strong data-rank="1">1</strong></span>
+                                <p>Myiesha Sabrina Adnan</p>
+                                <h3>Duta Genre Putri<br>Jakarta Utara 2026</h3>
+                                <span class="award-rank">Peringkat <strong data-rank="3">3</strong></span>
                             </div>
                         </article>
                         <article class="award-card" tabindex="0">
                             <img src="assets/images/award-budi.webp" alt="Budi Barokah meraih penghargaan Sains">
                             <div class="award-overlay">
-                                <p>Budi Barokah</p>
-                                <h3>Sains</h3>
+                                <p>Cinta Maryam</p>
+                                <h3>Gymnastic<br>National</h3>
                                 <span class="award-rank"><strong data-rank="1">1</strong></span>
                             </div>
                         </article>
                         <article class="award-card" tabindex="0">
                             <img src="assets/images/award-cinta.webp" alt="Cinta Cendekia meraih penghargaan Fisika">
                             <div class="award-overlay">
-                                <p>Cinta Cendekia</p>
-                                <h3>Fisika</h3>
+                                <p>Karju Tama Abis</p>
+                                <h3>Abang None<br>Cilik 2026</h3>
                                 <span class="award-rank"><strong data-rank="2">2</strong></span>
                             </div>
                         </article>
                         <article class="award-card" tabindex="0">
                             <img src="assets/images/award-deni.webp" alt="Deni Damaskus meraih penghargaan Renang">
                             <div class="award-overlay">
-                                <p>Deni Damaskus</p>
-                                <h3>Renang</h3>
+                                <p>Garda Utama Yuda</p>
+                                <h3>Liga Sentra<br>Indonesia</h3>
                                 <span class="award-rank"><strong data-rank="3">3</strong></span>
                             </div>
                         </article>
@@ -186,9 +206,15 @@
             </div>
         </section>
 
-        <section class="events-section" id="events" aria-labelledby="events-title">
+        <!-- Konten acara dipindahkan ke acara.html; blok lama disembunyikan demi kompatibilitas markup lama. -->
+        <section class="events-section" id="events" aria-labelledby="events-title" hidden>
             <div class="section-container">
-                <h2 id="events-title">Event<br>Sekolah</h2>
+                <!-- Kepala bagian acara menggunakan pola visual yang sama dengan halaman utama. -->
+                <div class="profile-section-heading profile-section-heading-dark">
+                    <p class="section-badge profile-section-badge">Event Alazka</p>
+                    <h2 id="events-title">Momen yang Menghubungkan<br><span>Pembelajaran dan Pengalaman</span></h2>
+                    <p>Jelajahi berbagai event yang mendukung pembelajaran aktif, pembentukan karakter, serta pengembangan kompetensi peserta didik.</p>
+                </div>
                 <div class="events-track smooth-scroll-track" id="events-track">
                     <article class="event-card">
                         <a class="detail-card-link" href="detail-event-quranic-camp.html" aria-label="Buka detail Holiday Quranic Camp"></a>
@@ -285,7 +311,7 @@
             </section>
             <section class="footer-column" aria-labelledby="footer-profile-title">
                 <h2 id="footer-profile-title">Profile</h2>
-                <a href="https://wa.me/6281519776556">Contact Us</a>
+                <a href="https://wa.me/628119769799">Contact Us</a>
                 <a href="#top">Vision</a>
                 <a href="#top">Mission</a>
             </section>

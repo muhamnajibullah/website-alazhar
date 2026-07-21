@@ -1,0 +1,409 @@
+/*
+ * Detail Holiday Quranic Camp
+ * Aturan pada file ini hanya mengatur halaman event Quranic Camp. Komponen
+ * navbar, footer, serta modal tetap menggunakan implementasi bersama.
+ */
+
+.quranic-event-page {
+    color: #ffffff;
+    background: #242424;
+}
+
+/* Header gelap memberi ruang yang tepat untuk navbar dan breadcrumb. */
+.quranic-event-page .quranic-event-header {
+    padding: 148px 0 17px;
+    background: #242424;
+}
+
+.quranic-event-page .detail-breadcrumb {
+    gap: 13px;
+    color: rgba(255, 255, 255, 0.38);
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.quranic-event-page .detail-breadcrumb span:last-child {
+    color: rgba(255, 255, 255, 0.72);
+}
+
+/* Hero memakai aset overview yang sudah disiapkan khusus dalam rasio landscape. */
+.quranic-event-page .event-detail-hero {
+    min-height: 456px;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.12), rgba(0, 0, 0, 0.12)), url("../../assets/images/overview.webp");
+    background-position: center;
+    background-size: cover;
+}
+
+/* Judul dan metadata berada dalam satu blok gelap setelah hero. */
+.quranic-event-page .event-detail-title {
+    padding-top: 38px;
+}
+
+.quranic-event-page .event-detail-title h1 {
+    margin: 0;
+    font-size: 52px;
+    font-weight: 800;
+    line-height: 1.05;
+}
+
+.quranic-event-page .event-title-meta {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 26px;
+    color: rgba(255, 255, 255, 0.82);
+    font-size: 17px;
+}
+
+.quranic-event-page .event-title-meta span {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    padding-right: 20px;
+    border-right: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.quranic-event-page .event-title-meta span:last-child {
+    padding-right: 0;
+    border-right: 0;
+}
+
+.quranic-event-page .event-title-meta i {
+    font-size: 21px;
+}
+
+/* Isi utama memakai kolom artikel dan sidebar informasi. */
+.quranic-event-page .event-detail-content {
+    padding: 132px 0 92px;
+    background: #242424;
+}
+
+.quranic-event-page .event-detail-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 650px) minmax(360px, 456px);
+    align-items: start;
+    justify-content: space-between;
+    gap: 60px;
+}
+
+.quranic-event-page .event-detail-copy h2 {
+    margin: 0 0 32px;
+    font-size: 32px;
+    font-weight: 800;
+    line-height: 1;
+}
+
+.quranic-event-page .event-detail-copy p {
+    max-width: 650px;
+    margin: 0 0 24px;
+    color: rgba(255, 255, 255, 0.72);
+    font-size: 17px;
+    line-height: 1.56;
+}
+
+.event-detail-sidebar {
+    display: grid;
+    gap: 28px;
+}
+
+.quranic-event-page .event-info-panel {
+    padding: 31px 29px 27px;
+    background: #303030;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 18px;
+}
+
+.quranic-event-page .event-info-panel dl {
+    display: grid;
+    gap: 22px;
+    margin: 0;
+}
+
+.quranic-event-page .event-info-panel dl > div {
+    display: grid;
+    gap: 5px;
+}
+
+.quranic-event-page .event-info-panel dt {
+    color: #78bcc5;
+    font-size: 13px;
+    font-weight: 800;
+    line-height: 1;
+    text-transform: uppercase;
+}
+
+.quranic-event-page .event-info-panel dd {
+    margin: 0;
+    color: #ffffff;
+    font-size: 17px;
+    line-height: 1.25;
+}
+
+.quranic-event-page .event-register-button {
+    grid-column: auto;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 58px;
+    padding: 0 24px;
+    color: #ffffff;
+    font-family: inherit;
+    font-size: 17px;
+    font-weight: 800;
+    background: #079600;
+    border: 0;
+    border-radius: 9px;
+    cursor: pointer;
+    transition: background-color 180ms ease;
+}
+
+.quranic-event-page .event-register-button:hover,
+.quranic-event-page .event-register-button:focus-visible {
+    background: #0aaa03;
+}
+
+@media (max-width: 960px) {
+    .quranic-event-page .event-detail-grid {
+        grid-template-columns: 1fr;
+        gap: 48px;
+    }
+
+    .quranic-event-page .event-detail-copy p {
+        max-width: none;
+    }
+
+    .event-detail-sidebar {
+        width: min(100%, 560px);
+    }
+}
+
+@media (max-width: 576px) {
+    .quranic-event-page .quranic-event-header {
+        padding: 120px 0 16px;
+    }
+
+    .quranic-event-page .event-detail-hero {
+        min-height: 320px;
+        background-position: center 50%;
+    }
+
+    .quranic-event-page .event-detail-title {
+        padding-top: 34px;
+    }
+
+    .quranic-event-page .event-detail-title h1 {
+        font-size: 38px;
+    }
+
+    .quranic-event-page .event-title-meta {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 13px;
+        font-size: 15px;
+    }
+
+    .quranic-event-page .event-title-meta span {
+        padding-right: 0;
+        border-right: 0;
+    }
+
+    .quranic-event-page .event-detail-content {
+        padding: 82px 0 76px;
+    }
+
+    .quranic-event-page .event-detail-copy h2 {
+        font-size: 28px;
+    }
+
+    .quranic-event-page .event-detail-copy p {
+        font-size: 16px;
+    }
+}
+
+/* Layout halaman detail event khusus mobile. */
+@media (max-width: 768px) {
+    body.quranic-event-page {
+        position: relative;
+        width: 100%;
+        overflow-x: hidden;
+        background: #282828;
+    }
+
+    body.quranic-event-page .section-container {
+        width: calc(100% - 40px);
+        max-width: none;
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    body.quranic-event-page .quranic-event-header {
+        min-height: 72px;
+        padding: 0;
+        background: #fff;
+    }
+
+    body.quranic-event-page .detail-breadcrumb {
+        display: none;
+    }
+
+    body.quranic-event-page .event-detail-hero {
+        width: 100%;
+        height: 320px;
+        min-height: 320px;
+        margin: 0;
+        background-image:
+            linear-gradient(180deg, rgba(0, 0, 0, 0) 46%, rgba(0, 0, 0, 0.18) 65%, rgba(0, 0, 0, 0.94) 100%),
+            url("../../assets/images/event-holiday-quranic-camp.webp");
+        background-position: center 35%;
+        background-size: cover;
+        background-repeat: no-repeat;
+        border-radius: 0;
+        box-shadow: inset 0 -44px 42px -30px rgba(0, 0, 0, 0.9);
+    }
+
+    body.quranic-event-page .event-detail-title.section-container {
+        position: absolute;
+        top: 292px;
+        right: 20px;
+        left: 20px;
+        z-index: 3;
+        width: auto;
+        max-width: none;
+        margin: 0;
+        padding: 0;
+        color: #fff;
+    }
+
+    body.quranic-event-page .event-detail-title h1 {
+        max-width: 270px;
+        margin: 0;
+        font-size: 25px;
+        line-height: 1.05;
+    }
+
+    body.quranic-event-page .event-title-meta {
+        display: grid;
+        align-items: center;
+        grid-template-columns: 36% 47% 17%;
+        width: 100%;
+        gap: 0;
+        margin-top: 15px;
+        color: rgba(255, 255, 255, 0.82);
+        font-size: 9px;
+        white-space: nowrap;
+    }
+
+    body.quranic-event-page .event-title-meta span {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 5px;
+        min-width: 0;
+        padding: 0 5px;
+        border-right: 1px solid #777;
+    }
+
+    body.quranic-event-page .event-title-meta span:first-child {
+        justify-content: flex-start;
+        padding-left: 0;
+    }
+
+    body.quranic-event-page .event-title-meta span:nth-child(2) {
+        justify-content: center;
+    }
+
+    body.quranic-event-page .event-title-meta span:last-child {
+        justify-content: flex-end;
+        padding: 0 3px;
+        border-right: 0;
+    }
+
+    body.quranic-event-page .event-title-meta i {
+        font-size: 10px;
+    }
+
+    body.quranic-event-page .event-detail-content {
+        min-height: 0;
+        padding: 30px 0 28px;
+        background: #282828;
+    }
+
+    body.quranic-event-page .event-detail-grid {
+        display: grid;
+        width: calc(100% - 40px);
+        max-width: none;
+        grid-template-columns: 1fr;
+        gap: 26px;
+        margin: 0 auto;
+    }
+
+    body.quranic-event-page .event-detail-copy,
+    body.quranic-event-page .event-detail-sidebar,
+    body.quranic-event-page .event-info-panel {
+        width: 100%;
+        min-width: 0;
+        max-width: 100%;
+    }
+
+    body.quranic-event-page .event-detail-copy h2 {
+        margin: 0 0 20px;
+        font-size: 23px;
+        line-height: 1.08;
+    }
+
+    body.quranic-event-page .event-detail-copy p {
+        width: 100%;
+        max-width: 100%;
+        margin: 0 0 20px;
+        color: rgba(255, 255, 255, 0.76);
+        font-size: 14px;
+        line-height: 1.55;
+        white-space: normal;
+        overflow-wrap: anywhere;
+    }
+
+    body.quranic-event-page .event-detail-copy p:last-child {
+        margin-bottom: 0;
+        font-size: 17px;
+        line-height: 1.6;
+    }
+
+    body.quranic-event-page .event-detail-sidebar {
+        display: grid;
+        gap: 22px;
+    }
+
+    body.quranic-event-page .event-info-panel {
+        padding: 20px;
+        background: #303030;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 18px;
+    }
+
+    body.quranic-event-page .event-info-panel dl {
+        gap: 17px;
+    }
+
+    body.quranic-event-page .event-info-panel dt {
+        font-size: 10px;
+    }
+
+    body.quranic-event-page .event-info-panel dd {
+        margin-top: 5px;
+        font-size: 12px;
+        line-height: 1.25;
+    }
+
+    body.quranic-event-page .event-register-button {
+        width: 100%;
+        min-height: 48px;
+        font-size: 13px;
+        border-radius: 7px;
+    }
+
+    body.quranic-event-page .site-footer {
+        margin-top: 0;
+    }
+}

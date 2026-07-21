@@ -4,59 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Detail event Holiday Quranic Camp Al-Azhar Kelapa Gading.">
-    <link rel="icon" type="image/svg+xml" href="assets/images/logo al azhar.webp" />
+    <link rel="icon" type="image/svg+xml" href="assets/images/logo al azhar.webp">
     <title>Holiday Quranic Camp - Al-Azhar Kelapa Gading</title>
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.6.0/fonts/remixicon.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/components.css">
     <link rel="stylesheet" href="css/pages/home.css">
+    <!-- detail-insider.css dipertahankan untuk komponen modal pendaftaran bersama. -->
     <link rel="stylesheet" href="css/pages/detail-insider.css">
+    <link rel="stylesheet" href="css/pages/detail-event-quranic-camp.css">
     <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/pages/mobile-pages-21-july.css">
 </head>
-<body class="detail-page">
-    <header class="detail-header" id="top">
-        <nav class="main-nav" aria-label="Navigasi utama">
-            <a class="brand-logo" href="index.html" aria-label="Al-Azhar Kelapa Gading">
-                <img src="assets/images/logo al azhar.webp" alt="Logo Al-Azhar Kelapa Gading">
-            </a>
-            <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-menu">
-                <span></span>
-                <span></span>
-                <span></span>
-                <span class="screen-reader-only">Buka menu navigasi</span>
-            </button>
-            <ul class="nav-menu" id="primary-menu">
-                <li><a href="index.html">Home</a></li>
-                <li class="nav-dropdown">
-                    <button class="nav-dropdown-toggle is-active" type="button" aria-expanded="false">
-                        Profile <span class="chevron"></span>
-                    </button>
-                    <ul class="dropdown-menu profile-dropdown-menu">
-                        <li><a href="profile.html">Penghargaan dan Event</a></li>
-                        <li><a href="about.html">Tentang Kami</a></li>
-                        <li><a href="vision.html">Visi &amp; Misi Yayasan</a></li>
-                        <li><a href="https://wa.me/6281519776556">Hubungi Kami</a></li>
-                    </ul>
-                </li>
-                <li class="nav-dropdown nav-dropdown-facility">
-                    <button class="nav-dropdown-toggle" type="button" aria-expanded="false">
-                        Facility <span class="chevron"></span>
-                    </button>
-                    <ul class="dropdown-menu facility-dropdown-menu">
-                        <li><a href="program.html">Program Kami</a></li>
-                        <li><a href="facility.html">Fasilitas Sekolah</a></li>
-                    </ul>
-                </li>
-                <li><a class="join-link" href="https://wa.me/6281519776556">Join Alazka</a></li>
-            </ul>
-        </nav>
+<body class="detail-page quranic-event-page">
+    <header class="detail-header quranic-event-header" id="top">
+        <!-- Navbar dibentuk oleh main.js agar sama dengan halaman lain. -->
+        <nav class="main-nav" aria-label="Navigasi utama"></nav>
 
         <div class="section-container">
             <nav class="detail-breadcrumb" aria-label="Breadcrumb">
                 <a href="profile.html">Penghargaan &amp; Event</a>
                 <span aria-hidden="true">›</span>
-                <a href="profile.html#events">Event Sekolah</a>
+                <a href="acara.html">Event Sekolah</a>
                 <span aria-hidden="true">›</span>
                 <span>Detail Event</span>
             </nav>
@@ -64,44 +34,46 @@
     </header>
 
     <main>
+        <!-- Hero menggunakan foto asli kegiatan dan crop landscape dari referensi. -->
         <section class="event-detail-hero" aria-label="Holiday Quranic Camp"></section>
 
         <section class="event-detail-title section-container" aria-labelledby="event-detail-title">
             <h1 id="event-detail-title">Holiday Quranic Camp</h1>
-            <div class="event-title-meta">
-                <span><i class="ri-calendar-line" aria-hidden="true"></i> Rabu, 25 Juni 2025</span>
-                <span><i class="ri-map-pin-line" aria-hidden="true"></i> Masjid Alazka, Jakarta</span>
-                <span><i class="ri-price-tag-3-line" aria-hidden="true"></i> Gratis</span>
+
+            <!-- Metadata ringkas ditampilkan tepat di bawah judul event. -->
+            <div class="event-title-meta" aria-label="Ringkasan event">
+                <span><i class="ri-calendar-line" aria-hidden="true"></i>Rabu, 25 Juni 2025</span>
+                <span><i class="ri-map-pin-line" aria-hidden="true"></i>Masjid Alazka, Jakarta</span>
+                <span><i class="ri-price-tag-3-line" aria-hidden="true"></i>Gratis</span>
             </div>
         </section>
 
-        <section class="event-detail-content">
+        <section class="event-detail-content" aria-labelledby="event-about-title">
             <div class="section-container event-detail-grid">
                 <article class="event-detail-copy">
-                    <h2>Tentang Event</h2>
+                    <h2 id="event-about-title">Tentang Event</h2>
                     <p>Holiday Quranic Camp merupakan program tahunan Sekolah Islam Al Azhar Kelapa Gading yang dirancang khusus untuk mengisi waktu libur siswa dengan kegiatan yang bermanfaat dan spiritual. Program ini berfokus pada pemantapan bacaan Al-Quran, hafalan surat-surat pendek, serta penanaman akhlakul karimah.</p>
                     <p>Dibimbing oleh asatidz yang berpengalaman, para peserta akan diajak untuk lebih mencintai Al-Quran melalui metode pembelajaran yang interaktif dan menyenangkan. Kegiatan ini tidak hanya melatih kemampuan akademis keagamaan, tetapi juga membangun kemandirian dan ukhuwah antar siswa di lingkungan Masjid Alazka yang asri dan kondusif.</p>
                     <p>Kami mengundang seluruh orang tua untuk mendaftarkan putra-putrinya dalam kegiatan ini guna menciptakan generasi yang cerdas, berilmu, dan beradab sesuai dengan nilai-nilai luhur Al-Azhar.</p>
                 </article>
 
-                <aside class="event-info-panel" aria-label="Informasi event">
-                    <dl>
-                        <dt>Tanggal</dt>
-                        <dd>Rabu, 25 Juni 2025</dd>
-                        <dt>Waktu</dt>
-                        <dd>07.00 - 17.00 WIB</dd>
-                        <dt>Lokasi</dt>
-                        <dd>Masjid Alazka, Kelapa Gading</dd>
-                        <dt>Penyelenggara</dt>
-                        <dd>OSIS Al-Azhar Kelapa Gading</dd>
-                    </dl>
-                </aside>
-                <a class="event-register-button" href="https://wa.me/6281519776556">Daftar Sekarang</a>
+                <!-- Kolom kanan menyatukan informasi penting dan aksi pendaftaran. -->
+                <div class="event-detail-sidebar">
+                    <aside class="event-info-panel" aria-label="Informasi event">
+                        <dl>
+                            <div><dt>Tanggal</dt><dd>Rabu, 25 Juni 2025</dd></div>
+                            <div><dt>Waktu</dt><dd>07.00 - 17.00 WIB</dd></div>
+                            <div><dt>Lokasi</dt><dd>Masjid Alazka, Kelapa Gading</dd></div>
+                            <div><dt>Penyelenggara</dt><dd>OSIS Al-Azhar Kelapa Gading</dd></div>
+                        </dl>
+                    </aside>
+                    <button class="event-register-button" type="button" data-modal-open="registration-modal">Daftar Sekarang</button>
+                </div>
             </div>
         </section>
     </main>
 
-    <!-- Modal pendaftaran muncul hanya ketika tombol Daftar Sekarang ditekan. -->
+    <!-- Modal pendaftaran tetap tersedia dan hanya muncul setelah tombol ditekan. -->
     <div class="registration-modal" id="registration-modal" aria-hidden="true">
         <div class="registration-backdrop" data-modal-close></div>
         <section class="registration-dialog" role="dialog" aria-modal="true" aria-labelledby="registration-title">
@@ -116,13 +88,15 @@
                 <label>Nama Lengkap<input type="text" placeholder="Masukkan nama lengkap"></label>
                 <label>Email<input type="email" placeholder="Masukkan alamat email"></label>
                 <label>No. WhatsApp<input type="tel" placeholder="Contoh: 0812-3456-7890"></label>
-                <label>Kelas / Jenjang<select>
-                    <option value="">Pilih jenjang (TK / SD / SMP / SMA)</option>
-                    <option value="TK">TK</option>
-                    <option value="SD">SD</option>
-                    <option value="SMP">SMP</option>
-                    <option value="SMA">SMA</option>
-                </select></label>
+                <label>Kelas / Jenjang
+                    <select>
+                        <option value="">Pilih jenjang (TK / SD / SMP / SMA)</option>
+                        <option value="TK">TK</option>
+                        <option value="SD">SD</option>
+                        <option value="SMP">SMP</option>
+                        <option value="SMA">SMA</option>
+                    </select>
+                </label>
                 <label>Jumlah Peserta<input type="number" value="1" min="1"></label>
                 <div class="registration-actions">
                     <button class="registration-cancel" type="button" data-modal-close>Batal</button>
@@ -132,41 +106,8 @@
         </section>
     </div>
 
-    <footer class="site-footer" id="contact">
-        <div class="footer-container">
-            <section class="footer-brand" aria-labelledby="footer-brand-title">
-                <div class="footer-logo-row">
-                    <img src="assets/images/logo al azhar.webp" alt="Logo Al-Azhar Kelapa Gading">
-                    <h2 id="footer-brand-title">Al Azhar Kelapa Gading</h2>
-                </div>
-                <address>Jl. Raya Bulevar Timur, Kelurahan Pegangsaan Dua,<br>Kecamatan Kelapa Gading, Kota Jakarta Utara,<br>Daerah Khusus Ibukota Jakarta 14250</address>
-                <ul class="social-links" aria-label="Media sosial">
-                    <li><a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a></li>
-                    <li><a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin" aria-hidden="true"></i></a></li>
-                    <li><a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook" aria-hidden="true"></i></a></li>
-                    <li><a href="mailto:info@alazka.sch.id" aria-label="Email"><i class="fa-solid fa-envelope" aria-hidden="true"></i></a></li>
-                    <li><a href="tel:+62214500000" aria-label="Telepon"><i class="fa-solid fa-phone" aria-hidden="true"></i></a></li>
-                </ul>
-            </section>
-            <section class="footer-column" aria-labelledby="footer-home-title">
-                <h2 id="footer-home-title">Home</h2>
-                <a href="profile.html#events">Events</a>
-                <a href="profile.html#achievements">Achievements</a>
-            </section>
-            <section class="footer-column" aria-labelledby="footer-profile-title">
-                <h2 id="footer-profile-title">Profile</h2>
-                <a href="https://wa.me/6281519776556">Contact Us</a>
-                <a href="vision.html">Vision</a>
-                <a href="vision.html">Mission</a>
-            </section>
-            <section class="footer-column" aria-labelledby="footer-facility-title">
-                <h2 id="footer-facility-title">Facility</h2>
-                <a href="about.html">About Us</a>
-                <a href="facility.html">Our Facility</a>
-            </section>
-        </div>
-    </footer>
-
+    <!-- Footer dirender dari main.js agar sama dengan seluruh halaman. -->
+    <footer class="site-footer" id="contact"></footer>
     <script src="js/main.js"></script>
 </body>
 </html>

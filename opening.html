@@ -54,26 +54,26 @@
             pointer-events: none;
             background: #000;
             opacity: 0;
-            transition: opacity 0.42s ease;
+            transition: opacity 0.62s ease;
         }
 
         body.is-leaving::after {
-            opacity: 0.18;
+            opacity: 0.28;
         }
 
         body.is-leaving .wrapper {
-            animation: openingExit 0.42s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            animation: openingExit 0.62s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
 
         body.is-leaving .video-background video {
             transform: scale(1.025);
             filter: brightness(0.7) saturate(0.92);
-            transition: transform 0.42s cubic-bezier(0.16, 1, 0.3, 1), filter 0.42s ease;
+            transition: transform 0.62s cubic-bezier(0.16, 1, 0.3, 1), filter 0.62s ease;
         }
 
         body.is-leaving .video-overlay {
             background: rgba(0, 0, 0, 0.66);
-            transition: background 0.42s ease;
+            transition: background 0.62s ease;
         }
 
         body.is-leaving .btn-continue {
@@ -575,8 +575,9 @@
                     return;
                 }
 
+                window.scrollTo(0, 0);
                 window.location.href = 'index.html?opening=done';
-            }, 90);
+            }, 620);
         };
 
         continueButton?.addEventListener('click', (e) => {

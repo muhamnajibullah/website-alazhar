@@ -1,0 +1,284 @@
+/* =========================================================
+   Fondasi halaman detail penghargaan
+   ========================================================= */
+.award-page {
+    --award-dark: #242424;
+    --award-panel: #343434;
+
+    background: var(--award-dark);
+}
+
+.award-header {
+    padding-bottom: 28px;
+    background: var(--award-dark);
+}
+
+.award-page .detail-breadcrumb {
+    color: rgba(255, 255, 255, 0.38);
+    font-size: 14px;
+    font-weight: 600;
+}
+
+/* =========================================================
+   Hero dan identitas penerima penghargaan
+   ========================================================= */
+.award-page .award-detail-hero {
+    min-height: 478px;
+    background-image:
+        linear-gradient(180deg, rgba(0, 0, 0, 0) 48%, rgba(0, 0, 0, 0.9) 100%),
+        url("../../assets/images/foto-penghargaan-wide.webp");
+    border-radius: 10px 10px 0 0;
+}
+
+.award-page .award-detail-title {
+    padding-top: 50px;
+}
+
+.award-page .award-detail-title h1 {
+    font-size: 54px;
+    line-height: 1.05;
+}
+
+.award-page .award-title-meta {
+    gap: 18px;
+    margin-top: 24px;
+    font-size: 21px;
+}
+
+.award-page .award-title-meta span:not(.achievement-badge) {
+    padding: 0;
+    font-size: 21px;
+    border: 0;
+}
+
+.award-page .achievement-badge {
+    padding: 6px 14px;
+    font-size: 13px;
+    background: #ffe275;
+}
+
+/* =========================================================
+   Deskripsi dan panel detail penghargaan
+   ========================================================= */
+.award-page .award-detail-content {
+    padding: 130px 0 88px;
+}
+
+.award-page .award-detail-grid {
+    grid-template-columns: minmax(0, 1fr) minmax(420px, 0.82fr);
+    gap: 92px;
+    align-items: start;
+}
+
+.award-page .award-detail-copy h2 {
+    margin-bottom: 30px;
+    font-size: 36px;
+}
+
+.award-page .award-detail-copy p {
+    max-width: 680px;
+    color: rgba(255, 255, 255, 0.82);
+    font-size: 18px;
+    line-height: 1.55;
+}
+
+.award-page .award-info-panel {
+    padding: 40px 38px;
+    background: var(--award-panel);
+    border-radius: 22px;
+}
+
+.award-page .award-info-panel h2 {
+    margin-bottom: 32px;
+    font-size: 20px;
+}
+
+.award-page .award-info-panel ul {
+    gap: 24px;
+}
+
+.award-page .award-info-panel li {
+    font-size: 17px;
+}
+
+/* =========================================================
+   Penyesuaian tablet dan perangkat seluler
+   ========================================================= */
+@media (max-width: 1024px) {
+    .award-page .award-detail-grid {
+        grid-template-columns: 1fr;
+        gap: 54px;
+    }
+}
+
+@media (max-width: 576px) {
+    .award-page .award-detail-hero {
+        min-height: 320px;
+    }
+
+    .award-page .award-detail-title h1 {
+        font-size: 38px;
+    }
+
+    .award-page .award-detail-content {
+        padding: 88px 0 72px;
+    }
+
+    .award-page .award-info-panel {
+        padding: 32px 26px;
+    }
+}
+
+/* Layout detail penghargaan khusus mobile. Konten dan aset gambar tetap. */
+@media (max-width: 768px) {
+    body.award-page {
+        position: relative;
+        width: 100%;
+        overflow-x: hidden;
+        background: #282828;
+    }
+
+    body.award-page .award-header {
+        min-height: 72px;
+        padding: 0;
+        background: #fff;
+    }
+
+    body.award-page .detail-breadcrumb {
+        display: none;
+    }
+
+    body.award-page .award-detail-hero {
+        width: 100%;
+        height: 320px;
+        min-height: 320px;
+        margin: 0;
+        background-image:
+            linear-gradient(180deg, rgba(0, 0, 0, 0) 48%, rgba(0, 0, 0, 0.9) 100%),
+            url("../../assets/images/foto-penghargaan-wide.webp");
+        background-position: center;
+        border-radius: 0 0 10px 10px;
+    }
+
+    body.award-page .award-detail-title.section-container {
+        position: absolute;
+        top: 285px;
+        right: 20px;
+        left: 20px;
+        z-index: 3;
+        width: auto;
+        max-width: none;
+        margin: 0;
+        padding: 0;
+        color: #fff;
+    }
+
+    body.award-page .award-detail-title h1 {
+        max-width: 315px;
+        margin: 0;
+        font-size: 25px;
+        line-height: 1.08;
+    }
+
+    body.award-page .award-title-meta {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        gap: 10px;
+        margin-top: 13px;
+        font-size: 11px;
+    }
+
+    body.award-page .award-title-meta strong {
+        min-width: 0;
+        font-size: 14px;
+        white-space: nowrap;
+    }
+
+    body.award-page .achievement-badge {
+        flex: 0 0 auto;
+        gap: 4px;
+        padding: 7px 12px;
+        font-size: 0;
+        line-height: 1;
+    }
+
+    body.award-page .achievement-badge i {
+        font-size: 9px;
+    }
+
+    body.award-page .achievement-badge::after {
+        content: "Peringkat 1 Nasional";
+        font-size: 9px;
+    }
+
+    body.award-page .award-detail-content {
+        min-height: 0;
+        padding: 32px 0 16px;
+        background: #282828;
+    }
+
+    body.award-page .award-detail-grid.section-container {
+        display: block;
+        width: calc(100% - 40px);
+        max-width: none;
+        margin: 0 auto;
+    }
+
+    body.award-page .award-detail-copy h2 {
+        margin: 0 0 16px;
+        font-size: 24px;
+        line-height: 1.08;
+    }
+
+    body.award-page .award-detail-copy p {
+        width: 100%;
+        max-width: 100%;
+        margin: 0 0 17px;
+        color: rgba(255, 255, 255, 0.88);
+        font-size: 15px;
+        line-height: 1.6;
+        white-space: normal;
+        overflow-wrap: anywhere;
+    }
+
+    body.award-page .award-info-panel {
+        width: 100%;
+        min-width: 0;
+        max-width: 100%;
+        margin-top: 28px;
+        padding: 22px 20px;
+        background: #343434;
+        border-radius: 20px;
+    }
+
+    body.award-page .award-info-panel h2 {
+        margin: 0;
+        font-size: 14px;
+        line-height: 1.2;
+    }
+
+    body.award-page .award-info-panel ul {
+        gap: 18px;
+        margin-top: 20px;
+    }
+
+    body.award-page .award-info-panel li {
+        grid-template-columns: 20px minmax(0, 1fr);
+        gap: 12px;
+        align-items: center;
+        font-size: 12px;
+        line-height: 1.35;
+    }
+
+    body.award-page .award-info-panel li i {
+        font-size: 20px;
+    }
+
+    body.award-page .site-footer.site-footer {
+        margin-top: 0;
+        background: #000;
+    }
+}

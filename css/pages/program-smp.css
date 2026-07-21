@@ -1,0 +1,119 @@
+/*
+ * Penyesuaian khusus halaman Sekolah Menengah Pertama.
+ * Fondasi ukuran, grid, dan responsivitas diwarisi dari program-tk.css agar
+ * seluruh halaman Program Pendidikan memiliki pola yang konsisten.
+ */
+
+/* Aksen utama SMP menggunakan warna merah muda dari referensi. */
+.smp-page .tk-hero-copy h1 {
+    color: #ce5b6a;
+}
+
+.smp-page .tk-stat::before {
+    background: #ce5b6a;
+}
+
+/* Foto hero difokuskan ke seluruh kelompok siswa. */
+.smp-page .smp-hero-image {
+    object-position: center 45%;
+}
+
+/* Gambar program menampilkan ilustrasi secara utuh di bagian bawah kartu. */
+.smp-page .tk-program-card > img {
+    object-position: center;
+}
+
+/* Warna pastel ikon dibedakan agar sesuai dengan identitas tiap kegiatan. */
+.smp-page .activity-coding i {
+    color: #2778d6;
+    background: #e7f1ff;
+}
+
+.smp-page .activity-robotic i,
+.smp-page .activity-archery i {
+    color: #ed9a30;
+    background: #fff0dc;
+}
+
+.smp-page .activity-photography i,
+.smp-page .activity-martial i {
+    color: #e85f74;
+    background: #ffe8ed;
+}
+
+.smp-page .activity-design i,
+.smp-page .activity-tahfidz i {
+    color: #8550d3;
+    background: #efe8ff;
+}
+
+.smp-page .activity-fashion i,
+.smp-page .activity-science i {
+    color: #14a5a5;
+    background: #e2f7f5;
+}
+
+.smp-page .activity-traditional-dance i {
+    color: #1ca7a8;
+    background: #e2f8f5;
+}
+
+/* Crop foto diatur satu per satu agar subjek utama tetap terlihat. */
+.smp-page .activity-coding > img,
+.smp-page .activity-robotic > img,
+.smp-page .activity-photography > img,
+.smp-page .activity-design > img,
+.smp-page .activity-fashion > img {
+    object-position: center;
+}
+
+.smp-page .activity-traditional-dance > img {
+    object-position: center 35%;
+}
+
+.smp-page .activity-archery > img,
+.smp-page .activity-martial > img {
+    object-position: center 42%;
+}
+
+/* Foto kelas dan masjid menggunakan fokus yang sama dengan referensi SMP. */
+.smp-page .tk-unit-facility-card:first-child img {
+    object-position: center 62%;
+}
+
+.smp-page .tk-unit-facility-card:nth-child(2) img,
+.smp-page .tk-unit-facility-card:nth-child(8) img {
+    object-position: center;
+}
+
+/* Menjaga ritme kartu Program SMP khusus mobile tetap konsisten. */
+@media (max-width: 768px) {
+    body.smp-page .tk-program-card {
+        height: auto;
+        min-height: 0;
+    }
+
+    body.smp-page .tk-program-card > div {
+        padding: 16px;
+    }
+
+    body.smp-page .tk-program-card h3 {
+        margin-bottom: 10px;
+    }
+
+    body.smp-page .tk-program-card > img {
+        height: 160px;
+        margin-top: 0;
+    }
+
+    body.smp-page .tk-activity-card,
+    body.smp-page .tk-activity-card > div,
+    body.smp-page .tk-unit-facility-card {
+        min-height: 0;
+    }
+
+    body.smp-page .tk-activity-card h3,
+    body.smp-page .tk-unit-facility-card h3 {
+        margin-bottom: 12px;
+    }
+}

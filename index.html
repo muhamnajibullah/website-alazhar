@@ -8,6 +8,10 @@
     <title>Al-Azhar Kelapa Gading - Integrated Islamic Educational Institution</title>
     <script>
         (() => {
+            if ('scrollRestoration' in window.history) {
+                window.history.scrollRestoration = 'manual';
+            }
+
             const params = new URLSearchParams(window.location.search);
             const navigation = performance.getEntriesByType('navigation')[0];
             const cameFromOpening = params.get('opening') === 'done';
@@ -36,6 +40,7 @@
     <link rel="stylesheet" href="css/components.css">
     <link rel="stylesheet" href="css/pages/home.css">
     <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/pages/home-mobile.css">
     <style>
         html.opening-pending,
         html.opening-pending body,
@@ -57,6 +62,21 @@
             transform: translateY(10px) scale(0.985);
         }
 
+        body.opening-revealing > header,
+        body.opening-revealing > main,
+        body.opening-revealing > footer {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+            filter: blur(0);
+            transform: translateY(0) scale(1);
+            transition:
+                opacity 0.72s cubic-bezier(0.16, 1, 0.3, 1),
+                filter 0.72s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.72s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: opacity, filter, transform;
+        }
+
         body.home-enter > header,
         body.home-enter > main,
         body.home-enter > footer {
@@ -76,7 +96,10 @@
             overflow: hidden;
             opacity: 1;
             transform: scale(1);
-            transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1), transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+            transition:
+                opacity 0.78s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.78s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: opacity, transform;
         }
 
         html.opening-pending .opening-overlay,
@@ -425,28 +448,39 @@
                 <span class="screen-reader-only">Buka menu navigasi</span>
             </button>
             <ul class="nav-menu" id="primary-menu">
-                <li><a class="is-active" href="index.html">Home</a></li>
+                <li><a class="is-active" href="index.html">Beranda</a></li>
                 <li class="nav-dropdown">
                     <button class="nav-dropdown-toggle" type="button" aria-expanded="false">
-                        Profile <span class="chevron"></span>
+                        Profil <span class="chevron"></span>
                     </button>
                     <ul class="dropdown-menu profile-dropdown-menu">
                         <li><a href="profile.html">Penghargaan dan Event</a></li>
                         <li><a href="about.html">Tentang Kami</a></li>
                         <li><a href="vision.html">Visi &amp; Misi Yayasan</a></li>
-                        <li><a href="https://wa.me/6281519776556">Hubungi Kami</a></li>
+                        <li><a href="contact.html">Hubungi Kami</a></li>
                     </ul>
                 </li>
                 <li class="nav-dropdown nav-dropdown-facility">
                     <button class="nav-dropdown-toggle" type="button" aria-expanded="false">
-                        Facility <span class="chevron"></span>
+                        Fasilitas <span class="chevron"></span>
                     </button>
                     <ul class="dropdown-menu facility-dropdown-menu">
                         <li><a href="program.html">Program Kami</a></li>
                         <li><a href="facility.html">Fasilitas Sekolah</a></li>
                     </ul>
                 </li>
-                <li><a class="join-link" href="https://wa.me/6281519776556">Join Alazka</a></li>
+                <li class="nav-dropdown nav-dropdown-program">
+                    <button class="nav-dropdown-toggle" type="button" aria-expanded="false">
+                        Program Pendidikan <span class="chevron"></span>
+                    </button>
+                    <ul class="dropdown-menu program-education-dropdown-menu">
+                        <li><a href="program-tk.html">TK</a></li>
+                        <li><a href="program.html">SD</a></li>
+                        <li><a href="program.html">SMP</a></li>
+                        <li><a href="program.html">SMA</a></li>
+                    </ul>
+                </li>
+                <li><a class="join-link" href="https://wa.me/6281210300813">Gabung Alazka</a></li>
             </ul>
         </nav>
 
@@ -454,7 +488,11 @@
             <div class="hero-content">
                 <p class="eyebrow">Al-Azhar Kelapa Gading</p>
                 <h1 id="hero-title">Pendidikan Islam<br>dengan Iman dan Taqwa</h1>
-                <p class="hero-description">Sekolah Islam modern dengan menggunakan<br>Kurikulum Internasional Cambridge</p>
+                <p class="hero-description">Sekolah Islam modern dengan menggunakan Kurikulum Internasional Cambridge</p>
+                <div class="hero-actions" aria-label="Aksi utama">
+                    <a class="hero-action hero-action-primary" href="#facility"><i class="ri-road-map-line" aria-hidden="true"></i>Jelajahi 3D Tour</a>
+                    <a class="hero-action hero-action-secondary" href="#program"><i class="ri-play-circle-line" aria-hidden="true"></i>Lihat Video</a>
+                </div>
             </div>
         </section>
     </header>
@@ -462,23 +500,23 @@
     <main>
         <section class="about-section clipped-white" id="profile" aria-labelledby="about-title">
             <div class="section-container">
-                <h2 id="about-title">Sekilas Mengenai<br>Al-Azhar Kelapa Gading</h2>
+                <h2 id="about-title" class="screen-reader-only">Sekilas Mengenai Al-Azhar Kelapa Gading</h2>
                 <div class="stats-grid" aria-label="Statistik Al-Azhar Kelapa Gading">
                     <article class="stat-item">
                         <strong>2500+</strong>
                         <p>Siswa aktif dari berbagai jenjang pendidikan</p>
                     </article>
                     <article class="stat-item">
-                        <strong>200+</strong>
-                        <p>Tenaga pendidik profesional dan berkompeten</p>
+                        <strong>38+</strong>
+                        <p>Tahun membangun generasi berkarakter Islami.</p>
                     </article>
                     <article class="stat-item">
-                        <strong>30+</strong>
-                        <p>Tahun Pengalaman menghadirkan pendidikan Islam berkualitas</p>
+                        <strong>4</strong>
+                        <p>Jenjang pendidikan terintegrasi dari TK hingga SMA.</p>
                     </article>
                     <article class="stat-item">
-                        <strong>30+</strong>
-                        <p>Tahun Pengalaman menghadirkan pendidikan Islam berkualitas</p>
+                        <strong>A</strong>
+                        <p>Akreditasi unggul pada berbagai jenjang pendidikan.</p>
                     </article>
                 </div>
             </div>
@@ -486,11 +524,16 @@
 
         <section class="reasons-section clipped-green" id="reasons" aria-labelledby="reasons-title">
             <div class="section-container">
-                <h2 id="reasons-title">Kenapa Pilih<br>Al-Azhar Kelapa Gading</h2>
+                <div class="section-heading">
+                    <p class="section-badge">Kenapa Pilih Alazka</p>
+                    <h2 id="reasons-title">Prinsip yang Membentuk<br><span>Kualitas</span> Pendidikan</h2>
+                    <p>Setiap nilai diterapkan secara konsisten untuk menciptakan lingkungan pendidikan yang berkualitas, adaptif, dan berorientasi pada masa depan.</p>
+                </div>
                 <div class="reason-grid">
                     <article class="reason-card">
                         <span class="reason-number">01</span>
                         <img src="assets/images/why-1.webp" alt="Siswa Al-Azhar menggunakan laptop untuk belajar">
+                        <span class="reason-icon"><i class="ri-home-heart-fill" aria-hidden="true"></i></span>
                         <h3>Kurikulum Modern</h3>
                         <p>Menggabungkan kurikulum nasional dengan pembelajaran relevan global.</p>
                         <a class="outline-button" href="kurikulum-modern.html">Pelajari Selengkapnya <span class="arrow"></span></a>
@@ -498,6 +541,7 @@
                     <article class="reason-card">
                         <span class="reason-number">02</span>
                         <img src="assets/images/why-2.webp" alt="Siswa mengikuti kegiatan pembelajaran nilai Islam">
+                        <span class="reason-icon"><i class="ri-moon-clear-fill" aria-hidden="true"></i></span>
                         <h3>Nilai Islam</h3>
                         <p>Membentuk karakter siswa melalui keseimbangan iman, ilmu, dan akhlak.</p>
                         <a class="outline-button" href="#profile">Pelajari Selengkapnya <span class="arrow"></span></a>
@@ -505,6 +549,7 @@
                     <article class="reason-card">
                         <span class="reason-number">03</span>
                         <img src="assets/images/why-3.webp" alt="Guru mendampingi siswa dalam kegiatan luar ruang">
+                        <span class="reason-icon"><i class="ri-book-3-fill" aria-hidden="true"></i></span>
                         <h3>Guru Berkualitas</h3>
                         <p>Didampingi tenaga pendidik berpengalaman dan berdedikasi.</p>
                         <a class="outline-button" href="#profile">Pelajari Selengkapnya <span class="arrow"></span></a>
@@ -512,6 +557,7 @@
                     <article class="reason-card">
                         <span class="reason-number">04</span>
                         <img src="assets/images/why-4.webp" alt="Siswa taman kanak-kanak belajar bersama di kelas">
+                        <span class="reason-icon"><i class="ri-flower-fill" aria-hidden="true"></i></span>
                         <h3>Lingkungan Holistik</h3>
                         <p>Mendukung perkembangan akademik, kreativitas, dan kepemimpinan.</p>
                         <a class="outline-button" href="#profile">Pelajari Selengkapnya <span class="arrow"></span></a>
@@ -523,13 +569,16 @@
         <section class="program-section clipped-black" id="program" aria-labelledby="program-title">
             <div class="section-container">
                 <div class="program-header">
-                    <h2 id="program-title">Program<br>Pendidikan</h2>
+                    <div class="section-heading section-heading-dark">
+                        <p class="section-badge">Event Alazka</p>
+                        <h2 id="program-title">Momen yang Menghubungkan<br><span>Pembelajaran</span> dan <span>Pengalaman</span></h2>
+                        <p>Jelajahi berbagai event yang mendukung pembelajaran aktif, pembentukan karakter, serta pengembangan kompetensi peserta didik.</p>
+                    </div>
                 </div>
                 <div class="program-carousel">
                     <div class="program-track" data-program-track>
                         <article class="program-feature program-slide" data-theme="tk">
                             <div class="program-slide-timeline" aria-hidden="true">
-                                <i class="timeline-icon ri-leaf-line"></i>
                                 <div class="timeline-bar">
                                     <span class="timeline-line timeline-line-track"></span>
                                     <span class="timeline-line timeline-line-progress" data-program-progress></span>
@@ -547,7 +596,6 @@
                         </article>
                         <article class="program-feature program-slide" data-theme="sd">
                             <div class="program-slide-timeline" aria-hidden="true">
-                                <i class="timeline-icon ri-seedling-line"></i>
                                 <div class="timeline-bar">
                                     <span class="timeline-line timeline-line-track"></span>
                                     <span class="timeline-line timeline-line-progress" data-program-progress></span>
@@ -559,43 +607,41 @@
                                     <span class="age-badge">Usia 6-12 Tahun</span>
                                     <h3>Sekolah Dasar (SD)</h3>
                                     <p>Membangun fondasi akademik, karakter Islami, kemandirian, dan rasa ingin tahu melalui pembelajaran aktif yang terarah.</p>
-                                    <a class="outline-button" href="#admission">Pelajari Selengkapnya <span class="arrow"></span></a>
+                                    <a class="outline-button" href="program-sd.html">Pelajari Selengkapnya <span class="arrow"></span></a>
                                 </div>
                             </div>
                         </article>
                         <article class="program-feature program-slide" data-theme="smp">
                             <div class="program-slide-timeline" aria-hidden="true">
-                                <i class="timeline-icon ri-plant-line"></i>
                                 <div class="timeline-bar">
                                     <span class="timeline-line timeline-line-track"></span>
                                     <span class="timeline-line timeline-line-progress" data-program-progress></span>
                                 </div>
                             </div>
                             <div class="program-slide-body">
-                                <img class="program-main-image" src="assets/images/program-2.webp" alt="Siswa sekolah menengah pertama belajar bersama di kelas">
+                                <img class="program-main-image" src="assets/images/smp.webp" alt="Siswa sekolah menengah pertama belajar bersama di kelas">
                                 <div class="program-copy">
                                     <span class="age-badge">Usia 12-15 Tahun</span>
                                     <h3>Sekolah Menengah Pertama (SMP)</h3>
                                     <p>Mengarahkan siswa menjadi pembelajar mandiri, komunikatif, dan berakhlak melalui penguatan ilmu, iman, dan keterampilan sosial.</p>
-                                    <a class="outline-button" href="#admission">Pelajari Selengkapnya <span class="arrow"></span></a>
+                                    <a class="outline-button" href="program-smp.html">Pelajari Selengkapnya <span class="arrow"></span></a>
                                 </div>
                             </div>
                         </article>
                         <article class="program-feature program-slide" data-theme="sma">
                             <div class="program-slide-timeline" aria-hidden="true">
-                                <i class="timeline-icon ri-tree-line"></i>
                                 <div class="timeline-bar">
                                     <span class="timeline-line timeline-line-track"></span>
                                     <span class="timeline-line timeline-line-progress" data-program-progress></span>
                                 </div>
                             </div>
                             <div class="program-slide-body">
-                                <img class="program-main-image" src="assets/images/program-2.webp" alt="Siswa sekolah menengah atas mengikuti proses pembelajaran">
+                                <img class="program-main-image" src="assets/images/sma.webp" alt="Siswa sekolah menengah atas mengikuti proses pembelajaran">
                                 <div class="program-copy">
                                     <span class="age-badge">Usia 15-18 Tahun</span>
                                     <h3>Sekolah Menengah Atas (SMA)</h3>
                                     <p>Mempersiapkan siswa menghadapi pendidikan tinggi dengan kemampuan akademik kuat, kepemimpinan, dan karakter Islami yang matang.</p>
-                                    <a class="outline-button" href="#admission">Pelajari Selengkapnya <span class="arrow"></span></a>
+                                    <a class="outline-button" href="program-sma.html">Pelajari Selengkapnya <span class="arrow"></span></a>
                                 </div>
                             </div>
                         </article>
@@ -615,20 +661,38 @@
 
         <section class="campus-section clipped-white" id="facility" aria-labelledby="campus-title">
             <div class="section-container">
-                <h2 id="campus-title">Sekilas Mengenai<br>Al-Azhar Kelapa Gading</h2>
+                <div class="section-heading">
+                    <p class="section-badge">Sekolah Alazka</p>
+                    <h2 id="campus-title">Dua Kota, Satu<br><span>Visi Pendidikan</span></h2>
+                    <p>Al Azhar hadir di Jakarta dan Surabaya dengan semangat yang sama untuk membentuk generasi yang beriman, berilmu, dan berakhlak mulia.</p>
+                </div>
                 <div class="campus-grid">
                     <article class="campus-card">
                         <img src="assets/images/sekilas-jakarta.webp" alt="Gedung kampus Al-Azhar Kelapa Gading Jakarta">
-                        <div class="campus-overlay">
+                        <div class="campus-content">
+                            <p class="campus-levels"><span class="level-sparkle" aria-hidden="true"></span><span>TK - SD - SMP - SMA</span></p>
                             <h3>Jakarta</h3>
-                            <a class="outline-button" href="jakarta.html">Pelajari Selengkapnya <span class="arrow"></span></a>
+                            <p>Mencetak generasi berakhlak mulia, cerdas, berprestasi, dan siap menghadapi masa depan.</p>
+                            <div class="campus-feature-grid">
+                                <span><i class="ri-moon-clear-fill" aria-hidden="true"></i>Lingkungan islami dan nyaman</span>
+                                <span><i class="ri-book-open-fill" aria-hidden="true"></i>Kurikulum unggul terpadu</span>
+                                <span><i class="ri-award-fill" aria-hidden="true"></i>Prestasi membanggakan</span>
+                            </div>
+                            <a class="campus-button campus-button-jakarta" href="jakarta.html">Pelajari Selengkapnya <i class="ri-arrow-right-circle-fill" aria-hidden="true"></i></a>
                         </div>
                     </article>
                     <article class="campus-card">
                         <img src="assets/images/sekilas-surabaya.webp" alt="Gedung kampus Al-Azhar Kelapa Gading Surabaya">
-                        <div class="campus-overlay">
+                        <div class="campus-content">
+                            <p class="campus-levels"><span class="level-sparkle" aria-hidden="true"></span><span>SD - SMP</span></p>
                             <h3>Surabaya</h3>
-                            <a class="outline-button" href="#facility">Pelajari Selengkapnya <span class="arrow"></span></a>
+                            <p>Menumbuhkan iman, ilmu, dan jiwa kepemimpinan pada setiap peserta didik.</p>
+                            <div class="campus-feature-grid">
+                                <span><i class="ri-star-fill" aria-hidden="true"></i>Pendidikan berbasis nilai</span>
+                                <span><i class="ri-school-fill" aria-hidden="true"></i>Fasilitas modern dan lengkap</span>
+                                <span><i class="ri-trophy-fill" aria-hidden="true"></i>Pengembangan potensi siswa</span>
+                            </div>
+                            <a class="campus-button campus-button-surabaya" href="#facility">Pelajari Selengkapnya <i class="ri-arrow-right-circle-fill" aria-hidden="true"></i></a>
                         </div>
                     </article>
                 </div>
@@ -640,8 +704,8 @@
                 <h2 id="cta-title">Buka Potensi Anak Bersama<br>Al-Azhar Kelapa Gading</h2>
                 <p>Selama lebih dari 38 tahun, Alazka telah menghadirkan lingkungan belajar yang mendukung, di mana siswa membangun koneksi bermakna, menemukan potensi diri, dan membentuk karakter yang kuat.</p>
                 <div class="cta-actions">
-                    <a class="outline-button" href="https://wa.me/6281519776556">Hubungi Kami <span class="arrow"></span></a>
-                    <a class="outline-button" href="https://wa.me/6281519776556">Pendaftaran <span class="arrow"></span></a>
+                    <a class="outline-button" href="https://wa.me/628119769799">Hubungi Kami <span class="arrow"></span></a>
+                    <a class="outline-button" href="https://wa.me/6281210300813">Pendaftaran <span class="arrow"></span></a>
                 </div>
             </div>
         </section>
@@ -670,7 +734,7 @@
             </section>
             <section class="footer-column" aria-labelledby="footer-profile-title">
                 <h2 id="footer-profile-title">Profile</h2>
-                <a href="https://wa.me/6281519776556">Contact Us</a>
+                <a href="https://wa.me/628119769799">Contact Us</a>
                 <a href="#profile">Vision</a>
                 <a href="#profile">Mission</a>
             </section>
@@ -694,19 +758,32 @@
             openingLayer?.remove();
         }
 
+        let isOpeningExiting = false;
+
         const showHome = () => {
-            openingLayer?.classList.add('is-exiting');
+            if (isOpeningExiting) {
+                return;
+            }
+
+            isOpeningExiting = true;
+            openingContinue?.setAttribute('aria-disabled', 'true');
+
+            window.requestAnimationFrame(() => {
+                window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+                document.body.classList.add('opening-revealing');
+                openingLayer?.classList.add('is-exiting');
+            });
 
             window.setTimeout(() => {
+                window.scrollTo(0, 0);
                 document.documentElement.classList.remove('opening-pending');
                 document.body.classList.remove('opening-active');
-                document.body.classList.add('home-enter');
-            }, 650);
+            }, 80);
 
             window.setTimeout(() => {
                 openingLayer?.remove();
-                document.body.classList.remove('home-enter');
-            }, 980);
+                document.body.classList.remove('opening-revealing');
+            }, 840);
         };
 
         const params = new URLSearchParams(window.location.search);
@@ -715,6 +792,7 @@
             params.delete('opening');
             const cleanUrl = `${window.location.pathname}${params.toString() ? `?${params}` : ''}${window.location.hash}`;
             window.history.replaceState(null, '', cleanUrl);
+            window.scrollTo(0, 0);
         }
 
         openingContinue?.addEventListener('click', (event) => {

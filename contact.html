@@ -36,7 +36,7 @@
                         <li><a href="profile.html">Penghargaan dan Event</a></li>
                         <li><a href="about.html">Tentang Kami</a></li>
                         <li><a href="vision.html">Visi &amp; Misi Yayasan</a></li>
-                        <li><a href="https://wa.me/6281519776556">Hubungi Kami</a></li>
+                        <li><a href="contact.html">Hubungi Kami</a></li>
                     </ul>
                 </li>
                 <li class="nav-dropdown nav-dropdown-facility">
@@ -48,9 +48,16 @@
                         <li><a href="facility.html">Fasilitas Sekolah</a></li>
                     </ul>
                 </li>
-                <li><a class="join-link" href="https://wa.me/6281519776556">Join Alazka</a></li>
+                <li><a class="join-link" href="https://wa.me/6281210300813">Join Alazka</a></li>
             </ul>
         </nav>
+
+        <!-- Selector bahasa visual ditempatkan terpisah di sisi navbar sesuai referensi. -->
+        <button class="contact-language" type="button" aria-label="Bahasa saat ini Indonesia">
+            <span aria-hidden="true">🇮🇩</span>
+            <strong>IND</strong>
+            <i class="ri-arrow-down-s-line" aria-hidden="true"></i>
+        </button>
 
         <section class="contact-hero" aria-labelledby="contact-hero-title">
             <div class="contact-hero-content">
@@ -62,13 +69,25 @@
     <main>
         <section class="contact-intro clipped-white" aria-labelledby="contact-intro-title">
             <div class="section-container contact-intro-grid">
-                <h2 id="contact-intro-title">Mulai Percakapan<br>dengan Kami</h2>
+                <!-- Pill Penjelasan menggunakan standar ukuran dan warna halaman lainnya. -->
+                <div class="contact-intro-heading">
+                    <p class="section-badge contact-intro-badge">Penjelasan</p>
+                    <h2 id="contact-intro-title">Mulai Percakapan<br>dengan Kami</h2>
+                </div>
                 <p>Butuh informasi lebih lanjut seputar program, pendaftaran, atau kegiatan sekolah? Tim kami siap membantu dan menjawab setiap pertanyaan Anda.</p>
             </div>
         </section>
 
-        <section class="contact-content" aria-label="Form dan informasi kontak">
-            <div class="section-container contact-grid">
+        <section class="contact-content" aria-labelledby="contact-content-title">
+            <div class="section-container">
+                <!-- Kepala Hubungi Kami mengikuti pola heading terpusat yang konsisten. -->
+                <div class="section-heading contact-section-heading">
+                    <p class="section-badge">Hubungi Kami</p>
+                    <h2 id="contact-content-title">Kami Siap <span>Mendengarkan</span> dan<br><span>Membantu</span> Anda</h2>
+                    <p>Dapatkan informasi yang Anda butuhkan melalui berbagai saluran komunikasi yang tersedia secara mudah dan responsif.</p>
+                </div>
+
+                <!-- Form utama dibuat selebar container seperti pada referensi. -->
                 <form class="contact-form" action="#" method="post">
                     <img src="assets/images/logo al azhar.webp" alt="Logo Al-Azhar Kelapa Gading">
                     <h2>Form Hubungi Kami</h2>
@@ -89,9 +108,10 @@
                         <s>S</s>
                         <span>&bull;</span>
                     </div>
-                    <button type="submit">Send Message</button>
+                    <button type="submit">Kirim Pesan</button>
                 </form>
 
+                <!-- Tiga kartu informasi ditampilkan sejajar di bawah form. -->
                 <div class="contact-info-grid">
                     <article class="contact-info-card">
                         <i class="ri-phone-fill" aria-hidden="true"></i>
@@ -111,12 +131,16 @@
                         <h2>Send Message</h2>
                         <p>info.jkt@alazka.sch.id</p>
                     </article>
-                    <article class="contact-info-card">
-                        <i class="ri-map-pin-2-fill" aria-hidden="true"></i>
-                        <span>Location</span>
-                        <h2>Our Location</h2>
-                        <p>Jl. Raya Bulevar Timur...</p>
-                    </article>
+                </div>
+
+                <!-- Peta lokasi menggunakan embed Google Maps agar tetap interaktif. -->
+                <div class="contact-map">
+                    <iframe
+                        title="Lokasi Al Azhar Kelapa Gading"
+                        src="https://www.google.com/maps?q=Al%20Azhar%20Kelapa%20Gading%20Jakarta&amp;output=embed"
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
                 </div>
             </div>
         </section>
@@ -145,7 +169,7 @@
             </section>
             <section class="footer-column" aria-labelledby="footer-profile-title">
                 <h2 id="footer-profile-title">Profile</h2>
-                <a href="https://wa.me/6281519776556">Contact Us</a>
+                <a href="https://wa.me/628119769799">Contact Us</a>
                 <a href="vision.html">Vision</a>
                 <a href="vision.html#mission-title">Mission</a>
             </section>

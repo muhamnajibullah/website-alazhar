@@ -304,3 +304,449 @@
         padding-top: 28px;
     }
 }
+
+/* Layout Program Kami khusus mobile. */
+@media (max-width: 768px) {
+    body.program-list-page {
+        width: 100%;
+        overflow-x: hidden;
+        background: #f7f9fd;
+    }
+
+    body.program-list-page .section-container {
+        width: calc(100% - 40px);
+        max-width: none;
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    body.program-list-page .program-page-header {
+        padding-top: 72px;
+        background: #f7f9fd;
+    }
+
+    body.program-list-page .program-page-hero {
+        position: relative;
+        display: block;
+        height: 466px;
+        min-height: 466px;
+        padding: 0;
+        background-position: center 45%;
+        background-size: cover;
+        border: 0;
+        border-radius: 0;
+    }
+
+    body.program-list-page .program-page-hero::after {
+        bottom: -1px;
+        height: 39px;
+        background: #f7f9fd;
+        clip-path: polygon(0 0, 155px 0, 184px 38px, 100% 38px, 100% 100%, 0 100%);
+    }
+
+    body.program-list-page .program-page-hero-content {
+        position: absolute;
+        right: 20px;
+        bottom: 75px;
+        left: 20px;
+        width: auto;
+        margin: 0;
+    }
+
+    body.program-list-page .program-page-hero h1 {
+        max-width: 230px;
+        margin: 0;
+        font-size: 30px;
+        line-height: 1.02;
+    }
+
+    body.program-list-page .program-page-intro {
+        min-height: 236px;
+        padding: 46px 0 30px;
+        color: #1d2027;
+        background: #f7f9fd;
+    }
+
+    body.program-list-page .program-page-intro-grid {
+        display: block;
+    }
+
+    body.program-list-page .program-intro-heading {
+        display: block;
+    }
+
+    body.program-list-page .section-badge,
+    body.program-list-page .program-page-intro .program-intro-badge {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        align-self: flex-start;
+        width: max-content;
+        min-width: 0;
+        max-width: 100%;
+        height: auto;
+        min-height: 27px;
+        margin: 0 0 18px;
+        padding: 6px 12px;
+        font-size: 9px;
+        line-height: 1;
+        white-space: nowrap;
+        border-radius: 999px;
+        box-sizing: border-box;
+    }
+
+    body.program-list-page .program-page-intro h2,
+    body.program-list-page .program-services h2 {
+        max-width: 100%;
+        margin: 0;
+        font-size: 22px;
+        line-height: 1.06;
+        text-align: left;
+        white-space: normal;
+        overflow-wrap: anywhere;
+    }
+
+    body.program-list-page .program-page-intro p:last-child {
+        max-width: 100%;
+        margin: 28px 0 0;
+        color: #8b929f;
+        font-size: 11px;
+        line-height: 1.48;
+        text-align: left;
+        white-space: normal;
+        overflow-wrap: anywhere;
+    }
+
+    body.program-list-page .program-services {
+        min-height: 0;
+        padding: 30px 0 45px;
+        background: #f7f9fd;
+    }
+
+    body.program-list-page .program-services::before,
+    body.program-list-page .program-services::after {
+        display: none;
+    }
+
+    body.program-list-page .program-services-heading {
+        width: 100%;
+        max-width: 100%;
+        text-align: left;
+    }
+
+    body.program-list-page .program-services-heading > p:last-child {
+        max-width: 100%;
+        margin-top: 22px;
+        font-size: 10px;
+        line-height: 1.42;
+        white-space: normal;
+        overflow-wrap: anywhere;
+    }
+
+    body.program-list-page .featured-program-card,
+    body.program-list-page .program-service-grid {
+        display: grid;
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        grid-template-columns: 1fr;
+        gap: 22px;
+    }
+
+    body.program-list-page .featured-program-card {
+        height: 405px;
+        min-height: 0;
+        grid-template-rows: 205px 200px;
+        gap: 0;
+        margin-top: 35px;
+        padding: 0;
+        overflow: hidden;
+        background: #fff;
+        border: 1px solid #d4d4d4;
+        border-radius: 13px;
+    }
+
+    body.program-list-page .program-service-grid {
+        margin-top: 22px;
+    }
+
+    body.program-list-page .program-service-card,
+    body.program-list-page .program-service-card:first-child {
+        display: grid;
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        min-height: 0;
+        height: 350px;
+        grid-template-rows: 175px 175px;
+        padding: 0;
+        overflow: hidden;
+        background: #fff;
+        border: 1px solid #d4d4d4;
+        border-radius: 13px;
+    }
+
+    body.program-list-page .featured-program-card img,
+    body.program-list-page .program-service-card img {
+        width: 100%;
+        max-width: none;
+        height: 205px;
+        object-fit: cover;
+    }
+
+    body.program-list-page .program-service-card img {
+        height: 175px;
+    }
+
+    body.program-list-page .featured-program-content,
+    body.program-list-page .program-service-card-body {
+        display: flex;
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        min-height: 200px;
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    body.program-list-page .program-service-card-body {
+        min-height: 175px;
+        padding: 18px 20px 16px;
+    }
+
+    body.program-list-page .featured-program-content h3,
+    body.program-list-page .program-service-card h3 {
+        min-height: 0;
+        font-size: 16px;
+        line-height: 1.08;
+    }
+
+    body.program-list-page .featured-program-content p,
+    body.program-list-page .program-service-card p {
+        min-height: 0;
+        margin: 16px 0 0;
+        font-size: 11px;
+        line-height: 1.4;
+    }
+
+    body.program-list-page .program-detail-button {
+        width: max-content;
+        min-height: 35px;
+        margin-top: auto;
+        padding: 0 13px;
+        font-size: 9px;
+    }
+
+    body.program-list-page .program-service-card-body .program-detail-button {
+        margin-top: auto;
+    }
+
+    body.program-list-page .site-footer {
+        margin-top: 0;
+    }
+}
+
+/* Penyelarasan akhir halaman Program Kami dengan referensi desain terbaru. */
+.program-page-hero {
+    min-height: 554px;
+    padding-bottom: 78px;
+}
+
+/* Bidang potongan hero memakai warna section berikutnya agar tidak membentuk garis batas. */
+.program-page-hero::after {
+    bottom: -1px;
+    height: calc(var(--section-cut-height) + 2px);
+    background: #f4f7fb;
+}
+
+.program-page-intro,
+.program-services {
+    color: var(--color-black);
+    background: #f4f7fb;
+}
+
+/* Kepala penjelasan menjaga pill dan judul dalam satu kelompok dengan jarak tetap. */
+.program-intro-heading {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+/* Pill Penjelasan memakai ukuran khusus dan warna standar yang sudah disepakati. */
+.program-page-intro .program-intro-badge {
+    justify-content: center;
+    width: 151px;
+    height: 43px;
+    min-height: 43px;
+    margin: 0;
+    padding: 8px 16px;
+    color: #55b96a;
+    font-family: "Inter", sans-serif;
+    font-size: 18px;
+    font-weight: 800;
+    line-height: 150%;
+    letter-spacing: 0;
+    background: #dcf6e4;
+    border-radius: 20px;
+}
+
+.program-page-intro p {
+    color: #8b929f;
+}
+
+/* Layanan unggulan memakai heading terpusat dan lingkaran dekoratif pada kedua sisi. */
+.program-services {
+    position: relative;
+    overflow: hidden;
+    padding: 70px 0 108px;
+}
+
+.program-services::before,
+.program-services::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    z-index: 0;
+    width: 410px;
+    height: 410px;
+    background: #e1efeb;
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.program-services::before {
+    left: -285px;
+}
+
+.program-services::after {
+    right: -285px;
+}
+
+.program-services > .section-container {
+    position: relative;
+    z-index: 1;
+}
+
+.program-services-heading {
+    max-width: 920px;
+}
+
+.program-services .program-services-heading h2 {
+    margin: 0;
+    font-size: 40px;
+    line-height: 1.02;
+}
+
+/* Kartu NAC dibuat horizontal, utuh, dan selebar container. */
+.featured-program-card {
+    grid-template-columns: minmax(360px, 420px) minmax(0, 1fr);
+    min-height: 320px;
+    margin-top: 76px;
+    overflow: hidden;
+    background: #ffffff;
+    border: 1px solid #d4d4d4;
+    border-radius: 14px;
+}
+
+.featured-program-card img {
+    width: 100%;
+    max-width: none;
+    height: 320px;
+}
+
+.featured-program-content {
+    grid-column: auto;
+    min-height: 320px;
+    padding: 30px 54px 24px;
+    border-right: 0;
+}
+
+.featured-program-content p {
+    min-height: 0;
+    margin: 24px 0;
+    max-width: 800px;
+    font-size: 22px;
+    line-height: 1.2;
+}
+
+/* Tiga kartu layanan memiliki gap, border penuh, dan radius yang sama. */
+.program-service-grid {
+    gap: 24px;
+    margin-top: 24px;
+}
+
+.program-service-card,
+.program-service-card:first-child {
+    min-height: 540px;
+    overflow: hidden;
+    padding: 0;
+    background: #ffffff;
+    border: 1px solid #d4d4d4;
+    border-radius: 14px;
+}
+
+.program-service-card img {
+    width: 100%;
+    max-width: none;
+    height: 253px;
+}
+
+.program-service-card-body {
+    padding: 40px 24px 24px;
+}
+
+.program-service-card p {
+    min-height: 74px;
+    margin: 24px 0 18px;
+    font-size: 22px;
+    line-height: 1.2;
+}
+
+@media (max-width: 1024px) {
+    .featured-program-card {
+        grid-template-columns: 1fr;
+    }
+
+    .featured-program-card img {
+        height: 300px;
+    }
+
+    .featured-program-content {
+        min-height: 300px;
+        padding: 30px;
+    }
+
+    .program-service-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .program-service-card,
+    .program-service-card:first-child {
+        min-height: 0;
+        padding: 0;
+        border: 1px solid #d4d4d4;
+    }
+}
+
+@media (max-width: 576px) {
+    .program-page-hero {
+        min-height: 430px;
+        padding-bottom: 64px;
+    }
+
+    .program-services .program-services-heading h2 {
+        font-size: 30px;
+    }
+
+    .featured-program-card img,
+    .program-service-card img {
+        height: 230px;
+    }
+
+    .featured-program-content,
+    .program-service-card-body {
+        min-height: 0;
+        padding: 28px 20px;
+    }
+}

@@ -1,0 +1,576 @@
+/*
+ * Halaman Sejarah Sekolah
+ * Setiap tahap memakai variabel warna sehingga struktur timeline mudah dibaca,
+ * diubah, dan dikembangkan tanpa menduplikasi aturan CSS.
+ */
+
+.history-page,
+.history-page-header,
+.history-main {
+    color: #ffffff;
+    background: #242424;
+}
+
+.history-page-header {
+    min-height: 178px;
+}
+
+/* Breadcrumb diletakkan di bawah navbar bersama. */
+.history-breadcrumb {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding-top: 150px;
+    color: rgba(255, 255, 255, 0.34);
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.history-breadcrumb a:hover,
+.history-breadcrumb a:focus-visible,
+.history-breadcrumb strong {
+    color: rgba(255, 255, 255, 0.74);
+}
+
+/* Pengantar halaman menggunakan pill dan judul terpusat. */
+.history-intro {
+    padding: 50px 24px 56px;
+    text-align: center;
+}
+
+.history-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 196px;
+    min-height: 43px;
+    margin: 0 0 28px;
+    padding: 8px 16px;
+    color: #499657;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.5;
+    text-transform: uppercase;
+    background: #e9fce8;
+    border-radius: 20px;
+}
+
+.history-intro h1 {
+    margin: 0;
+    font-size: 43px;
+    font-weight: 800;
+    line-height: 1.16;
+}
+
+.history-intro h1 span {
+    color: #419852;
+}
+
+.history-intro > p:last-child {
+    margin: 28px 0 0;
+    color: rgba(255, 255, 255, 0.48);
+    font-size: 20px;
+    line-height: 1.45;
+}
+
+/* Timeline desktop memiliki satu sumbu vertikal dan empat cabang horizontal. */
+.history-timeline {
+    position: relative;
+    width: min(1160px, calc(100% - 80px));
+    margin: 42px auto 0;
+    padding-bottom: 128px;
+}
+
+.history-stage {
+    --history-accent: #069e55;
+    --history-year-background: #eafbe9;
+    position: relative;
+    min-height: 500px;
+}
+
+.history-stage-green {
+    --history-accent: #079e56;
+    --history-year-background: #eafbe9;
+}
+
+.history-stage-yellow {
+    --history-accent: #ffb414;
+    --history-year-background: #fff8df;
+}
+
+.history-stage-blue {
+    --history-accent: #2f70e5;
+    --history-year-background: #e9edff;
+}
+
+.history-stage-purple {
+    --history-accent: #aa4cc9;
+    --history-year-background: #f7e8fb;
+    min-height: 560px;
+}
+
+/* Garis vertikal berubah warna pada setiap tahap. */
+.history-stage::after {
+    position: absolute;
+    top: 16px;
+    bottom: -16px;
+    left: 170px;
+    width: 8px;
+    background: var(--history-accent);
+    content: "";
+}
+
+.history-stage:last-child::after {
+    bottom: 22px;
+}
+
+.history-year,
+.history-present-year {
+    position: absolute;
+    left: 0;
+    z-index: 3;
+    display: grid;
+    width: 140px;
+    min-height: 44px;
+    place-items: center;
+    color: #171717;
+    font-size: 16px;
+    font-weight: 800;
+    line-height: 1;
+    background: var(--history-year-background);
+    border-radius: 999px;
+}
+
+.history-year {
+    top: -7px;
+}
+
+.history-stage-dot,
+.history-present-dot {
+    position: absolute;
+    left: 163px;
+    z-index: 4;
+    width: 22px;
+    height: 22px;
+    background: #242424;
+    border: 4px solid #ffffff;
+    border-radius: 50%;
+    box-shadow: 0 0 0 2px #2f70e5;
+}
+
+.history-stage-dot {
+    top: 5px;
+}
+
+.history-stage-line {
+    position: absolute;
+    top: 14px;
+    left: 178px;
+    right: 35px;
+    z-index: 2;
+    border-top: 5px dashed var(--history-accent);
+}
+
+.history-stage-icon {
+    position: absolute;
+    top: -27px;
+    right: 0;
+    z-index: 5;
+    display: grid;
+    width: 76px;
+    height: 76px;
+    place-items: center;
+    color: #111111;
+    font-size: 31px;
+    background: var(--history-accent);
+    border-radius: 50%;
+}
+
+.history-stage-content {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 400px;
+    align-items: start;
+    gap: 76px;
+    margin-left: 242px;
+    padding-top: 72px;
+}
+
+.history-stage-copy {
+    padding-top: 22px;
+    color: var(--history-accent);
+}
+
+.history-stage-label {
+    margin: 0 0 26px;
+    font-size: 20px;
+    font-weight: 800;
+    line-height: 1;
+    text-transform: uppercase;
+}
+
+.history-stage-copy h2 {
+    margin: 0 0 20px;
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 1.1;
+}
+
+.history-stage-copy > p:last-child {
+    max-width: 330px;
+    margin: 0;
+    font-size: 20px;
+    line-height: 1.38;
+}
+
+.history-stage-content img {
+    width: 400px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+.history-present-year {
+    bottom: 0;
+    background: #ffe9ec;
+}
+
+.history-present-dot {
+    bottom: 11px;
+}
+
+@media (max-width: 1080px) {
+    .history-stage-content {
+        grid-template-columns: minmax(0, 1fr) 340px;
+        gap: 44px;
+        margin-left: 225px;
+    }
+
+    .history-stage-content img {
+        width: 340px;
+        height: 255px;
+    }
+
+    .history-stage-copy h2 {
+        font-size: 30px;
+    }
+
+    .history-stage-copy > p:last-child {
+        font-size: 17px;
+    }
+}
+
+@media (max-width: 820px) {
+    .history-page-header {
+        min-height: 150px;
+    }
+
+    .history-breadcrumb {
+        padding-top: 122px;
+    }
+
+    .history-intro h1 {
+        font-size: 34px;
+    }
+
+    .history-intro > p:last-child {
+        font-size: 17px;
+    }
+
+    .history-timeline {
+        width: min(100% - 36px, 680px);
+    }
+
+    .history-stage,
+    .history-stage-purple {
+        min-height: auto;
+        padding: 0 0 120px 58px;
+    }
+
+    .history-stage::after {
+        left: 17px;
+    }
+
+    .history-year,
+    .history-present-year {
+        left: 48px;
+        width: 122px;
+        min-height: 38px;
+        font-size: 14px;
+    }
+
+    .history-stage-dot,
+    .history-present-dot {
+        left: 9px;
+    }
+
+    .history-stage-line {
+        left: 25px;
+        right: 28px;
+    }
+
+    .history-stage-icon {
+        top: -21px;
+        width: 64px;
+        height: 64px;
+        font-size: 26px;
+    }
+
+    .history-stage-content {
+        grid-template-columns: 1fr;
+        gap: 34px;
+        margin-left: 0;
+        padding: 82px 0 0;
+    }
+
+    .history-stage-copy {
+        padding-top: 0;
+    }
+
+    .history-stage-content img {
+        width: min(100%, 480px);
+        height: auto;
+        aspect-ratio: 4 / 3;
+    }
+
+    .history-present-year {
+        bottom: 52px;
+    }
+
+    .history-present-dot {
+        bottom: 60px;
+    }
+}
+
+@media (max-width: 520px) {
+    .history-breadcrumb span:nth-of-type(3),
+    .history-breadcrumb strong {
+        display: none;
+    }
+
+    .history-intro {
+        padding-top: 34px;
+    }
+
+    .history-badge {
+        min-width: 0;
+        min-height: 38px;
+        font-size: 14px;
+    }
+
+    .history-intro h1 {
+        font-size: 28px;
+    }
+
+    .history-intro > p:last-child br {
+        display: none;
+    }
+
+    .history-stage-copy h2 {
+        font-size: 27px;
+    }
+
+    .history-stage-copy > p:last-child {
+        font-size: 16px;
+    }
+
+    .history-stage-icon {
+        right: -4px;
+        width: 56px;
+        height: 56px;
+        font-size: 22px;
+    }
+}
+
+/* Layout Sejarah Sekolah khusus mobile. */
+@media (max-width: 768px) {
+    body.history-page {
+        width: 100%;
+        overflow-x: hidden;
+        background: #242424;
+    }
+
+    body.history-page .history-page-header {
+        min-height: 118px;
+        background: #242424;
+    }
+
+    body.history-page .history-page-header .section-container {
+        width: calc(100% - 28px);
+        max-width: none;
+        margin: 0 auto;
+    }
+
+    body.history-page .history-breadcrumb {
+        width: 100%;
+        gap: 6px;
+        padding-top: 94px;
+        font-size: 8px;
+        line-height: 1.2;
+        white-space: nowrap;
+    }
+
+    body.history-page .history-breadcrumb span,
+    body.history-page .history-breadcrumb strong {
+        display: inline;
+    }
+
+    body.history-page .history-intro {
+        min-height: 164px;
+        padding: 24px 20px 18px;
+    }
+
+    body.history-page .history-badge {
+        width: max-content;
+        min-width: 0;
+        max-width: 100%;
+        min-height: 27px;
+        margin: 0;
+        padding: 6px 12px;
+        font-size: 9px;
+        line-height: 1;
+        white-space: nowrap;
+        border-radius: 999px;
+    }
+
+    body.history-page .history-intro h1 {
+        max-width: 350px;
+        margin: 20px auto 0;
+        font-size: 21px;
+        line-height: 1.08;
+        white-space: normal;
+        overflow-wrap: anywhere;
+    }
+
+    body.history-page .history-intro > p:last-child {
+        margin-top: 16px;
+        font-size: 10px;
+        line-height: 1.4;
+    }
+
+    body.history-page .history-timeline {
+        width: calc(100% - 40px);
+        margin: 42px auto 0;
+        padding: 24px 0 74px;
+    }
+
+    body.history-page .history-stage,
+    body.history-page .history-stage-purple {
+        position: relative;
+        display: flex;
+        min-height: 500px;
+        flex-direction: column;
+        padding: 0 0 55px 42px;
+    }
+
+    body.history-page .history-stage-purple {
+        min-height: 555px;
+        padding-bottom: 92px;
+    }
+
+    body.history-page .history-stage::after {
+        top: 15px;
+        bottom: -15px;
+        left: 15px;
+        width: 5px;
+    }
+
+    body.history-page .history-stage:last-child::after {
+        bottom: 43px;
+    }
+
+    body.history-page .history-stage-line {
+        top: 15px;
+        right: 22px;
+        left: 18px;
+        border-top-width: 3px;
+    }
+
+    body.history-page .history-stage-dot {
+        top: 8px;
+        left: 8px;
+        width: 14px;
+        height: 14px;
+        border-width: 3px;
+        box-shadow: 0 0 0 1px #2f70e5;
+    }
+
+    body.history-page .history-stage-icon {
+        top: -7px;
+        right: 0;
+        width: 42px;
+        height: 42px;
+        font-size: 17px;
+    }
+
+    body.history-page .history-stage-content {
+        display: contents;
+    }
+
+    body.history-page .history-stage-content img {
+        order: 1;
+        width: calc(100% - 24px);
+        height: 175px;
+        margin-top: 43px;
+        aspect-ratio: auto;
+        object-fit: cover;
+        border-radius: 10px;
+        transform: translateX(-8px);
+    }
+
+    body.history-page .history-year {
+        position: static;
+        order: 2;
+        width: max-content;
+        min-height: 25px;
+        margin-top: 14px;
+        padding: 5px 10px;
+        font-size: 9px;
+        line-height: 1;
+    }
+
+    body.history-page .history-stage-copy {
+        order: 3;
+        width: calc(100% - 24px);
+        margin-top: 18px;
+        padding: 0;
+        transform: translateX(-8px);
+    }
+
+    body.history-page .history-stage-label {
+        margin: 0;
+        font-size: 10px;
+    }
+
+    body.history-page .history-stage-copy h2 {
+        margin: 15px 0 0;
+        font-size: 18px;
+        line-height: 1.1;
+    }
+
+    body.history-page .history-stage-copy > p:last-child {
+        max-width: 100%;
+        margin-top: 15px;
+        font-size: 11px;
+        line-height: 1.45;
+    }
+
+    body.history-page .history-present-year {
+        bottom: 18px;
+        left: 0;
+        width: max-content;
+        min-width: 80px;
+        min-height: 25px;
+        padding: 5px 10px;
+        font-size: 9px;
+        line-height: 1;
+    }
+
+    body.history-page .history-present-dot {
+        display: none;
+    }
+
+    body.history-page .site-footer {
+        margin-top: 0;
+    }
+}
